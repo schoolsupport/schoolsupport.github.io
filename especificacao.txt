@@ -1,0 +1,9 @@
+PROPOSTA DE PROJETO DE CONCLUSÃO DE DISCIPLINA
+	
+	Tivemos a ideia de criar uma aplicação para a internet baseada no já existente site para aprendizado de idiomas, Duolingo. Nossa aplicação se voltaria para o aprendizado de física e teríamos a professora Grasiele Ruiz como responsável. 
+	Nesta aplicação seria possível realizar diversas formas de atividades relacionadas ao conteúdo em questão. Ela seria dividida em 4 grandes categorias, uma para cada disciplina de física que temos no IFRS, e dentro destas categorias seria possível encontrar tópicos relacionados a cada conteúdo programático.
+	Dentro destes tópicos seriam disponibilizadas atividades e o conteúdo em si. Baseado no número de acertos e também no número de acertos consecutivos, o aluno ganharia pontos e estes pontos seriam armazenados no perfil dele.
+	Para acesso único do professor, disponibilizaríamos a média dos alunos da turma em determinado conteúdo. Assim, o professor poderia ter conhecimento de maneira mais detalhada sobre quais conteúdos geraram dificuldade para os alunos.
+	Pretendemos desenvolver um ambiente amigável para o usuário e com diversas aplicações além das citadas, as quais pensaremos mais detalhadamente no decorrer do projeto. Algo que gostaríamos de destacar é a inexistência de qualquer tipo de ranking ou competitividade entre os alunos.
+
+Alunos: Andrew Mota, Laura Dalmolin e Vinícius Crizel.
