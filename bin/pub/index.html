@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>School Support</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- HEADER END-->
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="assets/img/logo.png" />
+                </a>
+
+            </div>
+
+            <div class="left-div">
+                <div class="user-settings-wrapper">
+                    <ul class="nav">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
+                            </a>
+                           
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                             <li><a class="menu-top-active"  href="index.html">Login/Cadastro</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+              <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Login/Cadastro </h1>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                 <div class="panel panel-default">
+                        <div class="panel-body">                    
+                      <label for="exampleInputEmail1">Email: </label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" />
+                        <label for="exampleInputPassword1">Senha: </label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" />
+                        <hr />
+                        <a href="home.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Logar </a>&nbsp;
+                </div>
+                </div>
+                </div>
+                <form action="/cadastro" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                        <div class="panel-body">
+                  <div class="">
+                    <label for="exampleInputEmail1">Nome de usuário: </label>
+                    <input id="username" type="text" value="" name="user" class="form-control"/>
+                  </div>
+                  <div class="">
+                    <label for="exampleInputEmail1">Matrícula: </label>
+                    <input type="number" class="form-control" id="matricula" />
+                  </div>
+                  <div class="">
+                    <label for="exampleInputEmail1">Email: </label>
+                    <input id="email" type="email" value="" name="email" class="form-control"/>
+                  </div>
+                  <div class="">
+                    <label for="exampleInputPassword1">Senha: </label>
+                    <input id="pass1" type="password" value="" name="password" class="form-control"/>
+                  </div>
+                  <div class="">
+                    <label for="exampleInputPassword1">Confirmação de senha: </label>
+                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" />
+                    <span id="confirmMessage" class="confirmMessage"></span>
+                  </div>
+                  <hr />
+                  <button type="submit" class="btn btn-default">Cadastrar</button>     
+            </form>
+                                        </div>
+                            </div>
+                    </div>
+                
+                </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 School Support | By: <a href="http://schoolsupport.github.io/" target="_blank">School Support</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+    function checkPass()
+{
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value != null && pass2.value != null) {
+          message.innerHTML = "Digite uma senha!"
+        }
+    if(pass1.value == pass2.value) {
+        //The passwords match.  
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "As senhas correspondem!"
+    } else {
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "As senhas não correspondem!"
+    }
+}  
+    </script>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>
