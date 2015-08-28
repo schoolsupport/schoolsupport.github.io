@@ -3,11 +3,8 @@ package cadastro;
 import java.io.*;
 
 public class Main {
-
 	public static void main(String[] args) throws IOException {
-		
 	
-		
 		Usuario u = new Usuario();
 		//p.setId(1810497);
 		//p.setNome("Marcio");
@@ -31,5 +28,4 @@ public class Main {
 	
 		
 	}
-
 }
