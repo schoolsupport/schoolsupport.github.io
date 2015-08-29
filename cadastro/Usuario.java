@@ -137,11 +137,7 @@ public class Usuario {
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
-<<<<<<< HEAD
-		
-=======
-			System.out.println("olá");
->>>>>>> b21039a9a757521f11ad848e81739faa72b0207c
+
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
