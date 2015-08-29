@@ -103,7 +103,7 @@
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="number" class="form-control" id="matricula" />
+                    <input type="number" class="form-control" id="matricula" name="matricula" />
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Email: </label>
@@ -152,10 +152,12 @@
     var badColor = "#ff6666";
     //Compare the values in the password field 
     //and the confirmation field
-    if(pass1.value != null && pass2.value != null) {
+    if(pass1.value == pass2.value) {
+        if(pass1.null && pass2.null) {
+          pass2.style.backgroundColor = badColor;
+          message.style.color = badColor;
           message.innerHTML = "Digite uma senha!"
         }
-    if(pass1.value == pass2.value) {
         //The passwords match.  
         //Set the color to the good color and inform
         //the user that they have entered the correct password 
