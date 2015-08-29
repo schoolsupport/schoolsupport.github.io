@@ -1,4 +1,4 @@
-package cadastro;
+package Cadastro;
 
 import java.io.*;
 
@@ -6,14 +6,11 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-	
 		
 		Usuario u = new Usuario();
-		//p.setId(1810497);
-		//p.setNome("Marcio");
 		u.setMatricula("25");
 		u.setUsername("patsouzaguiar");
-		u.setEmail("patsouzaguiar@gmail.com");
+		boolean a = u.setEmail("patsouzaguiar@gmail.com");
 		u.setSenha("1234");
 		
 		u.toCSV();
@@ -28,6 +25,29 @@ public class Main {
 		
 		p.toCSV();
 		
+		
+		Usuario u2 = new Usuario();
+		u2.setMatricula("32");
+		u2.setUsername("lauraadalmolin");
+		boolean b = u2.setEmail("laura.aguiar.dalmolin@gmail.com");
+		u2.setSenha("321654");
+		
+		u2.toCSV();
+		
+		// Ele sempre testa o email procurando algum igual na lista de emails
+		// Se encontrar ele retorna falso e não adiciona o email
+		// Caso exista algum parâmetro de cadastro null, o cadastro não é efetuado.
+		// Ou seja, não é criada uma pasta com a matrícula do usuário e seus dados.
+		Usuario u3 = new Usuario();
+		u3.setMatricula("42");
+		u3.setUsername("patsouzaguiar2");
+		boolean c = u.setEmail("patsouzaguiar@gmail.com");
+		u3.setSenha("1234");
+		System.out.println(c);
+		u3.toCSV();
+	
+		
+
 	
 		
 	}

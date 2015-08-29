@@ -1,4 +1,4 @@
-package cadastro;
+package Cadastro;
 
 public enum Disciplina {
 	
