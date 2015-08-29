@@ -107,7 +107,7 @@ public class Usuario {
 		StringBuilder builder2 = new StringBuilder();
 		for (int i = 0; i < lista.size(); i++) {
 			builder2.append(lista.get(i));
-			System.out.println(lista.get(i));
+			
 			builder2.append(";");
 		}
 				
@@ -137,7 +137,7 @@ public class Usuario {
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
-			System.out.println("olá");
+		
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
@@ -151,7 +151,7 @@ public class Usuario {
 			}
 		
 			for (int i = 0; i < lista.size(); i++) {
-				System.out.println("oizinho");
+				
 				lista.get(i);
 				
 				if(lista.get(i).equals(this.email)) return false;
