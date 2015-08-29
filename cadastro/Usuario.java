@@ -1,4 +1,4 @@
-package Cadastro;
+package cadastro;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -137,7 +137,7 @@ public class Usuario {
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
-			System.out.println("ol·");
+			System.out.println("ol√°");
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
