@@ -1,4 +1,4 @@
-package Cadastro;
+package cadastro;
 
 import java.io.*;
 
@@ -17,9 +17,9 @@ public class Main {
 		
 		Perfil p = new Perfil();
 		
-		p.setNome("PatrÌcia");
+		p.setNome("Patr√≠cia");
 		p.setSobrenome("Aguiar");
-		p.setCurso("Inform·tica para Internet");
+		p.setCurso("Inform√°tica para Internet");
 		p.setTurma("2C");
 		p.setUsuario(u);
 		
@@ -35,9 +35,9 @@ public class Main {
 		u2.toCSV();
 		
 		// Ele sempre testa o email procurando algum igual na lista de emails
-		// Se encontrar ele retorna falso e n„o adiciona o email
-		// Caso exista algum par‚metro de cadastro null, o cadastro n„o È efetuado.
-		// Ou seja, n„o È criada uma pasta com a matrÌcula do usu·rio e seus dados.
+		// Se encontrar ele retorna falso e n√£o adiciona o email
+		// Caso exista algum par√¢metro de cadastro null, o cadastro n√£o √© efetuado.
+		// Ou seja, n√£o √© criada uma pasta com a matr√≠cula do usu√°rio e seus dados.
 		Usuario u3 = new Usuario();
 		u3.setMatricula("42");
 		u3.setUsername("patsouzaguiar2");
