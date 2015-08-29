@@ -13,7 +13,14 @@ public class Cadastro {
 			String senha = req.queryParams("password");
 			String matricula = req.queryParams("password");
 			
-			Usuario usuario_logado = new Usuario(user, matricula, email, senha);
+			Usuario usuario_logado = new Usuario();
+			usuario_logado.setUsername(user);
+			boolean setE = usuario_logado.setEmail(email); 
+			if (setE == false) {
+				res.redirect("/erro_email.html"); return null;
+			}
+			usuario_logado.setSenha(senha);
+			usuario_logado.setMatricula(matricula);
 			usuario_logado.toCSV();
 			
 			req.session().attribute("usuario_logado", usuario_logado);
