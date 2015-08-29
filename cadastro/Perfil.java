@@ -1,4 +1,4 @@
-package Cadastro;
+package cadastro;
 
 import java.io.File;
 import java.io.FileWriter;
