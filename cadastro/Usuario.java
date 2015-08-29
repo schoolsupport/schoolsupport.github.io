@@ -27,9 +27,11 @@ public class Usuario {
 	public String getMatricula() {
 		return matricula;
 	}
+	/////////////VAIS TER QUE MUDAR ESSE SETTER PRA QUE FIQUE QUE NEM O DE EMAIL/////////////////////
 	public void setMatricula(String string) {
 		this.matricula = string;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public String getEmail() {
 		return email;
 	}
@@ -129,6 +131,58 @@ public class Usuario {
 		}
 		
 	}
+	///////////////////MODIFICA ESSE AQUI///////////////////////////////////
+	private void addMatriculaToList() throws IOException {
+		
+		File emails = new File("emails.csv");
+		if ( ! emails.exists()) { 
+			FileWriter e = new FileWriter("emails.csv"); 
+			e.flush();
+			e.close();
+		}
+	
+		
+		Scanner scan = new Scanner(emails);
+		
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		
+		if (scan.hasNextLine()) {
+			String line = scan.nextLine();
+			String[] columns = line.split(";");
+			for (int i = 0; i < columns.length; i++) {
+			lista.add(columns[i]);
+			}
+				
+		emails.delete();
+		
+		FileWriter emails2 = new FileWriter("emails.csv");
+				
+		StringBuilder builder2 = new StringBuilder();
+		for (int i = 0; i < lista.size(); i++) {
+			builder2.append(lista.get(i));
+			
+			builder2.append(";");
+		}
+				
+		builder2.append(this.getEmail());
+		builder2.append(";");
+				
+		emails2.write(builder2.toString());
+		emails2.flush();
+		emails2.close();
+	
+		}
+		else  {
+			FileWriter ems = new FileWriter("emails.csv");
+			ems.append(email);
+			ems.append(";");
+			ems.flush();
+			ems.close();
+			
+		}
+		
+	}
 	
 	private boolean validateEmail() {
 		
@@ -137,11 +191,7 @@ public class Usuario {
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
-<<<<<<< HEAD
-		
-=======
-			System.out.println("olá");
->>>>>>> b21039a9a757521f11ad848e81739faa72b0207c
+
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
@@ -165,5 +215,36 @@ public class Usuario {
 		return true;
 		
 	}
-	
+	//////////////////MODIFICA ESSE MÉTODO AQUI////////////////////////////
+	private boolean validateMatricula() {
+		
+		File emails = new File("emails.csv");
+		Scanner scan;
+		try {
+			scan = new Scanner(emails);
+		} catch (FileNotFoundException e) {
+
+			return true;
+		}
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		if(scan.hasNextLine()) {
+			String line = scan.nextLine();
+			scan.close();
+			String[] columns = line.split(";");
+			for (int i = 0; i < columns.length; i++) {
+				lista.add(columns[i]);
+			}
+		
+			for (int i = 0; i < lista.size(); i++) {
+				
+				lista.get(i);
+				
+				if(lista.get(i).equals(this.email)) return false;
+			}
+		}
+
+		return true;
+		
+	}
 }
