@@ -15,10 +15,10 @@ public class Main {
 		
 		Spark.post("/cadastro", rota);		
 	
-		MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
+		//MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
 		
-		TemplateViewRoute perfil = cadastro.getCadastro;
+		//TemplateViewRoute perfil = cadastro.getCadastro;
 		
-		Spark.get("/home.html", perfil, engine);
+		//Spark.get("/home.html", perfil, engine);
 	}
 }

@@ -170,19 +170,6 @@ public class Usuario {
 		return true;
 		
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private void addEmailToList() throws IOException {
 		
 		File emails = new File("emails.csv");

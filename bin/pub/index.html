@@ -103,7 +103,7 @@
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="number" class="form-control" id="matricula" name="matricula" />
+                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" />
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Email: </label>
@@ -140,8 +140,18 @@
         </div>
     </footer>
     <script type="text/javascript">
-    function checkPass()
-{
+    function checkMatricula() {
+    var m = document.getElementById('matricula');
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    if(m.value.length == 8) {
+        m.style.backgroundColor = goodColor;
+    } else {
+        m.style.backgroundColor = badColor;
+    }
+    
+    }
+    function checkPass() {
     //Store the password field objects into variables ...
     var pass1 = document.getElementById('pass1');
     var pass2 = document.getElementById('pass2');
@@ -152,12 +162,9 @@
     var badColor = "#ff6666";
     //Compare the values in the password field 
     //and the confirmation field
+   
     if(pass1.value == pass2.value) {
-        if(pass1.null && pass2.null) {
-          pass2.style.backgroundColor = badColor;
-          message.style.color = badColor;
-          message.innerHTML = "Digite uma senha!"
-        }
+        
         //The passwords match.  
         //Set the color to the good color and inform
         //the user that they have entered the correct password 
@@ -172,13 +179,15 @@
         message.style.color = badColor;
         message.innerHTML = "As senhas não correspondem!"
     }
+     if(pass1.value.length == 0) {
+          pass2.style.backgroundColor = badColor;
+          message.style.color = badColor;
+          message.innerHTML = "Digite uma senha!"
+    }
+
 }  
     </script>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
     <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>

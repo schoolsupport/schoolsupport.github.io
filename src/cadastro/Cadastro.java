@@ -8,19 +8,18 @@ public class Cadastro {
 	
 	public class NovoCadastro implements Route {
 		public Object handle(Request req, Response res) throws Exception {
-			String user = req.queryParams("user");
-			String email = req.queryParams("email");
-			String senha = req.queryParams("password");
-			String matricula = req.queryParams("password");
 			
 			Usuario usuario_logado = new Usuario();
-			usuario_logado.setUsername(user);
-			boolean setE = usuario_logado.setEmail(email); 
+			usuario_logado.setUsername(req.queryParams("user"));
+			boolean setE = usuario_logado.setEmail(req.queryParams("email")); 
 			if (setE == false) {
 				res.redirect("/erro_email.html"); return null;
 			}
-			usuario_logado.setSenha(senha);
-			usuario_logado.setMatricula(matricula);
+			usuario_logado.setSenha(req.queryParams("password"));
+			boolean setM = usuario_logado.setMatricula(req.queryParams("matricula"));
+			if (setM == false) {
+				res.redirect("/erro_matricula.html"); return null;
+			}
 			usuario_logado.toCSV();
 			
 			req.session().attribute("usuario_logado", usuario_logado);

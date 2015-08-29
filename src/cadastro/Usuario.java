@@ -17,6 +17,7 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
 	public String getSenha() {
 		return senha;
 	}
@@ -26,14 +27,20 @@ public class Usuario {
 	public String getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(String string) {
-		this.matricula = string;
+
+	public boolean setMatricula(String matricula) {
+		if (validateMatricula(matricula)) {
+			this.matricula = matricula;
+			return true;
+		}
+		return false;
 	}
+
 	public String getEmail() {
 		return email;
 	}
 	public boolean setEmail(String email) {
-		if (validateEmail()) {
+		if (validateEmail(email)) {
 			this.email = email;
 			return true;
 		}
@@ -49,7 +56,7 @@ public class Usuario {
 	public void toCSV() throws IOException {
 		if (matricula != null && username != null && email != null && senha != null) {
 			
-			File dir = new File(matricula);
+			File dir = new File("Cadastros");
 			if ( ! dir.exists()) { 
 				dir.mkdir(); // make directory;
 			}
@@ -63,7 +70,7 @@ public class Usuario {
 				builder.append(";");
 				builder.append(senha);
 						
-				File file = new File(matricula + "/" + "dados_basicos" + ".csv");
+				File file = new File("Cadastros/" + matricula + ".csv");
 				
 				FileWriter writer = new FileWriter(file);
 				
@@ -73,10 +80,96 @@ public class Usuario {
 				writer.close();
 				
 				addEmailToList();
+				addMatriculaToList();
 				
 		}
 	}
+
+	private void addMatriculaToList() throws IOException {
+		
+		File matriculas = new File("matriculas.csv");
+		if ( ! matriculas.exists()) { 
+			FileWriter e = new FileWriter("matriculas.csv"); 
+			e.flush();
+			e.close();
+		}
 	
+		
+		Scanner scan = new Scanner(matriculas);
+		
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		
+		if (scan.hasNextLine()) {
+			String line = scan.nextLine();
+			String[] columns = line.split(";");
+			for (int i = 0; i < columns.length; i++) {
+			lista.add(columns[i]);
+		}
+			
+		scan.close();
+				
+		matriculas.delete();
+		
+		FileWriter matriculas2 = new FileWriter("matriculas.csv");
+				
+		StringBuilder builder2 = new StringBuilder();
+		for (int i = 0; i < lista.size(); i++) {
+			builder2.append(lista.get(i));
+			
+			builder2.append(";");
+		}
+				
+		builder2.append(this.getMatricula());
+		builder2.append(";");
+				
+		matriculas2.write(builder2.toString());
+		matriculas2.flush();
+		matriculas2.close();
+	
+		}
+		else  {
+			FileWriter ems = new FileWriter("matriculas.csv");
+			ems.append(matricula);
+			ems.append(";");
+			ems.flush();
+			ems.close();
+			
+		}
+		
+	}
+
+	private boolean validateMatricula(String matricula) {
+		
+		File matriculas = new File("matriculas.csv");
+		
+		Scanner scan;
+		try {
+			scan = new Scanner(matriculas);
+		} catch (FileNotFoundException e) {
+
+
+			return true;
+		}
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		if(scan.hasNextLine()) {
+			String line = scan.nextLine();
+			scan.close();
+			String[] columns = line.split(";");
+			for (int i = 0; i < columns.length; i++) {
+				lista.add(columns[i]);
+			}
+		
+			for (int i = 0; i < lista.size(); i++) {
+				
+				if(lista.get(i).equals(matricula)) return false;
+			}
+		}
+
+		return true;
+		
+	}
 	private void addEmailToList() throws IOException {
 		
 		File emails = new File("emails.csv");
@@ -85,6 +178,8 @@ public class Usuario {
 			e.flush();
 			e.close();
 		}
+	
+		
 		Scanner scan = new Scanner(emails);
 		
 		ArrayList<String> lista = new ArrayList<String>();
@@ -96,7 +191,7 @@ public class Usuario {
 			for (int i = 0; i < columns.length; i++) {
 			lista.add(columns[i]);
 			}
-				
+		scan.close();		
 		emails.delete();
 		
 		FileWriter emails2 = new FileWriter("emails.csv");
@@ -126,14 +221,17 @@ public class Usuario {
 		}
 		
 	}
-	
-	private boolean validateEmail() {
+
+
+
+	private boolean validateEmail(String email) {
 		
 		File emails = new File("emails.csv");
 		Scanner scan;
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
+
 
 			return true;
 		}
@@ -151,12 +249,22 @@ public class Usuario {
 				
 				lista.get(i);
 				
-				if(lista.get(i).equals(this.email)) return false;
+				if(lista.get(i).equals(email)) return false;
 			}
 		}
 
 		return true;
 		
 	}
-	
+
+
+
+
+
+
+
+
+
+
+
 }
