@@ -192,6 +192,7 @@ public class Usuario {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
 
+<<<<<<< HEAD
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
@@ -224,6 +225,8 @@ public class Usuario {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
 
+=======
+>>>>>>> 8f9034ad79ab267215e72a9d44ae148b873e1eab
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
