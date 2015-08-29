@@ -27,7 +27,7 @@ public class Usuario {
 	public String getMatricula() {
 		return matricula;
 	}
-	/////////////VAIS TER QUE MUDAR ESSE SETTER PRA QUE FIQUE QUE NEM O DE EMAIL/////////////////////
+
 	public boolean setMatricula(String string) {
 		if (validateMatricula(string)) {
 			this.matricula = string;
@@ -35,7 +35,7 @@ public class Usuario {
 		}
 		return false;
 	}
-	/////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public String getEmail() {
 		return email;
 	}
@@ -84,9 +84,7 @@ public class Usuario {
 				
 		}
 	}
-	
 
-	///////////////////MODIFICA ESSE AQUI///////////////////////////////////
 	private void addMatriculaToList() throws IOException {
 		
 		File matriculas = new File("matriculas.csv");
@@ -140,9 +138,7 @@ public class Usuario {
 		}
 		
 	}
-	
 
-	//////////////////MODIFICA ESSE MÉTODO AQUI////////////////////////////
 	private boolean validateMatricula(String matricula) {
 		
 		File matriculas = new File("matriculas.csv");
