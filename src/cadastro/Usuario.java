@@ -16,8 +16,7 @@ public class Usuario {
 	
 	public Usuario() {
 		
-	}
-	
+	}	
 	public String getSenha() {
 		return senha;
 	}
@@ -27,7 +26,6 @@ public class Usuario {
 	public String getMatricula() {
 		return matricula;
 	}
-
 	public boolean setMatricula(String matricula) {
 		if (validateMatricula(matricula)) {
 			this.matricula = matricula;
@@ -35,7 +33,6 @@ public class Usuario {
 		}
 		return false;
 	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -52,7 +49,6 @@ public class Usuario {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
 	public void toCSV() throws IOException {
 		if (matricula != null && username != null && email != null && senha != null) {
 			
@@ -84,7 +80,6 @@ public class Usuario {
 				
 		}
 	}
-
 	private void addMatriculaToList() throws IOException {
 		
 		File matriculas = new File("matriculas.csv");
@@ -138,7 +133,6 @@ public class Usuario {
 		}
 		
 	}
-
 	private boolean validateMatricula(String matricula) {
 		
 		File matriculas = new File("matriculas.csv");
@@ -221,9 +215,6 @@ public class Usuario {
 		}
 		
 	}
-
-
-
 	private boolean validateEmail(String email) {
 		
 		File emails = new File("emails.csv");
@@ -256,7 +247,35 @@ public class Usuario {
 		return true;
 		
 	}
-
+	public boolean procuraCSV(String matricula, String senha2) throws Exception{
+		Usuario usuario_matricula = new Usuario();
+		File arquivo = new File("Cadastros/" + matricula + ".csv");
+		if ( ! arquivo.exists()) { 
+			return false;
+		}
+		Scanner scan = new Scanner(arquivo);
+		while(scan.hasNextLine()) {
+			String row = scan.nextLine();
+			usuario_matricula.fromCSV(row);
+		}
+		scan.close();
+		usuario_matricula.verificaSenha(senha2);
+		
+		return true;
+	}
+	public void fromCSV(String row) {
+		String[] columns = row.split(";");
+		this.setMatricula(columns[0]);
+		this.setUsername(columns[1]);
+		this.setEmail(columns[2]);
+		this.setSenha(columns[3]);
+	}
+	public boolean verificaSenha(String senha2) {
+		if(senha2 == senha) {
+			return true;
+		}
+		return false;
+	}
 
 
 

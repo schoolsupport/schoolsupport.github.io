@@ -11,9 +11,15 @@ public class Main {
 		
 		Cadastro cadastro = new Cadastro();
 		
-		Route rota= cadastro.novoCadastro;
+		Route rota_cad = cadastro.novoCadastro;
 		
-		Spark.post("/cadastro", rota);		
+		Spark.post("/cadastro", rota_cad);	
+		
+		Login login = new Login();
+		
+		Route rota_log = login.novoLogin;
+		
+		Spark.post("/login", rota_log);		
 	
 		//MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
 		
