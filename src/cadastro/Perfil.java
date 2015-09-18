@@ -7,11 +7,12 @@ import java.util.ArrayList;
 
 public class Perfil {
 	
-	private Usuario usuario = new Usuario();
+	private Usuario usuario;
 	private String nome;
 	private String sobrenome;
 	private String turma;
 	private String curso;
+	private String bio;
 	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 		
 	public Usuario getUsuario() {
@@ -53,7 +54,7 @@ public class Perfil {
 	
 	public void toCSV() throws IOException {
 		
-		File dir = new File(usuario.getMatricula());
+		File dir = new File("Perfis");
 		if ( ! dir.exists()) { 
 			dir.mkdir(); // make directory;
 		}
@@ -66,9 +67,11 @@ public class Perfil {
 		builder.append(turma);
 		builder.append(";");
 		builder.append(curso);
+		builder.append(";");
+		builder.append(bio);
 		
 		
-		File file = new File(usuario.getMatricula() + "/" + "dados_perfil" + ".csv");
+		File file = new File("Perfis/" + usuario.getMatricula() + ".csv");
 		
 		FileWriter writer = new FileWriter(file);
 		
@@ -78,6 +81,12 @@ public class Perfil {
 		writer.close();
 		
 		
+	}
+	public String getBio() {
+		return bio;
+	}
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 	
 }

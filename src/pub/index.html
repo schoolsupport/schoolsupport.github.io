@@ -85,9 +85,11 @@
                  <div class="panel panel-default">
                         <div class="panel-body">                    
                       <label for="exampleInputEmail1">Matricula: </label>
-                    <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" />
+                    <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" required/>
+                    <span id="confirmMessage3" class="confirmMessage3"></span>
+                    <br>
                         <label for="exampleInputPassword1">Senha: </label>
-                    <input type="password" class="form-control" id="password2" name="password2"/>
+                    <input type="password" class="form-control" id="password2" name="password2" required/>
                         <hr />
                         <button type="submit" class="btn btn-default">Logar</button>
                          </form> 
@@ -102,27 +104,32 @@
                         <div class="panel-body">
                   <div class="">
                     <label for="exampleInputEmail1">Nome de usuário: </label>
-                    <input id="username" type="text" value="" name="user" class="form-control"/>
+                    <input id="username" type="text" value="" name="user" class="form-control" required/>
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" />
+                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" required/>
+                    <span id="confirmMessage2" class="confirmMessage2"></span>
                   </div>
                   <div class="">
                     <label for="exampleInputEmail1">Email: </label>
-                    <input id="email" type="email" value="" name="email" class="form-control"/>
+                    <input id="email" type="email" value="" name="email" class="form-control" required/>
                   </div>
                   <div class="">
                     <label for="exampleInputPassword1">Senha: </label>
-                    <input id="pass1" type="password" value="" name="password" class="form-control"/>
+                    <input id="pass1" type="password" value="" name="password" class="form-control" required/>
                   </div>
                   <div class="">
                     <label for="exampleInputPassword1">Confirmação de senha: </label>
-                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" />
+                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" required />
                     <span id="confirmMessage" class="confirmMessage"></span>
                   </div>
                   <hr />
-                  <button type="submit" class="btn btn-default">Cadastrar</button>     
+                  <button type="submit" class="btn btn-default">Cadastrar</button>
+                  <span id="user" class="user"></span> 
+                  <span id="email" class="email"></span>
+                  <span id="password" class="password"></span>
+                  <span id="matricula" class="matricula"></span>
             </form>
                                         </div>
                             </div>
@@ -145,22 +152,43 @@
     <script type="text/javascript">
     function checkMatricula() {
         var m = document.getElementById('matricula');
-        var m2 = document.getElementById('matricula2');
+        var m_informada;
         var goodColor = "#66cc66";
         var badColor = "#ff6666";
-        if(m.value.length == 8)
-        m.style.backgroundColor = goodColor;
-        else 
-        m.style.backgroundColor = badColor;
+        var message = document.getElementById('confirmMessage2');
+        
+        m_informada = m.value.substr( 0, 2)
+
+        if(m_informada == "11" && m.value.length == 8) {
+            m.style.backgroundColor = goodColor;
+            message.style.color = goodColor;
+            message.innerHTML = "Matrícula válida!"
+        } else {
+            m.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "Digite uma matrícula válida!"
+        }
+        
     }
     function checkMatricula2() {
         var m = document.getElementById('matricula2');
+        var m_informada;
         var goodColor = "#66cc66";
         var badColor = "#ff6666";
-        if(m.value.length == 8)
-        m.style.backgroundColor = goodColor;
-        else 
-        m.style.backgroundColor = badColor;
+        var message = document.getElementById('confirmMessage3');
+        
+        m_informada = m.value.substr( 0, 2)
+
+        if(m_informada == "11" && m.value.length == 8) {
+            m.style.backgroundColor = goodColor;
+            message.style.color = goodColor;
+            message.innerHTML = "Matrícula válida!"
+        } else {
+            m.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = "Digite uma matrícula válida!"
+        }
+
     }
     function checkPass() {
     //Store the password field objects into variables ...

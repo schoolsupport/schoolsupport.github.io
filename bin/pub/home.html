@@ -50,21 +50,23 @@
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/64-64.jpg" alt="" class="img-rounded">
+                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
                                     </a>
-                                {{#dropdown}}
+                               
                                     <div class="media-body">
-                                        <h4 class="media-heading">{{username}}</h4>
-                                        <h5>{{email}} &amp; Designer</h5>
-
+                                     {{#usuario}}
+                                     {{#perfil}}
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
+                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
                                     </div>
                                 </div>
-                                {{/dropdown}}
+                              
                                 <hr>
-                                <h5><strong>Personal Bio : </strong></h5>
-                                Anim pariatur cliche reprehen derit.
+                                <h5><strong>Bio: </strong>{{bio}}</h5>
                                 <hr>
-                                <a href="http://schoolsupport.github.io/#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="http://schoolsupport.github.io/login.html" class="btn btn-danger btn-sm">Logout</a>
+                                 {{/perfil}}
+                                      {{/usuario}}
+                                <a href="#" class="btn btn-info btn-sm">Perfil</a>&nbsp; <a href="index.html" class="btn btn-danger btn-sm">Sair</a>
 
                             </div>
                             
@@ -85,8 +87,6 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a class="menu-top-active" href="home.html">Início</a></li>
                             <li><a href="fisica2.html">Física 2</a></li>
-                            <li><a href="index.html">Logout</a></li>
-
                         </ul>
                     </div>
                 </div>

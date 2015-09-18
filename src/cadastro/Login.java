@@ -10,6 +10,7 @@ public class Login {
 			String matricula = req.queryParams("matricula");
 			String senha = req.queryParams("password");
 			Usuario usuario_logado = new Usuario();
+			
 			if(usuario_logado.procuraCSV(matricula, senha) == false) {
 				System.out.println("erro aqui");
 				res.redirect("/erro_login.html"); return null;

@@ -13,6 +13,7 @@ public class Usuario {
 	private String matricula;
 	private String email;
 	private String username;
+	private Perfil perfil;
 	
 	public Usuario() {
 		
@@ -91,7 +92,6 @@ public class Usuario {
 	
 		
 		Scanner scan = new Scanner(matriculas);
-		
 		ArrayList<String> lista = new ArrayList<String>();
 		
 		
@@ -276,14 +276,10 @@ public class Usuario {
 		}
 		return false;
 	}
-
-
-
-
-
-
-
-
-
-
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+	public Perfil getPerfil() {
+		return perfil;
+	}
 }

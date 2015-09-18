@@ -8,7 +8,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>School Support</title>
+    <title>Completar Perfil - School Support</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
@@ -32,9 +32,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="home.html">
 
-                    <img src="assets/img/logo.png" />
+                    <img src="./index_files/logo.png">
                 </a>
 
             </div>
@@ -44,10 +44,31 @@
                     <ul class="nav">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
                             </a>
-                           
+                            <div class="dropdown-menu dropdown-settings">
+                                <div class="media">
+                                    <a class="media-left" href="http://schoolsupport.github.io/#">
+                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
+                                    </a>
+                               
+                                    <div class="media-body">
+                                     {{#usuario}}
+                                        <h4 class="media-heading">{{username}}</h4>
+                                        <h5>{{email}} &amp; {{matricula}}</h5>
+                                      {{/usuario}}
+                                    </div>
+                                </div>
+                              
+                                <hr>
+                                <h5><strong>Personal Bio : </strong></h5>
+                                Anim pariatur cliche reprehen derit.
+                                <hr>
+                                <a href="completar.html" class="btn btn-info btn-sm">Completar Perfil</a>&nbsp; <a href="http://schoolsupport.github.io/login.html" class="btn btn-danger btn-sm">Sair</a>
+
+                            </div>
+                            
                         </li>
 
 
@@ -63,7 +84,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                             <li><a class="menu-top-active"  href="index.html">Login/Cadastro</a></li>
+                             <li><a class="menu-top-active"  href="index.html">Completar Perfil</a></li>
+                             <li><a href="home.html">Início</a></li>
+                            <li><a href="fisica2.html">Física 2</a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,60 +99,43 @@
         <div class="container">
               <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Login/Cadastro </h1>
+                        <h1 class="page-head-line">Completar Perfil </h1>
                     </div>
                 </div>
-               <form action="/login" method="POST">
-                <div class="row">
-                <div class="col-md-6">
-                 <div class="panel panel-default">
-                        <div class="panel-body">                    
-                      <label for="exampleInputEmail1">Matricula: </label>
-                    <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" required/>
-                    <span id="confirmMessage3" class="confirmMessage3"></span>
-                    <br>
-                        <label for="exampleInputPassword1">Senha: </label>
-                    <input type="password" class="form-control" id="password2" name="password2" required/>
-                        <hr />
-                        <button type="submit" class="btn btn-default">Logar</button>
-                         </form> 
-                </div>
-                </div>
-                </div>
-                </form>
-                <form action="/cadastro" method="POST">
+                <form action="/completar" method="POST">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="panel panel-default">
+                        <div class="">
                         <div class="panel-body">
                   <div class="">
-                    <label for="exampleInputEmail1">Nome de usuário: </label>
-                    <input id="username" type="text" value="" name="user" class="form-control" required/>
+                    <label for="exampleInputEmail1">Nome: </label>
+                    <input id="name" type="text" value="" name="name" class="form-control" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" required/>
-                    <span id="confirmMessage2" class="confirmMessage2"></span>
+                    <label for="exampleInputEmail1">Sobrenome: </label>
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputEmail1">Email: </label>
-                    <input id="email" type="email" value="" name="email" class="form-control" required/>
+                    <label for="exampleInputEmail1">Curso: </label>
+                    <input id="curso" list="cursos" value="" name="curso" class="form-control" required/>
+                    <datalist id="cursos">
+                    <option value="Informática para Internet">
+                    <option value="Eletrotécnica">
+                    <option value="Geoprocessamento">
+                    <option value="Fabricação Mecânica">
+                    <option value="Automação Industrial">
+                    </datalist>
                   </div>
                   <div class="">
-                    <label for="exampleInputPassword1">Senha: </label>
-                    <input id="pass1" type="password" value="" name="password" class="form-control" required/>
+                    <label for="exampleInputEmail1">Ano que está cursando: </label>
+                    <input type="number" class="form-control" id="ano" name="ano" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputPassword1">Confirmação de senha: </label>
-                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" required />
-                    <span id="confirmMessage" class="confirmMessage"></span>
+                    <label for="exampleInputEmail1">Bio: </label>
+                    <input type="text" class="form-control" id="bio" name="bio" />(Opcional)
                   </div>
                   <hr />
-                  <button type="submit" class="btn btn-default">Cadastrar</button>
-                  <span id="user" class="user"></span> 
-                  <span id="email" class="email"></span>
-                  <span id="password" class="password"></span>
-                  <span id="matricula" class="matricula"></span>
+                  <button type="submit" class="btn btn-default">Completar</button>
             </form>
                                         </div>
                             </div>
