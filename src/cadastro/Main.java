@@ -23,5 +23,8 @@ public class Main {
 		
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
+		
+		ApagarPerfil apagarPerfil = new ApagarPerfil();
+		Spark.post("/excluir", apagarPerfil, engine);
 	}
 }
