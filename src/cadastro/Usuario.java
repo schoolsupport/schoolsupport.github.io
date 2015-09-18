@@ -28,10 +28,10 @@ public class Usuario {
 		return matricula;
 	}
 	public boolean setMatricula(String matricula) {
-		if (validateMatricula(matricula)) {
-			this.matricula = matricula;
-			return true;
-		}
+	//	if (validateMatricula(matricula)) {
+		//	this.matricula = matricula;
+	//		return true;
+	//	}
 		return false;
 	}
 	public String getEmail() {
@@ -68,7 +68,7 @@ public class Usuario {
 				builder.append(senha);
 						
 				File file = new File("Cadastros/" + matricula + ".csv");
-				
+				if(file.exists())return;	
 				FileWriter writer = new FileWriter(file);
 				
 				writer.write(builder.toString());
@@ -106,64 +106,9 @@ public class Usuario {
 				
 		matriculas.delete();
 		
-		FileWriter matriculas2 = new FileWriter("matriculas.csv");
-				
-		StringBuilder builder2 = new StringBuilder();
-		for (int i = 0; i < lista.size(); i++) {
-			builder2.append(lista.get(i));
-			
-			builder2.append(";");
 		}
-				
-		builder2.append(this.getMatricula());
-		builder2.append(";");
-				
-		matriculas2.write(builder2.toString());
-		matriculas2.flush();
-		matriculas2.close();
-	
-		}
-		else  {
-			FileWriter ems = new FileWriter("matriculas.csv");
-			ems.append(matricula);
-			ems.append(";");
-			ems.flush();
-			ems.close();
-			
-		}
-		
 	}
-	private boolean validateMatricula(String matricula) {
-		
-		File matriculas = new File("matriculas.csv");
-		
-		Scanner scan;
-		try {
-			scan = new Scanner(matriculas);
-		} catch (FileNotFoundException e) {
 
-
-			return true;
-		}
-		ArrayList<String> lista = new ArrayList<String>();
-		
-		if(scan.hasNextLine()) {
-			String line = scan.nextLine();
-			scan.close();
-			String[] columns = line.split(";");
-			for (int i = 0; i < columns.length; i++) {
-				lista.add(columns[i]);
-			}
-		
-			for (int i = 0; i < lista.size(); i++) {
-				
-				if(lista.get(i).equals(matricula)) return false;
-			}
-		}
-
-		return true;
-		
-	}
 	private void addEmailToList() throws IOException {
 		
 		File emails = new File("emails.csv");
@@ -171,8 +116,7 @@ public class Usuario {
 			FileWriter e = new FileWriter("emails.csv"); 
 			e.flush();
 			e.close();
-		}
-	
+		}	
 		
 		Scanner scan = new Scanner(emails);
 		
@@ -222,8 +166,6 @@ public class Usuario {
 		try {
 			scan = new Scanner(emails);
 		} catch (FileNotFoundException e) {
-
-
 			return true;
 		}
 		ArrayList<String> lista = new ArrayList<String>();
@@ -240,7 +182,7 @@ public class Usuario {
 				
 				lista.get(i);
 				
-				if(lista.get(i).equals(email)) return false;
+			if(lista.get(i).equals(email)) return false;
 			}
 		}
 
@@ -263,6 +205,7 @@ public class Usuario {
 		
 		return true;
 	}
+	
 	public void fromCSV(String row) {
 		String[] columns = row.split(";");
 		this.setMatricula(columns[0]);
