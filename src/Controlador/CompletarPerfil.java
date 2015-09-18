@@ -19,7 +19,6 @@ public class CompletarPerfil implements TemplateViewRoute {
 		try {
 			p.toCSV();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		res.redirect("/home.html"); return null;
