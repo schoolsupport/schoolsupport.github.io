@@ -28,11 +28,8 @@ public class Usuario {
 		return matricula;
 	}
 	public boolean setMatricula(String matricula) {
-	//	if (validateMatricula(matricula)) {
-		//	this.matricula = matricula;
-	//		return true;
-	//	}
-		return false;
+		this.matricula = matricula;
+		return true;
 	}
 	public String getEmail() {
 		return email;
