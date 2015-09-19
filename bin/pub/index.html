@@ -84,7 +84,7 @@
                 <div class="col-md-6">
                  <div class="panel panel-default">
                         <div class="panel-body">                    
-                      <label for="exampleInputEmail1">Matrícula: </label>
+                      <label for="exampleInputEmail1">MatrÃ­cula: </label>
                     <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" required/>
                     <span id="confirmMessage3" class="confirmMessage3"></span>
                         <label for="exampleInputPassword1">Senha: </label>
@@ -102,11 +102,11 @@
                         <div class="panel panel-default">
                         <div class="panel-body">
                   <div class="">
-                    <label for="exampleInputEmail1">Nome de usuário: </label>
+                    <label for="exampleInputEmail1">Nome de usuÃ¡rio: </label>
                     <input id="username" type="text" value="" name="user" class="form-control" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputEmail1">Matrícula: </label>
+                    <label for="exampleInputEmail1">MatrÃ­cula: </label>
                     <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" required/>
                     <span id="confirmMessage2" class="confirmMessage2"></span>
                   </div>
@@ -119,7 +119,7 @@
                     <input id="pass1" type="password" value="" name="password" class="form-control" maxlength="20" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputPassword1">Confirmação de senha: </label>
+                    <label for="exampleInputPassword1">ConfirmaÃ§Ã£o de senha: </label>
                     <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" maxlength="20" required />
                     <span id="confirmMessage" class="confirmMessage"></span>
                   </div>
@@ -161,11 +161,11 @@
         if(m_informada == "11" && m.value.length == 8) {
             m.style.backgroundColor = goodColor;
             message.style.color = goodColor;
-            message.innerHTML = "Matrícula válida!"
+            message.innerHTML = "MatrÃ­cula vÃ¡lida!"
         } else {
             m.style.backgroundColor = badColor;
             message.style.color = badColor;
-            message.innerHTML = "Digite uma matrícula válida!"
+            message.innerHTML = "Digite uma matrÃ­cula vÃ¡lida!"
         }
         
     }
@@ -181,11 +181,11 @@
         if(m_informada == "11" && m.value.length == 8) {
             m.style.backgroundColor = goodColor;
             message.style.color = goodColor;
-            message.innerHTML = "Matrícula válida!"
+            message.innerHTML = "MatrÃ­cula vÃ¡lida!"
         } else {
             m.style.backgroundColor = badColor;
             message.style.color = badColor;
-            message.innerHTML = "Digite uma matrícula válida!"
+            message.innerHTML = "Digite uma matrÃ­cula vÃ¡lida!"
         }
 
     }
@@ -215,7 +215,7 @@
         //notify the user.
         pass2.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = "As senhas não correspondem!"
+        message.innerHTML = "As senhas nÃ£o correspondem!"
     }
      if(pass1.value.length == 0) {
           pass2.style.backgroundColor = badColor;

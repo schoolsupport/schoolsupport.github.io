@@ -4,11 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.TemplateViewRoute;
+import spark.*;
 
 public class Login implements TemplateViewRoute{
 		public ModelAndView handle(Request req, Response res){
@@ -34,7 +30,12 @@ public class Login implements TemplateViewRoute{
 				if (a.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", a);
 					res.redirect("/home.html");
+
 				}	
+			 else {
+					res.redirect("/index.html");
+				}
+				
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -43,4 +44,4 @@ public class Login implements TemplateViewRoute{
 			return null;
 			
 		}
-}	
+}
