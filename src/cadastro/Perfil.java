@@ -15,6 +15,7 @@ public class Perfil {
 	private String bio;
 	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	private boolean completo = false; 
+	private String comp = "Completar Perfil";
 		
 	public Usuario getUsuario() {
 		return usuario;
@@ -28,6 +29,7 @@ public class Perfil {
 	public void setNome(String nome) {
 		this.nome = nome;
 		this.setCompleto(true);
+		this.setComp("Seu Perfil");
 	}
 	public String getSobrenome() {
 		return sobrenome;
@@ -88,11 +90,16 @@ public class Perfil {
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
-	public boolean getCompleto() {
+	public String getComp() {
+		return comp;
+	}
+	public void setComp(String comp) {
+		this.comp = comp;
+	}
+	public boolean isCompleto() {
 		return completo;
 	}
 	public void setCompleto(boolean completo) {
 		this.completo = completo;
-	}
-	
+	}	
 }

@@ -56,8 +56,9 @@
                                     </a>
                                
                                     <div class="media-body">
-                                     {{#usuario}}
+                                    
                                      {{#perfil}}
+                                      {{#usuario}}
                                         <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
                                         <h5>{{curso}} &nbsp;{{matricula}}</h5>
                                     </div>
@@ -66,11 +67,11 @@
                                 <hr>
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
                                 <hr>
-                                 {{/perfil}}
-                                      {{/usuario}}
-                                <a href="/completar_perfil" class="btn btn-info btn-sm">Perfil</a>&nbsp; 
+                                {{/usuario}}
+                                <a href="/completar_perfil" class="btn btn-info btn-sm">{{comp}}</a>&nbsp; 
+                                {{/perfil}}
                                 <a href="/excluir" class="btn btn-danger btn-sm">Sair</a>
-
+                                     
                             </div>
                             
                         </li>
