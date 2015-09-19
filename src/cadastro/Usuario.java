@@ -174,7 +174,6 @@ public class Usuario {
 		
 		return true;
 	}
-	
 	public void fromCSV(String row) {
 		String[] columns = row.split(";");
 		this.setMatricula(columns[0]);

@@ -29,5 +29,8 @@ public class Main {
 		
 		ApagarPerfil apagarPerfil = new ApagarPerfil();
 		Spark.get("/excluir", apagarPerfil, engine);
+		
+		Login login = new Login();
+		Spark.post("/login", login, engine);
 	}
 }
