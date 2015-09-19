@@ -1,23 +1,49 @@
 package cadastro;
 
-import spark.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-public class Login {
-	public final Route novoLogin = new NovoLogin();
-	
-	public class NovoLogin implements Route {
-		public Object handle(Request req, Response res) throws Exception {
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+import spark.TemplateViewRoute;
+
+public class Login implements TemplateViewRoute{
+		public ModelAndView handle(Request req, Response res){
+			
 			String matricula = req.queryParams("matricula");
 			String senha = req.queryParams("password");
-			Usuario usuario_logado = new Usuario();
 			
-			if(usuario_logado.procuraCSV(matricula, senha) == false) {
-				System.out.println("erro aqui");
-				res.redirect("/erro_login.html"); return null;
-			} 
-			req.session().attribute("usuario_logado", usuario_logado);
-			res.redirect("/home.html"); return null;
+			//Usuario usuarioLogado = req.session().attribute("usuario_logado");
+			
+			File file = new File("Cadastros/" + matricula + ".csv");
+				if(! file.exists()){
+					res.redirect("/erro_email.html");
+					return null;
+				}
+			Scanner scan;
+			Usuario a = new Usuario();
+			try {
+				scan = new Scanner(file);
+				
+				while(scan.hasNextLine()){
+					String row = scan.nextLine();
+					a.fromCSV(row);
+				}
+				
+				if (a.getSenha().equals(senha)){
+					req.session().attribute("usuario_logado", a);
+					res.redirect("/home.html"); return null;
+				}else{
+					res.redirect("/index.html");
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
 		}
-	}
-
 }	
