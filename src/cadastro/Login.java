@@ -4,17 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.TemplateViewRoute;
+import spark.*;
 
 public class Login implements TemplateViewRoute{
 		public ModelAndView handle(Request req, Response res){
 			
-			String matricula = req.queryParams("matricula");
-			String senha = req.queryParams("password");
+			String matricula = req.queryParams("matricula2");
+			String senha = req.queryParams("password2");
 			
 			//Usuario usuarioLogado = req.session().attribute("usuario_logado");
 			
@@ -35,8 +31,8 @@ public class Login implements TemplateViewRoute{
 				
 				if (a.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", a);
-					res.redirect("/home.html"); return null;
-				}else{
+					res.redirect("/home.html");
+				} else {
 					res.redirect("/index.html");
 				}
 				

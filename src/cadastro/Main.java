@@ -17,13 +17,13 @@ public class Main {
 		
 		SalvaCadastro salvaCadastro = new SalvaCadastro();
 		Spark.post("/cadastro", salvaCadastro, engine);
-	
-		PerfilControlador perfilControlador = new PerfilControlador();
-		Spark.get("/home.html", perfilControlador, engine);
 		
 		RedirecionarCompletar redirecionarCompletar = new RedirecionarCompletar();
 		Spark.get("/completar_perfil", redirecionarCompletar, engine);
 		
+		PerfilControlador perfilControlador = new PerfilControlador();
+		Spark.get("/home.html", perfilControlador, engine);
+				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
 		
