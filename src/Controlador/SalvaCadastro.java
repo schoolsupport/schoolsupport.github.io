@@ -25,7 +25,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		
 		req.session().attribute("usuario_logado", usuario_logado);
 		
-		res.redirect("/completar.html"); return null;
+		res.redirect("/home.html"); return null;
 	}
 
 }

@@ -21,6 +21,9 @@ public class Main {
 		PerfilControlador perfilControlador = new PerfilControlador();
 		Spark.get("/home.html", perfilControlador, engine);
 		
+		RedirecionarCompletar redirecionarCompletar = new RedirecionarCompletar();
+		Spark.get("/completar_perfil", redirecionarCompletar, engine);
+		
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
 		

@@ -74,35 +74,7 @@ public class Usuario {
 				writer.close();
 				
 				addEmailToList();
-				addMatriculaToList();
 				
-		}
-	}
-	private void addMatriculaToList() throws IOException {
-		
-		File matriculas = new File("matriculas.csv");
-		if ( ! matriculas.exists()) { 
-			FileWriter e = new FileWriter("matriculas.csv"); 
-			e.flush();
-			e.close();
-		}
-	
-		
-		Scanner scan = new Scanner(matriculas);
-		ArrayList<String> lista = new ArrayList<String>();
-		
-		
-		if (scan.hasNextLine()) {
-			String line = scan.nextLine();
-			String[] columns = line.split(";");
-			for (int i = 0; i < columns.length; i++) {
-			lista.add(columns[i]);
-		}
-			
-		scan.close();
-				
-		matriculas.delete();
-		
 		}
 	}
 
