@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,26 +28,20 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		}
 		File conteudoMateria = new File("Materias/" + materia + "/" + titulo + ".csv");
 		
-		if(conteudoMateria.exists()){
-			// caso falhe
-		}	
+//		if(conteudoMateria.exists()){
+//			res.redirect("/erro_nteudoCadastrado.html");
+//		}	
 		try {
 			FileWriter writer = new FileWriter(conteudoMateria);
 			writer.write(conteudo);
 			writer.flush();
 			writer.close();	
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		return null;
+	
+		return new ModelAndView(null, "home.html");
 	}
 
 }

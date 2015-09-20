@@ -1,0 +1,16 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   "Materias/F\303\255sica 2/Empuxo.csv"
+#	new file:   "Materias/F\303\255sica 2/exterminador do futuro.csv"
+#	new file:   "Materias/F\303\255sica 2/exterminador do futuro2.csv"
+#	new file:   "Materias/Matem\303\241tica 2/exterminador do futuro2.csv"
+#	modified:   src/Controlador/CadastrarConteudo.java
+#	modified:   src/cadastro/Main.java
+#	new file:   src/pub/erro_conteudoCadastrado.html
+#
+

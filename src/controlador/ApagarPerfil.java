@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import cadastro.Usuario;
 import spark.ModelAndView;

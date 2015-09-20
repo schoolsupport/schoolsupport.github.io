@@ -2,7 +2,7 @@ package cadastro;
 
 import java.io.*;
 
-import Controlador.*;
+import controlador.*;
 import spark.*;
 import spark.template.mustache.MustacheTemplateEngine;
 
@@ -35,7 +35,6 @@ public class Main {
 		
 		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();
 		Spark.post("/cadastrarconteudo", cadastrarConteudo, engine);
-		
-		
+				
 	}
 }
