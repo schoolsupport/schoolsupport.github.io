@@ -13,10 +13,9 @@ public class Login implements TemplateViewRoute{
 			String senha = req.queryParams("password2");
 			
 			//Usuario usuarioLogado = req.session().attribute("usuario_logado");
-			
 			File file = new File("Cadastros/" + matricula + ".csv");
 				if(! file.exists()){
-					res.redirect("/erro_email.html");
+					res.redirect("/erro_login.html");
 					return null;
 				}
 			Scanner scan;
@@ -28,11 +27,12 @@ public class Login implements TemplateViewRoute{
 					String row = scan.nextLine();
 					a.fromCSV(row);
 				}
-				
 				if (a.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", a);
 					res.redirect("/home.html");
-				} else {
+
+				}	
+			 else {
 					res.redirect("/index.html");
 				}
 				
@@ -40,6 +40,8 @@ public class Login implements TemplateViewRoute{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			res.redirect("/erro_login.html");
 			return null;
+			
 		}
-}	
+}
