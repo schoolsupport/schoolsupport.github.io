@@ -35,6 +35,9 @@ public class Main {
 		
 		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();
 		Spark.post("/cadastrarconteudo", cadastrarConteudo, engine);
+		
+		MostrarConteudo mostrarConteudo = new MostrarConteudo();
+		Spark.get("/mostrarconteudo", mostrarConteudo, engine);
 				
 	}
 }

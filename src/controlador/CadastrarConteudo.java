@@ -3,6 +3,7 @@ package controlador;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import spark.ModelAndView;
 import spark.Request;
@@ -10,8 +11,6 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class CadastrarConteudo implements TemplateViewRoute{
-
-	@Override
 	public ModelAndView handle(Request req, Response res) {
 		
 		String materia = req.queryParams("disciplina");
@@ -28,20 +27,42 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		}
 		File conteudoMateria = new File("Materias/" + materia + "/" + titulo + ".csv");
 		
+		File arquivo = new File("conteudo" + "-" + titulo + ".html");
+		File padrao = new File("src/pub/conteudo_teste.txt");
+		
 //		if(conteudoMateria.exists()){
 //			res.redirect("/erro_nteudoCadastrado.html");
 //		}	
 		try {
+			
+			StringBuilder builder = new StringBuilder();
+			builder.append(titulo);
+			builder.append(";");
+			builder.append(conteudo);
+			
 			FileWriter writer = new FileWriter(conteudoMateria);
-			writer.write(conteudo);
+			
+			writer.write(builder.toString());
 			writer.flush();
 			writer.close();	
+			String line = "";
+			Scanner scan = new Scanner(padrao);
+			if (scan.hasNextLine()) {
+				line = scan.nextLine();
+			}
+			scan.close();
+			FileWriter writer2 = new FileWriter(arquivo);
+			writer2.write(line);
+			writer2.flush();
+			writer2.close();	
 		
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	
-		return new ModelAndView(null, "home.html");
+		res.redirect("/mostrarconteudo");
+		return null;
 	}
 
 }
