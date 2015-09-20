@@ -32,5 +32,10 @@ public class Main {
 		
 		Login login = new Login();
 		Spark.post("/login", login, engine);
+		
+		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();
+		Spark.post("/cadastrarConteudo", cadastrarConteudo, engine);
+		
+		
 	}
 }
