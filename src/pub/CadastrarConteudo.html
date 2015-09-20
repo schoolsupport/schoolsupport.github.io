@@ -8,7 +8,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Completar Perfil - School Support</title>
+    <title>Cadastrar Conteúdo - School Support</title>
     <link rel="icon" href="./index_files/favicon.ico" type="image/x-icon" />
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -85,9 +85,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                             <li><a class="menu-top-active"  href="index.html">Completar Perfil</a></li>
-                             <li><a href="home.html">Início</a></li>
-                            <li><a href="fisica2.html">Física 2</a></li>
+                             <li><a class="menu-top-active"  href="CadastrarConteúdo.html">Cadastrar Conteúdo</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,43 +98,33 @@
         <div class="container">
               <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Completar Perfil </h1>
+                        <h1 class="page-head-line">Cadastrar Conteúdo </h1>
                     </div>
                 </div>
-                <form action="/completar" method="POST">
+                <form action="/cadastrarconteudo" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="">
                         <div class="panel-body">
                   <div class="">
-                    <label for="exampleInputEmail1">Nome: </label>
-                    <input id="name" type="text" value="" name="name" class="form-control" required/>
+                    <label for="exampleInputEmail1">Título da matéria: </label>
+                    <input id="titulo" type="text" value="" name="titulo" class="form-control" required/>
                   </div>
                   <div class="">
-                    <label for="exampleInputEmail1">Sobrenome: </label>
-                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required/>
-                  </div>
-                  <div class="">
-                    <label for="exampleInputEmail1">Curso: </label>
-                    <input id="curso" list="cursos" value="" name="curso" class="form-control" required/>
-                    <datalist id="cursos">
-                    <option value="Informática para Internet">
-                    <option value="Eletrotécnica">
-                    <option value="Geoprocessamento">
-                    <option value="Fabricação Mecânica">
-                    <option value="Automação Industrial">
+                    <label for="exampleInputEmail1">Disciplina: </label>
+                    <input id="disciplina" list="disciplinas" value="" name="disciplina" class="form-control" required/>
+                    <datalist id="disciplinas">
+                    <option value="Física 2">
+                    <option value="Matemática 2">
+                    <option value="DBO">
                     </datalist>
                   </div>
                   <div class="">
-                    <label for="exampleInputEmail1">Ano que está cursando: </label>
-                    <input type="number" class="form-control" id="ano" name="ano" min="1" max="4" required/>
+                    <label for="exampleInputEmail1">Conteúdo: </label><br>
+                    <textarea name="conteudo" cols="72" rows="7" ></textarea>
                   </div>
-                  <div class="">
-                    <label for="exampleInputEmail1">Bio: </label>
-                    <input type="text" class="form-control" id="bio" name="bio" />(Opcional)
-                  </div>
-                  <hr />
-                  <button type="submit" class="btn btn-default">Completar</button>
+                  <br>
+                  <button type="submit" class="btn btn-default">Cadastrar</button>
             </form>
                                         </div>
                             </div>

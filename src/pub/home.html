@@ -9,6 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>School Support</title>
+    <link rel="icon" href="./index_files/favicon.ico" type="image/x-icon" />
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <!-- FONT AWESOME ICONS  -->
@@ -67,6 +68,8 @@
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
                                 <hr>
                                 {{/usuario}}
+                                {{/perfil}}
+                                {{#perfil}}
                                 <a href="/completar_perfil" class="btn btn-info btn-sm">{{comp}}</a>&nbsp; 
                                 {{/perfil}}
                                 <a href="/excluir" class="btn btn-danger btn-sm">Sair</a>
