@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -36,11 +36,12 @@ public class CadastrarConteudo implements TemplateViewRoute{
 			writer.write(conteudo);
 			writer.flush();
 			writer.close();	
-			res.redirect("/home.html");
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+	
+		return new ModelAndView(null, "home.html");
 	}
 
 }
