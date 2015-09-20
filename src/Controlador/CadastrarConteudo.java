@@ -29,24 +29,17 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		File conteudoMateria = new File("Materias/" + materia + "/" + titulo + ".csv");
 		
 		if(conteudoMateria.exists()){
-			// caso falhe
+			res.redirect("/erro_conteudoCadastrado.html");
 		}	
 		try {
 			FileWriter writer = new FileWriter(conteudoMateria);
 			writer.write(conteudo);
 			writer.flush();
 			writer.close();	
+			res.redirect("/home.html");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 		return null;
 	}
 
