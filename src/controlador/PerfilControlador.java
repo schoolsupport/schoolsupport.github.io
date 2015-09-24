@@ -9,6 +9,10 @@ public class PerfilControlador implements TemplateViewRoute {
 
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario = req.session().attribute("usuario_logado");
+		if(usuario == null) {
+			res.redirect("index.html");
+			return null;
+		}
 		Perfil perfil = usuario.getPerfil();
 		HashMap dados = new HashMap();
 		dados.put("perfil", perfil);

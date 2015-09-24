@@ -23,6 +23,11 @@ public class Main {
 		
 		PerfilControlador perfilControlador = new PerfilControlador();
 		Spark.get("/home.html", perfilControlador, engine);
+		Spark.get("/home", perfilControlador, engine);
+		
+		Fisica2Controlador fisica2 = new Fisica2Controlador();
+		Spark.get("/fisica2", fisica2, engine);
+		Spark.get("/fisica2.html", fisica2, engine);
 				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
