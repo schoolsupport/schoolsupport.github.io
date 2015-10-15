@@ -25,6 +25,9 @@ public class Login implements TemplateViewRoute{
 				}
 				if (user.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", user);
+					if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
+						res.redirect("/admin.html");
+					}
 					res.redirect("/home.html");
 				}	
 			 else {

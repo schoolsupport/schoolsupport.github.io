@@ -23,6 +23,9 @@ public class Main {
 		
 		PerfilControlador perfilControlador = new PerfilControlador();
 		Spark.get("/home.html", perfilControlador, engine);
+		
+		AdminControlador admincontrolador = new AdminControlador();
+		Spark.get("/admin.html", admincontrolador, engine);
 				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
@@ -38,6 +41,9 @@ public class Main {
 		
 		MostrarConteudo mostrarConteudo = new MostrarConteudo();
 		Spark.get("/mostrarconteudo", mostrarConteudo, engine);
+		
+		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
+		Spark.get("/usuarioscadastrados.html", usuariosCadastrados, engine);
 				
 	}
 }
