@@ -1,8 +1,10 @@
-package cadastro;
+package controlador;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import cadastro.Conteudo;
 import spark.*;
 
 public class MostrarConteudo implements TemplateViewRoute {
