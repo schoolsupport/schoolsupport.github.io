@@ -46,7 +46,61 @@ public class Usuario {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+
+
 	}
+
+	private void addMatriculaToList() throws IOException {
+		
+		File mats = new File("matriculas.csv");
+		if ( ! mats.exists()) { 
+			FileWriter e = new FileWriter("mats.csv"); 
+			e.flush();
+			e.close();
+		}	
+		
+		Scanner scan = new Scanner(mats);
+		
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		
+		if (scan.hasNextLine()) {
+			String line = scan.nextLine();
+			String[] columns = line.split(";");
+			for (int i = 0; i < columns.length; i++) {
+			lista.add(columns[i]);
+			}
+		scan.close();		
+		mats.delete();
+		
+		FileWriter mats2 = new FileWriter("mats.csv");
+				
+		StringBuilder builder2 = new StringBuilder();
+		for (int i = 0; i < lista.size(); i++) {
+			builder2.append(lista.get(i));
+			
+			builder2.append(";");
+		}
+				
+		builder2.append(this.getMatricula());
+		builder2.append(";");
+				
+		mats2.write(builder2.toString());
+		mats2.flush();
+		mats2.close();
+	
+		}
+		else  {
+			FileWriter ems = new FileWriter("matriculas.csv");
+			ems.append(matricula);
+			ems.append(";");
+			ems.flush();
+			ems.close();
+			
+		}
+		
+	}
+
 	public void toCSV() throws IOException {
 		if (matricula != null && username != null && email != null && senha != null) {
 			
