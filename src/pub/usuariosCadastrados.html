@@ -80,10 +80,9 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a  href="#">Usuarios</a></li>
+                            <li><a  href="cadastrarConteudo.html">Cadastrar Conteúdo</a></li>
                             <li><a  href="index.html">Sair</a></li>
-                            <li><a href="ui.html">Usuarios</a></li>
-                            
-
                         </ul>
                     </div>
                 </div>
@@ -102,10 +101,10 @@
                    <strong>Usuários</strong>
                     </div>
                       <div class="panel-body">
-                        {{#usuarios}}
-                             {{toString()}}
+                        {{#matriculas}}
+                             {{intValue}}
                             <hr>
-                        {{/usuarios}}
+                        {{/matriculas}}
                         
                       </div>
                       <!--<div class="panel-footer text-muted">

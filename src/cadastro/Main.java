@@ -44,13 +44,13 @@ public class Main {
 		Spark.post("/login", login, engine);
 		
 		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();
-		Spark.post("/cadastrarconteudo", cadastrarConteudo, engine);
+		Spark.post("/cadastrarConteudo", cadastrarConteudo, engine);
 		
 		MostrarConteudo mostrarConteudo = new MostrarConteudo();
-		Spark.get("/mostrarconteudo", mostrarConteudo, engine);
+		Spark.get("/mostrarConteudo", mostrarConteudo, engine);
 		
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
-		Spark.get("/usuarioscadastrados.html", usuariosCadastrados, engine);
+		Spark.get("/usuariosCadastrados.html", usuariosCadastrados, engine);
 				
 	}
 }

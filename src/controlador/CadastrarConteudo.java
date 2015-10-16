@@ -30,9 +30,6 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		File arquivo = new File("conteudo" + "-" + titulo + ".html");
 		File padrao = new File("src/pub/conteudo_teste.txt");
 		
-//		if(conteudoMateria.exists()){
-//			res.redirect("/erro_nteudoCadastrado.html");
-//		}	
 		try {
 			
 			StringBuilder builder = new StringBuilder();
@@ -61,7 +58,7 @@ public class CadastrarConteudo implements TemplateViewRoute{
 			e.printStackTrace();
 		}
 	
-		res.redirect("/mostrarconteudo");
+		res.redirect("/conteudo_teste.html");
 		return null;
 	}
 
