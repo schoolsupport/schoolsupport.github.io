@@ -1,8 +1,11 @@
 package controlador;
 
 import java.util.HashMap;
-import cadastro.*;
+
+import modelo.Perfil;
+import modelo.Usuario;
 import spark.*;
+import web.*;
 
 public class RedirecionarCompletar implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {

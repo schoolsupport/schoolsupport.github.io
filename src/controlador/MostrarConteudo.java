@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import cadastro.Conteudo;
+import modelo.Conteudo;
 import spark.*;
 
 public class MostrarConteudo implements TemplateViewRoute {

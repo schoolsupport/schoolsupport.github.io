@@ -1,4 +1,4 @@
-package cadastro;
+package web;
 
 import java.io.*;
 
@@ -40,7 +40,7 @@ public class Main {
 		ApagarPerfil apagarPerfil = new ApagarPerfil();
 		Spark.get("/excluir", apagarPerfil, engine);
 		
-		Login login = new Login();
+		LoginControlador login = new LoginControlador();
 		Spark.post("/login", login, engine);
 		
 		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();

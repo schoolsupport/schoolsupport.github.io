@@ -1,6 +1,7 @@
-package cadastro;
+package modelo;
 
 public class Conteudo {
+	
 	private String titulo;
 	private String conteudo;
 	
@@ -16,4 +17,5 @@ public class Conteudo {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
+	
 }

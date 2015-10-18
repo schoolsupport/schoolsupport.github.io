@@ -2,8 +2,8 @@ package controlador;
 
 import java.util.HashMap;
 
-import cadastro.Perfil;
-import cadastro.Usuario;
+import modelo.Perfil;
+import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

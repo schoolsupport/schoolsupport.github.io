@@ -1,4 +1,4 @@
-package cadastro;
+package modelo;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -54,35 +54,6 @@ public class Perfil {
 	}
 	public void AddDisciplina(Disciplina d) {
 		this.disciplinas.add(d);
-	}
-	
-	public void toCSV() throws IOException {
-		
-		File dir = new File("Perfis");
-		if ( ! dir.exists()) { 
-			dir.mkdir(); // make directory;
-		}
-		
-		StringBuilder builder = new StringBuilder();
-		builder.append(nome);
-		builder.append(";");
-		builder.append(sobrenome);
-		builder.append(";");
-		builder.append(turma);
-		builder.append(";");
-		builder.append(curso);
-		builder.append(";");
-		builder.append(bio);
-		
-		
-		File file = new File("Perfis/" + usuario.getMatricula() + ".csv");
-		
-		FileWriter writer = new FileWriter(file);
-		
-		writer.write(builder.toString());
-		
-		writer.flush();
-		writer.close();
 	}
 	public String getBio() {
 		return bio;
