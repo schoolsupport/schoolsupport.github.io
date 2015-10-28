@@ -1,28 +1,29 @@
-package cadastro;
+package controlador;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import modelo.Usuario;
+import persistencia.UsuarioDAO;
 import spark.*;
 
-public class Login implements TemplateViewRoute{
-		public ModelAndView handle(Request req, Response res){	
+public class LoginControlador implements TemplateViewRoute{
+		
+	public ModelAndView handle(Request req, Response res){	
 			String matricula = req.queryParams("matricula2");
 			String senha = req.queryParams("password2");
-			File file = new File("Cadastros/" + matricula + ".csv");
+			File file = new File("banco/cadastros/" + matricula + ".csv");
 				if(! file.exists()){
 					res.redirect("/erro_login.html");
 					return null;
 				}
 			Scanner scan;
 			Usuario user = new Usuario();
-			try {
-				scan = new Scanner(file);	
-				while(scan.hasNextLine()){
-					String row = scan.nextLine();
-					user.fromCSV(row);
-				}
+			UsuarioDAO dao = new UsuarioDAO();
+			user = dao.load(matricula);
+			if (user == null) res.redirect("/erro_login.html");
+				
 				if (user.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", user);
 					if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
@@ -33,10 +34,8 @@ public class Login implements TemplateViewRoute{
 			 else {
 					res.redirect("/index.html");
 				}
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
+			
 			res.redirect("/erro_login.html");
 			return null;
 		}

@@ -2,8 +2,10 @@ package controlador;
 
 import java.util.HashMap;
 
-import cadastro.*;
+import modelo.Perfil;
+import modelo.Usuario;
 import spark.*;
+import web.*;
 
 public class PerfilControlador implements TemplateViewRoute {
 

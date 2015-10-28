@@ -1,8 +1,12 @@
 package controlador;
 
 import java.io.IOException;
-import cadastro.*;
+
+import modelo.Perfil;
+import modelo.Usuario;
+import persistencia.PerfilDAO;
 import spark.*;
+
 
 public class CompletarPerfil implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
@@ -15,9 +19,9 @@ public class CompletarPerfil implements TemplateViewRoute {
 		p.setCurso(req.queryParams("curso"));
 		p.setTurma(req.queryParams("ano"));
 		p.setBio(req.queryParams("bio"));
-		
+		PerfilDAO dao = new PerfilDAO();
 		try {
-			p.toCSV();
+			dao.save(p);			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -1,18 +1,19 @@
 package controlador;
 
-import cadastro.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 import java.io.*;
 
+import modelo.Usuario;
+
 public class ApagarPerfil implements TemplateViewRoute{
 	public ModelAndView handle(Request req, Response res) {
 		
 		Usuario usuario = req.session().attribute("usuario_logado");		
-		File perfis = new File("Perfis/" + usuario.getMatricula() + ".csv");
-		File cadastros = new File("Cadastros/" + usuario.getMatricula() + ".csv");
+		File perfis = new File("banco/perfis/" + usuario.getMatricula() + ".csv");
+		File cadastros = new File("banco/cadastros/" + usuario.getMatricula() + ".csv");
 		
 		if(perfis.exists()){
 			perfis.delete();

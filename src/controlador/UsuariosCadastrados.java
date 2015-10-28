@@ -12,7 +12,7 @@ import spark.TemplateViewRoute;
 public class UsuariosCadastrados implements TemplateViewRoute{
 	@Override
 	public ModelAndView handle(Request req, Response res) {	
-        File[] usuarios = new File("Cadastros").listFiles();
+        File[] usuarios = new File("banco/cadastros").listFiles();
         int[] matriculas = new int[usuarios.length];
 		for(int i = 0; i < usuarios.length; i++ ){
 			matriculas[i] = Integer.parseInt((usuarios[i].getName()).substring(0, 8));

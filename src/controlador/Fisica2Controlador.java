@@ -1,6 +1,6 @@
 package controlador;
 
-import cadastro.Usuario;
+import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

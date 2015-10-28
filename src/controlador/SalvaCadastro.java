@@ -1,7 +1,9 @@
 package controlador;
 
 import java.io.IOException;
-import cadastro.Usuario;
+
+import modelo.Usuario;
+import persistencia.UsuarioDAO;
 import spark.*;
 
 public class SalvaCadastro implements TemplateViewRoute {
@@ -17,8 +19,9 @@ public class SalvaCadastro implements TemplateViewRoute {
 		if (setM == false) {
 			res.redirect("/erro_matricula.html"); return null;
 		}
+		UsuarioDAO dao = new UsuarioDAO();
 		try {
-			usuario_logado.toCSV();
+			dao.save(usuario_logado);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

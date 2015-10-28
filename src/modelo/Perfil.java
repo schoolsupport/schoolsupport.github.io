@@ -1,4 +1,4 @@
-package cadastro;
+package modelo;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,12 +7,15 @@ import java.util.ArrayList;
 
 public class Perfil {
 	
-	private Usuario usuario = new Usuario();
+	private Usuario usuario;
 	private String nome;
 	private String sobrenome;
 	private String turma;
 	private String curso;
+	private String bio;
 	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	private boolean completo = false; 
+	private String comp = "Completar Perfil";
 		
 	public Usuario getUsuario() {
 		return usuario;
@@ -25,6 +28,8 @@ public class Perfil {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+		this.setCompleto(true);
+		this.setComp("Seu Perfil");
 	}
 	public String getSobrenome() {
 		return sobrenome;
@@ -50,34 +55,22 @@ public class Perfil {
 	public void AddDisciplina(Disciplina d) {
 		this.disciplinas.add(d);
 	}
-	
-	public void toCSV() throws IOException {
-		
-		File dir = new File(usuario.getMatricula());
-		if ( ! dir.exists()) { 
-			dir.mkdir(); // make directory;
-		}
-		
-		StringBuilder builder = new StringBuilder();
-		builder.append(nome);
-		builder.append(";");
-		builder.append(sobrenome);
-		builder.append(";");
-		builder.append(turma);
-		builder.append(";");
-		builder.append(curso);
-		
-		
-		File file = new File(usuario.getMatricula() + "/" + "dados_perfil" + ".csv");
-		
-		FileWriter writer = new FileWriter(file);
-		
-		writer.write(builder.toString());
-		
-		writer.flush();
-		writer.close();
-		
-		
+	public String getBio() {
+		return bio;
 	}
-	
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	public String getComp() {
+		return comp;
+	}
+	public void setComp(String comp) {
+		this.comp = comp;
+	}
+	public boolean isCompleto() {
+		return completo;
+	}
+	public void setCompleto(boolean completo) {
+		this.completo = completo;
+	}	
 }
