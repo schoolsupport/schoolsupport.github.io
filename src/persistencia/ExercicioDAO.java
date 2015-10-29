@@ -15,18 +15,16 @@ public class ExercicioDAO {
 	public void generateCode () {
 		File f = new File("banco/exercicios/code.csv");
 		if (f.exists()) {
-			
 			try {
 				Scanner scan = new Scanner(f);
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");
-				code = Integer.parseInt(colunas[colunas.length - 1]) + 1;
+				code = Integer.parseInt(colunas[colunas.length - 1]) + 1;		
 				scan.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		}
-				 
+		}			 
 		try {
 			FileWriter writer = new FileWriter("banco/exercicios/code.csv");
 			writer.write(this.code + ";");
@@ -34,11 +32,8 @@ public class ExercicioDAO {
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
-			
-	}
-		
+		}		
+	}	
 	public void save (Exercicio ex) {
 		generateCode();
 		ex.setCode(code);
@@ -47,44 +42,31 @@ public class ExercicioDAO {
 		
 		File nextRota = new File("banco/exercicios/" + ex.getDisciplina());
 		if (! nextRota.exists()) nextRota.mkdir();
-		
-		
-			
-			File exercicio = new File("banco/materias/" + ex.getDisciplina() + "/" + ex.getCode() + ".csv");
-			if(exercicio.exists()) return;
-			
-				System.out.println("OI");
 				
-				FileWriter writer;
-				try {
-					writer = new FileWriter(exercicio);
-					writer.write(ex.getOrdem());
-					writer.write(";");
-					writer.write(ex.getAlternativa1());
-					writer.write(";");
-					writer.write(ex.getAlternativa2());
-					writer.write(";");
-					writer.write(ex.getAlternativa3());
-					writer.write(";");
-					writer.write(ex.getAlternativa4());
-					writer.write(";");
-					writer.write(ex.getAlternativa5());
-					writer.write(";");
-					writer.write(ex.getAlternativaCorreta());
+		File exercicio = new File("banco/exercicios/" + ex.getDisciplina() + "/" + ex.getCode() + ".csv");
+		if(exercicio.exists()) return;
+				
+		FileWriter writer;
+		try {
+			writer = new FileWriter(exercicio);
+			writer.write(ex.getOrdem());
+			writer.write(";");
+			writer.write(ex.getAlternativa1());
+			writer.write(";");
+			writer.write(ex.getAlternativa2());
+			writer.write(";");
+			writer.write(ex.getAlternativa3());
+			writer.write(";");
+			writer.write(ex.getAlternativa4());
+			writer.write(";");
+			writer.write(ex.getAlternativa5());
+			writer.write(";");
+			writer.write(ex.getAlternativaCorreta());
 					
-									
-					writer.flush();
-					writer.close();	
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-			
-	
-				
-	
+			writer.flush();
+			writer.close();	
+		} catch (IOException e) {
+			e.printStackTrace();
+			}			
 	}
 }
-	
-

@@ -9,7 +9,7 @@ public class Exercicio {
 	private String alternativa3;
 	private String alternativa4;
 	private String alternativa5;
-	private int alternativa_correta;
+	private String alternativa_correta;
 	private int code;
 	
 	
@@ -56,10 +56,10 @@ public class Exercicio {
 	public void setAlternativa5(String alternativa5) {
 		this.alternativa5 = alternativa5;
 	}
-	public int getAlternativaCorreta() {
+	public String getAlternativaCorreta() {
 		return alternativa_correta;
 	}
-	public void setAlternativaCorreta(int alternativa_correta) {
+	public void setAlternativaCorreta(String alternativa_correta) {
 		this.alternativa_correta = alternativa_correta;
 	}
 	private String disciplina;
