@@ -82,7 +82,7 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a  href="usuariosCadastrados.html">Usuarios</a></li>
                             <li><a  href="CadastrarConteudo.html">Cadastrar Conteúdo</a></li>
-                              <li><a href="cadastrar_exercicio.html">Cadastrar exercício</a></LI>
+                              <li><a href="cadastrar_exercicio.html">Cadastrar exercício</a>
                             <li><a  href="index.html">Sair</a></li>
                         </ul>
                     </div>
@@ -94,25 +94,65 @@
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="page-head-line">Blank Page</h4>
-
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-warning">
-                        This is blank page for which you can customize for your project. 
-                        Use this admin template 100% free to use for personal and commercial use which is crafted by 
-                        <br />
-                        <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap.com</a> . For more free templates and snippets keep looking <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap.com</a> . Hope you will like our work
-                  
+              <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Cadastrar Exercício </h1>
                     </div>
                 </div>
-
-            </div>
+                <form action="/cadastrarExercicio" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="">
+                        <div class="panel-body">
+                 <div class="">
+                        <label for="exampleInputEmail1">Disciplina: </label>
+                            <input id="disciplina" list="disciplinas" value="" name="disciplina" class="form-control" required/>
+                            <datalist id="disciplinas">
+                                <option value="Física 2">
+                                <option value="Matemática 2">
+                                <option value="DBO">
+                            </datalist>
+                    </div>
+                  <div class="">
+                    <label for="exampleInputEmail1">Ordem: </label><br>
+                    <textarea name="ordem" cols="72" rows="7" required></textarea>
+                  </div>
+                  <div class="">
+                    <label for="exampleInputEmail1">Alternativa 1: </label>
+                    <input id="titulo" type="text" value="" name="alternativa1" class="form-control" required/>
+                  </div>
+                   <div class="">
+                    <label for="exampleInputEmail1">Alternativa 2: </label>
+                    <input id="titulo" type="text" value="" name="alternativa2" class="form-control" required/>
+                  </div>
+                   <div class="">
+                    <label for="exampleInputEmail1">Alternativa 3: </label>
+                    <input id="titulo" type="text" value="" name="alternativa3" class="form-control" required/>
+                  </div>
+                   <div class="">
+                    <label for="exampleInputEmail1">Alternativa 4: </label>
+                    <input id="titulo" type="text" value="" name="alternativa4" class="form-control" required/>
+                  </div>
+                   <div class="">
+                    <label for="exampleInputEmail1">Alternativa 5: </label>
+                    <input id="titulo" type="text" value="" name="alternativa5" class="form-control" required/>
+                  </div>
+                  <div class="">
+                    <label for="exampleInputEmail1">Número da alternativa correta (1, 2, 3, 4 ou 5): </label>
+                    <input id="titulo" type="number" value="" name="alternativa_correta" class="form-control" required/>
+                  </div>
+                  
+                
+                  <br>
+                  <button type="submit" class="btn btn-default">Cadastrar</button>
+            </form>
+                                        </div>
+                            </div>
+                    </div>
+                
+                </div>
+        </div>
+    </div>
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->

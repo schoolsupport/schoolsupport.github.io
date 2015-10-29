@@ -51,6 +51,10 @@ public class Main {
 		
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
 		Spark.get("/usuariosCadastrados.html", usuariosCadastrados, engine);
-				
+		
+		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
+		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
+		
+		
 	}
 }
