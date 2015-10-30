@@ -2,12 +2,18 @@ package controlador;
 
 import java.io.IOException;
 
+import modelo.Perfil;
 import modelo.Usuario;
+import persistencia.PerfilDAO;
 import persistencia.UsuarioDAO;
-import spark.*;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.TemplateViewRoute;
 
 public class SalvaCadastro implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
+		
 		Usuario usuario_logado = new Usuario();
 		usuario_logado.setUsername(req.queryParams("user"));
 		boolean setE = usuario_logado.setEmail(req.queryParams("email")); 

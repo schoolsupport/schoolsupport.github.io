@@ -24,7 +24,6 @@ public class Main {
 		PerfilControlador perfilControlador = new PerfilControlador();
 		Spark.get("/home.html", perfilControlador, engine);
 
-		
 		AdminControlador admincontrolador = new AdminControlador();
 		Spark.get("/admin.html", admincontrolador, engine);
 
@@ -54,6 +53,9 @@ public class Main {
 		
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
+		
+		Logout logout = new Logout();
+		Spark.get("/logout", logout, engine);
 		
 		
 	}
