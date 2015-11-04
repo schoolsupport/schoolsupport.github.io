@@ -55,6 +55,8 @@ public class Main {
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
+		Logout logout = new Logout();
+		Spark.get("/sair", logout, engine);
 		
 	}
 }

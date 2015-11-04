@@ -8,6 +8,7 @@ import spark.*;
 
 public class SalvaCadastro implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
+		
 		Usuario usuario_logado = new Usuario();
 		usuario_logado.setUsername(req.queryParams("user"));
 		boolean setE = usuario_logado.setEmail(req.queryParams("email")); 
