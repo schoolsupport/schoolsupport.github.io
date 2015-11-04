@@ -35,7 +35,7 @@
 
             </div>
 
-            <div class="left-div">
+                     <div class="left-div">
                 <div class="user-settings-wrapper">
                     <ul class="nav">
 
@@ -46,22 +46,28 @@
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/64-64.jpg" alt="" class="img-rounded">
+                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
                                     </a>
+                               
                                     <div class="media-body">
-                                     {{#usuario}}
-                                        <h4 class="media-heading">{{username}}</h4>
-                                        <h5>{{email}} &amp; {{email}}</h5>
-                                      {{/usuario}}
+                                    
+                                     {{#perfil}}
+                                      {{#usuario}}
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
+                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
                                     </div>
                                 </div>
+                              
                                 <hr>
-                                <h5><strong>Personal Bio : </strong></h5>
-                                Anim pariatur cliche reprehen derit.
+                                <h5><strong>Bio: </strong>{{bio}}</h5>
                                 <hr>
-                                <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="login.html" class="btn btn-danger btn-sm">Deletar</a>
-
+                                {{/usuario}}
+                                {{/perfil}}
+                                <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
+                                <a href="/logout" class="btn btn-danger btn-sm">Sair</a>
+                                     
                             </div>
+                            
                         </li>
 
 
@@ -79,7 +85,11 @@
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="home.html">Início</a></li>
                             <li><a class="menu-top-active" href="fisica2.html">Física 2</a></li>
+<<<<<<< HEAD
                             <li><a href="/sair">Sair</a></li>
+=======
+                            <li><a href="/logout">Sair</a></li>
+>>>>>>> 3614c808bf9ffaf7cf15c6e6489a2ee7136b4e37
 
                         </ul>
                     </div>

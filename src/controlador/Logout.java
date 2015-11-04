@@ -11,6 +11,7 @@ public class Logout implements TemplateViewRoute {
 		Usuario u = null;
 		req.session().attribute("usuario_logado", u);
 		res.redirect("index.html");
+
 		return null;
 	}
 
