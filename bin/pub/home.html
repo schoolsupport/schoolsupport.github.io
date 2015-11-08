@@ -52,21 +52,20 @@
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
+                                        <img src="./index_files/fb.jpg" width="60" alt="" class="img-rounded">
                                     </a>
                                
                                     <div class="media-body">
                                     
                                      {{#perfil}}
                                       {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
-                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4><br>
                                     </div>
                                 </div>
-                              
-                                <hr>
+                                <br>
+                                <h5><strong>Curso:</strong> {{curso}}<br></h5> 
+                                <h5><strong>Matrícula:</strong> {{matricula}}</h5>
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
-                                <hr>
                                 {{/usuario}}
                                 {{/perfil}}
                                 <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
