@@ -47,6 +47,15 @@ body {
     font-size: 20px;
     margin-bottom: 15px;
 }
+.page-head-line2 {
+    font-weight: 900;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #7c2011;
+    text-transform: uppercase;
+    color: #7c2011;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
 
 .btn {
     border-radius: 0px;
