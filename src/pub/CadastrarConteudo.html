@@ -86,7 +86,7 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a  href="usuariosCadastrados.html">Usuarios</a></li>
-                            <li><a  href="cadastrarConteudo.html">Cadastrar Conteúdo</a></li>
+                            <li><a  href="CadastrarConteudo.html">Cadastrar Conteúdo</a></li>
                               <li><a href="cadastrar_exercicio.html">Cadastrar exercício</a></LI>
                             <li><a  href="/logout">Sair</a></li>
                         </ul>
@@ -110,7 +110,7 @@
                         <div class="">
                         <div class="panel-body">
                   <div class="">
-                    <label for="exampleInputEmail1">Título da matéria: </label>
+                    <label for="exampleInputEmail1">Título do conteúdo: </label>
                     <input id="titulo" type="text" value="" name="titulo" class="form-control" required/>
                   </div>
                   <div class="">
@@ -147,84 +147,6 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript">
-    function checkMatricula() {
-        var m = document.getElementById('matricula');
-        var m_informada;
-        var goodColor = "#66cc66";
-        var badColor = "#ff6666";
-        var message = document.getElementById('confirmMessage2');
-        
-        m_informada = m.value.substr( 0, 2)
-
-        if(m_informada == "11" && m.value.length == 8) {
-            m.style.backgroundColor = goodColor;
-            message.style.color = goodColor;
-            message.innerHTML = "Matrícula válida!"
-        } else {
-            m.style.backgroundColor = badColor;
-            message.style.color = badColor;
-            message.innerHTML = "Digite uma matrícula válida!"
-        }
-        
-    }
-    function checkMatricula2() {
-        var m = document.getElementById('matricula2');
-        var m_informada;
-        var goodColor = "#66cc66";
-        var badColor = "#ff6666";
-        var message = document.getElementById('confirmMessage3');
-        
-        m_informada = m.value.substr( 0, 2)
-
-        if(m_informada == "11" && m.value.length == 8) {
-            m.style.backgroundColor = goodColor;
-            message.style.color = goodColor;
-            message.innerHTML = "Matrícula válida!"
-        } else {
-            m.style.backgroundColor = badColor;
-            message.style.color = badColor;
-            message.innerHTML = "Digite uma matrícula válida!"
-        }
-
-    }
-    function checkPass() {
-    //Store the password field objects into variables ...
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
-    //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
-    //Set the colors we will be using ...
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-    //Compare the values in the password field 
-    //and the confirmation field
-   
-    if(pass1.value == pass2.value) {
-        
-        //The passwords match.  
-        //Set the color to the good color and inform
-        //the user that they have entered the correct password 
-        pass2.style.backgroundColor = goodColor;
-        message.style.color = goodColor;
-        message.innerHTML = "As senhas correspondem!"
-    } else {
-        //The passwords do not match.
-        //Set the color to the bad color and
-        //notify the user.
-        pass2.style.backgroundColor = badColor;
-        message.style.color = badColor;
-        message.innerHTML = "As senhas não correspondem!"
-    }
-     if(pass1.value.length == 0) {
-          pass2.style.backgroundColor = badColor;
-          message.style.color = badColor;
-          message.innerHTML = "Digite uma senha!"
-    }
-
-}  
-    </script>
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+  
 </body>
 </html>

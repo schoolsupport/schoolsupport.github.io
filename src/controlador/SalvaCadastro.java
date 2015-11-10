@@ -1,5 +1,6 @@
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 
 import modelo.Perfil;
@@ -26,15 +27,17 @@ public class SalvaCadastro implements TemplateViewRoute {
 		boolean TemChar = false; 
 		char[] chars = matricula.toCharArray();
 		for (int i = 0; i < chars.length; i++) {
-			if(chars[i] < 49 || chars[i] > 57) {
+			if(chars[i] < 48 || chars[i] > 57) {
 				TemChar = true;
 				res.redirect("/erro_matricula2.html"); return null;
 			}
 		}
-		
-		boolean setM = usuario_logado.setMatricula(req.queryParams("matricula"));
-		if (setM == false) {
-			res.redirect("/erro_matricula.html"); return null;
+		File file = new File("banco/cadastros/" + matricula + ".csv");
+		if(file.exists()){
+			res.redirect("/erro_matricula.html");
+			return null;
+		} else {
+			usuario_logado.setMatricula(req.queryParams("matricula"));
 		}
 		UsuarioDAO dao = new UsuarioDAO();
 		try {

@@ -12,8 +12,6 @@ public class Exercicio {
 	private String alternativa_correta;
 	private int code;
 	
-	
-	
 	public int getCode() {
 		return code;
 	}
@@ -68,6 +66,13 @@ public class Exercicio {
 	}
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
+	}
+	@Override
+	public String toString() {
+		return "Exercicio [ordem=" + ordem + ", alternativa1=" + alternativa1 + ", alternativa2=" + alternativa2
+				+ ", alternativa3=" + alternativa3 + ", alternativa4=" + alternativa4 + ", alternativa5=" + alternativa5
+				+ ", alternativa_correta=" + alternativa_correta + ", code=" + code + ", disciplina=" + disciplina
+				+ "]";
 	}
 	
 	

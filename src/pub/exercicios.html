@@ -46,6 +46,7 @@
                     <ul class="nav">
 
                         <li class="dropdown">
+                            
                             <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
                             </a>
@@ -100,10 +101,45 @@
         </div>
     </section>
     <!-- MENU SECTION END-->
+    {{#exercicio}}
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <h4 class="page-head-line">Exercício {{code}}</h4>
+
+                </div>
+
+            </div>
+            <form action="/comp_ex" method="post">
+            <div class="row">
+                <div class="col-md-12">
+                        <div style="font-size: 20px; color: #7c2011;  margin-bottom: 5px;">
+                            {{ordem}}<br>
+                        </div>
+                        a) <input type="radio" name="alternativa" value="{{alternativa1}}"> {{alternativa1}}<br>
+                        b) <input type="radio" name="alternativa" value="{{alternativa2}}"> {{alternativa2}}<br>
+                        c) <input type="radio" name="alternativa" value="{{alternativa3}}"> {{alternativa3}}<br>
+                        d) <input type="radio" name="alternativa" value="{{alternativa4}}"> {{alternativa4}}<br>
+                        e) <input type="radio" name="alternativa" value="{{alternativa5}}"> {{alternativa5}}<br>
+                        
+                        <input type="submit" value="Enviar" style="padding: 1px; margin-top: 10px;">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    {{/exercicio}}
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2015 School Support | By: <a href="http://schoolsupport.github.io/" target="_blank">School Support</a>
+                </div>
+
+            </div>
+        </div>
                     <h4 class="page-head-line">Exercícios por conteúdo</h4>
                     <br>
                     <h4 class="page-head-line2">Primeiro bimestre</h4>
@@ -150,6 +186,11 @@
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>
     <script src="./index_files/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
     <script src="./index_files/bootstrap.js"></script>

@@ -55,8 +55,15 @@ public class Main {
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
 		Logout logout = new Logout();
-
 		Spark.get("/logout", logout, engine);
+		
+		ExerciciosControlador exerciciosControlador = new ExerciciosControlador();
+		Spark.get("/exercicio", exerciciosControlador, engine);
 				
+		VerificaRespostas verificaRespostas = new VerificaRespostas();
+		Spark.post("/comp_ex", verificaRespostas, engine);
+		
+		ConteudosControlador conteudosControlador = new ConteudosControlador();
+		Spark.get("/conteudo", conteudosControlador, engine);
 	}
 }
