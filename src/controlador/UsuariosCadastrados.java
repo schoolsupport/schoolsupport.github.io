@@ -1,9 +1,10 @@
 package controlador;
 
-import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import modelo.Usuario;
+import persistencia.UsuarioDAO;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -12,13 +13,10 @@ import spark.TemplateViewRoute;
 public class UsuariosCadastrados implements TemplateViewRoute{
 	@Override
 	public ModelAndView handle(Request req, Response res) {	
-        File[] usuarios = new File("banco/cadastros").listFiles();
-        int[] matriculas = new int[usuarios.length];
-		for(int i = 0; i < usuarios.length; i++ ){
-			matriculas[i] = Integer.parseInt((usuarios[i].getName()).substring(0, 8));
-		}
+        UsuarioDAO dao = new UsuarioDAO();
+        ArrayList<Usuario> usuarios = dao.findAll();
 		HashMap mapa = new HashMap();
-			mapa.put("matriculas", matriculas);
+			mapa.put("matriculas", usuarios);
 		return new ModelAndView(mapa, "usuariosCadastrados.html");
 	}
 }

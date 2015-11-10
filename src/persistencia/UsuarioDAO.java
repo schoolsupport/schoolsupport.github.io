@@ -232,4 +232,30 @@ public class UsuarioDAO {
 		}
 		return false;
 	}
-}
+
+	public ArrayList<Usuario> findAll() {
+		
+			ArrayList<Usuario> lista = new ArrayList<Usuario>();
+			try {
+				File dir = new File("banco/cadastros/");		
+				File[] arqs = dir.listFiles();
+				for (File arq : arqs) { // for each
+					Scanner scan = new Scanner(arq);
+					String linha = scan.nextLine();
+					scan.close();
+					String[] colunas = linha.split(";");
+					
+					Usuario u = new Usuario();
+					u.setMatricula((colunas[0]));
+					u.setUsername(colunas[1]);
+					u.setEmail(colunas[2]);
+					u.setSenha(colunas[3]);
+					lista.add(u);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return lista;
+		}
+	}
+
