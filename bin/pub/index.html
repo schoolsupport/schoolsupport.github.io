@@ -88,6 +88,7 @@
                       <label for="exampleInputEmail1">Matrícula: </label>
                     <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" required/>
                     <span id="confirmMessage3" class="confirmMessage3"></span>
+                    <br>
                         <label for="exampleInputPassword1">Senha: </label>
                     <input type="password" class="form-control" id="password2" name="password2" required/>
                         <br>
@@ -152,12 +153,21 @@
     <script type="text/javascript">
     function checkMatricula() {
         var m = document.getElementById('matricula');
+        vetor = m.toCharArray();
         var m_informada;
         var goodColor = "#66cc66";
         var badColor = "#ff6666";
         var message = document.getElementById('confirmMessage2');
         
         m_informada = m.value.substr( 0, 2)
+
+        for(int i=0. i<vetor.length; i++){
+            if(vetor[i] < 30 && vetor[i] > 39){
+                m.style.backgroundColor = badColor;
+                message.style.color = badColor;
+                message.innerHTML = "Digite uma matrícula válida!"
+            }
+        }
 
         if(m_informada == "11" && m.value.length == 8) {
             m.style.backgroundColor = goodColor;

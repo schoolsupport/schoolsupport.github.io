@@ -55,8 +55,8 @@ public class Main {
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
 		Logout logout = new Logout();
+
 		Spark.get("/logout", logout, engine);
-		
-		
+				
 	}
 }

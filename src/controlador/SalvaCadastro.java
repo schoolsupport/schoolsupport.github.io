@@ -21,12 +21,24 @@ public class SalvaCadastro implements TemplateViewRoute {
 			res.redirect("/erro_email.html"); return null;
 		}
 		usuario_logado.setSenha(req.queryParams("password"));
+		
+		String matricula = req.queryParams("matricula");
+		boolean TemChar = false; 
+		char[] chars = matricula.toCharArray();
+		for (int i = 0; i < chars.length; i++) {
+			if(chars[i] < 49 || chars[i] > 57) {
+				TemChar = true;
+				res.redirect("/erro_matricula2.html"); return null;
+			}
+		}
+		
 		boolean setM = usuario_logado.setMatricula(req.queryParams("matricula"));
 		if (setM == false) {
 			res.redirect("/erro_matricula.html"); return null;
 		}
 		UsuarioDAO dao = new UsuarioDAO();
 		try {
+			if(!TemChar)
 			dao.save(usuario_logado);
 		} catch (IOException e) {
 			e.printStackTrace();
