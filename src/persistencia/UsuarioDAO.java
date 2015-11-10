@@ -15,9 +15,9 @@ public class UsuarioDAO {
 	
 	private void addEmailToList() throws IOException {
 		
-		File emails = new File("emails.csv");
+		File emails = new File("banco/emails.csv");
 		if ( ! emails.exists()) { 
-			FileWriter e = new FileWriter("emails.csv"); 
+			FileWriter e = new FileWriter("banco/emails.csv"); 
 			e.flush();
 			e.close();
 		}	
@@ -25,7 +25,6 @@ public class UsuarioDAO {
 		Scanner scan = new Scanner(emails);
 		
 		ArrayList<String> lista = new ArrayList<String>();
-		
 		
 		if (scan.hasNextLine()) {
 			String line = scan.nextLine();
@@ -36,7 +35,7 @@ public class UsuarioDAO {
 		scan.close();		
 		emails.delete();
 		
-		FileWriter emails2 = new FileWriter("emails.csv");
+		FileWriter emails2 = new FileWriter("banco/emails.csv");
 				
 		StringBuilder builder2 = new StringBuilder();
 		for (int i = 0; i < lista.size(); i++) {
@@ -54,7 +53,7 @@ public class UsuarioDAO {
 	
 		}
 		else  {
-			FileWriter ems = new FileWriter("emails.csv");
+			FileWriter ems = new FileWriter("banco/emails.csv");
 			ems.append(usuario.getEmail());
 			ems.append(";");
 			ems.flush();
@@ -87,7 +86,7 @@ public class UsuarioDAO {
 		scan.close();		
 		mats.delete();
 		
-		FileWriter mats2 = new FileWriter("mats.csv");
+		FileWriter mats2 = new FileWriter("banco/mats.csv");
 				
 		StringBuilder builder2 = new StringBuilder();
 		for (int i = 0; i < lista.size(); i++) {
@@ -144,7 +143,7 @@ public class UsuarioDAO {
 	
 	public void save(Usuario u) throws IOException {
 		if (u.getMatricula() != null && u.getUsername() != null && u.getEmail() != null && u.getSenha() != null) {
-			
+			usuario = u;
 			File dir = new File("banco/cadastros");
 			if ( ! dir.exists()) { 
 				dir.mkdir(); // make directory;
