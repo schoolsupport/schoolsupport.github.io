@@ -169,6 +169,13 @@ public class UsuarioDAO {
 				
 				addEmailToList();
 				addMatriculaToList();
+				
+				File dir2 = new File("banco/desempenhos/" + u.getMatricula());
+				if ( ! dir2.exists()) { 
+					dir2.mkdir(); // make directory;
+				}
+
+				
 		}
 	}
 

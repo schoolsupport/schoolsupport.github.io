@@ -50,7 +50,7 @@ public class Main {
 		
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
 		Spark.get("/usuariosCadastrados.html", usuariosCadastrados, engine);
-		
+	
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
@@ -64,6 +64,6 @@ public class Main {
 		Spark.post("/comp_ex", verificaRespostas, engine);
 		
 		ConteudosControlador conteudosControlador = new ConteudosControlador();
-		Spark.get("/conteudo", conteudosControlador, engine);
+		Spark.get("/conteudo/:id", conteudosControlador, engine);
 	}
 }
