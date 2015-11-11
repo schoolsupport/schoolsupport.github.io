@@ -16,7 +16,7 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		m.setTitulo(req.queryParams("titulo"));
 		m.setConteudo(req.queryParams("conteudo"));
 		dao.save(m);
-		res.redirect("/admin.html");
+		res.redirect("/admin");
 		return null;
 	}
 }

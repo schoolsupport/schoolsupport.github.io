@@ -12,7 +12,7 @@ public class PerfilControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
-			res.redirect("index.html");
+			res.redirect("/");
 			return null;
 		}
 		Perfil perfil = usuario.getPerfil();

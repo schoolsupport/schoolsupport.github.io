@@ -188,16 +188,6 @@
         var m_chars = m.value.split('');
         m_informada = m.value.substr( 0, 2);
 
-<<<<<<< HEAD
-        if(m_informada == "11" && m.value.length == 8 ) {
-            m.style.backgroundColor = goodColor;
-            message.style.color = goodColor;
-            message.innerHTML = "Matrícula válida!"
-        } else {
-            m.style.backgroundColor = badColor;
-            message.style.color = badColor;
-            message.innerHTML = "Digite uma matrícula válida!"
-=======
         for (var i = 0; i < m_chars.length; i++) {
             if (m_chars[i] > 49 || m_chars[i] < 57) {
                 if(m_informada == "11" && m.value.length == 8) {
@@ -214,7 +204,6 @@
                 message.style.color = badColor;
                 message.innerHTML = "Digite uma matrícula válida!"
             }
->>>>>>> 59c2fb77a4027f3ca25f93b63e272276a8a8cd8b
         }
     }
     

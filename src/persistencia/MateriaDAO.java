@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import modelo.Conteudo;
 import modelo.Materia;
 
 public class MateriaDAO {
@@ -28,7 +27,7 @@ public class MateriaDAO {
 			}
 		}
 		try {
-			FileWriter writer = new FileWriter("banco/materias/" + cadeira.getDisciplina() + "code.csv");
+			FileWriter writer = new FileWriter("banco/materias/" + cadeira.getDisciplina() + "/code.csv");
 			writer.write(this.code + ";");
 			writer.flush();
 			writer.close();
@@ -73,10 +72,12 @@ public class MateriaDAO {
 
 	}
 
+
 	
 	public Materia busca(int code, String disciplina) {
 		
 		File arquivo = new File("banco/materias/" + disciplina + "/" + code + ".csv");
+
 		if ( ! arquivo.exists()) { 
 			return null;
 		}

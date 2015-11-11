@@ -3,13 +3,12 @@ package controlador;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import modelo.Conteudo;
+import modelo.Materia;
 import spark.*;
 
 public class MostrarConteudo implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
-		Conteudo c = new Conteudo();
+		Materia c = new Materia();
 		HashMap dados = new HashMap();
 		
 		try {
