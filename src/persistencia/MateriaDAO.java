@@ -15,7 +15,7 @@ public class MateriaDAO {
 	private int code = 1;
 
 	public void generateCode() {
-		File f = new File("banco/materias/code.csv");
+		File f = new File("banco/materias/"+ cadeira.getDisciplina() + "code.csv");
 		if (f.exists()) {
 			try {
 				Scanner scan = new Scanner(f);
@@ -28,7 +28,7 @@ public class MateriaDAO {
 			}
 		}
 		try {
-			FileWriter writer = new FileWriter("banco/materias/code.csv");
+			FileWriter writer = new FileWriter("banco/materias/" + cadeira.getDisciplina() + "code.csv");
 			writer.write(this.code + ";");
 			writer.flush();
 			writer.close();
@@ -38,16 +38,17 @@ public class MateriaDAO {
 	}
 
 	public void save(Materia cont) {
-		generateCode();
-		cont.setCode(code);
-		File rota = new File("banco/materias");
+		cadeira = cont;
+		
+		File rota = new File("banco/materias/");
 		if (!rota.exists())
 			rota.mkdir();
 
 		File nextRota = new File("banco/materias/" + cont.getDisciplina());
 		if (!nextRota.exists())
 			nextRota.mkdir();
-		
+		generateCode();		
+		cont.setCode(code);
 		File conteudo = new File("banco/materias/" + cont.getDisciplina()+ "/" + cont.getCode() + ".csv");
 		if (conteudo.exists())
 			return;
@@ -60,8 +61,8 @@ public class MateriaDAO {
 			writer.write(cont.getConteudo());
 			writer.write(";");
 			writer.write(cont.getDisciplina());
-			//writer.write(";");
-			//writer.write(cont.getId());
+			writer.write(";");
+			writer.write(cont.getCode());
 			
 
 			writer.flush();
@@ -71,8 +72,11 @@ public class MateriaDAO {
 		}
 
 	}
-	public Materia busca(int code) {
-		File arquivo = new File("banco/materias/Física 2/" + code + ".csv");
+
+	
+	public Materia busca(int code, String disciplina) {
+		
+		File arquivo = new File("banco/materias/" + disciplina + "/" + code + ".csv");
 		if ( ! arquivo.exists()) { 
 			return null;
 		}
@@ -84,8 +88,7 @@ public class MateriaDAO {
 				cadeira.setCode(code);
 				cadeira.setTitulo(columns[0]);
 				cadeira.setConteudo(columns[1]);
-				//cadeira.setId(Integer.parseInt(columns[2]));
-				cadeira.setDisciplina("fisica 2");
+				cadeira.setDisciplina(columns[3]);
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
