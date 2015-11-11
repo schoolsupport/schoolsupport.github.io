@@ -32,6 +32,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 				res.redirect("/erro_matricula2.html"); return null;
 			}
 		}
+		
 		File file = new File("banco/cadastros/" + matricula + ".csv");
 		if(file.exists()){
 			res.redirect("/erro_matricula.html");
@@ -49,7 +50,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		
 		req.session().attribute("usuario_logado", usuario_logado);
 		
-		res.redirect("/home.html"); return null;
+		res.redirect("/home"); return null;
 	}
 
 }

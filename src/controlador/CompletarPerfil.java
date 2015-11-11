@@ -25,6 +25,6 @@ public class CompletarPerfil implements TemplateViewRoute {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		res.redirect("/home.html"); return null;
+		res.redirect("/home"); return null;
 	}
 }

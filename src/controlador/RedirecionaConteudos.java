@@ -6,14 +6,13 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class Fisica2Controlador implements TemplateViewRoute {
+public class RedirecionaConteudos implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
 			res.redirect("/");
 			return null;
 		}
-		return new ModelAndView(null, "fisica2.html");
+		return new ModelAndView(null, "/pagina_conteudos.html");
 	}
-
 }

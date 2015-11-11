@@ -25,13 +25,12 @@ public class Main {
 		Spark.get("/home.html", perfilControlador, engine);
 
 		AdminControlador admincontrolador = new AdminControlador();
-		Spark.get("/admin.html", admincontrolador, engine);
+		Spark.get("/admin", admincontrolador, engine);
 
 		Spark.get("/home", perfilControlador, engine);
 		
 		Fisica2Controlador fisica2 = new Fisica2Controlador();
 		Spark.get("/fisica2", fisica2, engine);
-		Spark.get("/fisica2.html", fisica2, engine);
 				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
@@ -49,7 +48,7 @@ public class Main {
 		Spark.get("/mostrarConteudo", mostrarConteudo, engine);
 		
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
-		Spark.get("/usuariosCadastrados.html", usuariosCadastrados, engine);
+		Spark.get("/usuariosCadastrados", usuariosCadastrados, engine);
 	
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
@@ -58,12 +57,18 @@ public class Main {
 		Spark.get("/logout", logout, engine);
 		
 		ExerciciosControlador exerciciosControlador = new ExerciciosControlador();
-		Spark.get("/exercicio/:id", exerciciosControlador, engine);
+		Spark.get("/exercicio/:disciplina/:id", exerciciosControlador, engine);
 				
 		VerificaRespostas verificaRespostas = new VerificaRespostas();
 		Spark.post("/comp_ex", verificaRespostas, engine);
 		
 		ConteudosControlador conteudosControlador = new ConteudosControlador();
-		Spark.get("/conteudo/:id", conteudosControlador, engine);
+		Spark.get("/conteudo/:disciplina/:id", conteudosControlador, engine);
+		
+		DesempenhoControlador desempenhoControlador = new DesempenhoControlador();
+		Spark.get("/desempenho", desempenhoControlador, engine);
+		
+		RedirecionaConteudos redirecionaConteudos = new RedirecionaConteudos(); 
+		Spark.get("/conteudos", redirecionaConteudos, engine);
 	}
 }

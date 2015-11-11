@@ -10,9 +10,12 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class AdminControlador implements TemplateViewRoute {
-
-	@Override
 	public ModelAndView handle(Request req, Response res) {
+		Usuario usuario2 = req.session().attribute("usuario_logado");
+		if(usuario2 == null) {
+			res.redirect("/");
+			return null;
+		}
 		Usuario usuario = req.session().attribute("usuario_logado");
 		Perfil perfil = usuario.getPerfil();
 		HashMap dados = new HashMap();

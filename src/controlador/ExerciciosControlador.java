@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import modelo.Exercicio;
 import persistencia.ExercicioDAO;
-import persistencia.MateriaDAO;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
