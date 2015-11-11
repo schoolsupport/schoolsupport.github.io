@@ -19,6 +19,8 @@ public class ConteudosControlador implements TemplateViewRoute{
 		HashMap dados = new HashMap();
 		dados.put("conteudo", materia);
 		req.session().attribute("conteudo", materia);
+		
+		
 		return new ModelAndView(dados, "conteudos.html");
 	}
 }
