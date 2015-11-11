@@ -22,7 +22,7 @@ public class CadastrarExercicio implements TemplateViewRoute {
 		ex.setAlternativaCorreta(req.queryParams("alternativa_correta"));
 		ExercicioDAO dao = new ExercicioDAO();
 		dao.save(ex);
-		resp.redirect("/admin.html");
+		resp.redirect("/admin");
 		return null;
 	}
 
