@@ -6,9 +6,7 @@ public class Materia {
 	private String titulo;
 	private String conteudo;
 	private int code;
-	
-	
-	
+
 	public int getCode() {
 		return code;
 	}
