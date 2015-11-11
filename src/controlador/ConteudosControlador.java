@@ -1,18 +1,24 @@
 package controlador;
 
-import spark.*;
+import java.util.HashMap;
+
+import modelo.Materia;
+import persistencia.MateriaDAO;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.TemplateViewRoute;
 
 public class ConteudosControlador implements TemplateViewRoute{
 
 	@Override
 	public ModelAndView handle(Request req, Response res) {
-		
-		
-		
-		
-		
-		
-		return null;
+		Materia materia;
+		MateriaDAO dao = new MateriaDAO();
+		materia = dao.busca(10);		
+		HashMap dados = new HashMap();
+		dados.put("conteudo", materia);
+		req.session().attribute("conteudo", materia);
+		return new ModelAndView(dados, "conteudos.html");
 	}
-	
 }
