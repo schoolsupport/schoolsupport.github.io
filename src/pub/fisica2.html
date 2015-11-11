@@ -35,7 +35,8 @@
 
             </div>
 
-                     <div class="left-div">
+
+            <div class="left-div">
                 <div class="user-settings-wrapper">
                     <ul class="nav">
 
@@ -46,21 +47,20 @@
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
+                                        <img src="./index_files/fb.jpg" width="60" alt="" class="img-rounded">
                                     </a>
                                
                                     <div class="media-body">
                                     
                                      {{#perfil}}
                                       {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
-                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4><br>
                                     </div>
                                 </div>
-                              
-                                <hr>
+                                <br>
+                                <h5><strong>Curso:</strong> {{curso}}<br></h5> 
+                                <h5><strong>Matrícula:</strong> {{matricula}}</h5>
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
-                                <hr>
                                 {{/usuario}}
                                 {{/perfil}}
                                 <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
@@ -82,11 +82,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="home.html">Início</a></li>
-                            <li><a class="menu-top-active" href="fisica2.html">Física 2</a></li>
+                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a class="menu-top-active" href="/home">Início</a></li>
+                            <li><a href="/fisica2">Física 2</a></li>
+                            <li><a href="desempenho.html">Desempenho</a></li>
                             <li><a href="/logout">Sair</a></li>
-
                         </ul>
                     </div>
                 </div>
@@ -104,49 +104,22 @@
                 </div>
 
             </div>
-            <div class="row">
+          
+            <div class="row-icones">
+
                  <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-two">
-                        <a href="#" style="text-decoration:none; color:white"><i class="fa fa-edit dashboard-div-icon"></i></a>
-                        <div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-  </div>
-                           
-</div>
-                         <a href="#" style="text-decoration:none; color:white"><h5>Texto Simples Aqui</h5></a>
+                    <div class="dashboard-div-wrapper bk-clr-three">
+                        <a href="pagina_conteudos.html" style="text-decoration:none; color:white"><i class="fa fa-edit dashboard-div-icon"></i></a>
+                       
+                        <a href="pagina_conteudos.html" style="text-decoration:none; color:white"><h4>Conteúdos</h4></a>
                     </div>
                 </div>
+
                  <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="dashboard-div-wrapper bk-clr-two">
-                        <a href="#" style="text-decoration:none; color:white"><i class="fa fa-edit dashboard-div-icon"></i></a>
-                        <div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-  </div>
-                           
-</div>
-                         <a href="#" style="text-decoration:none; color:white"><h5>Texto Simples Aqui</h5></a>
-                    </div>
-                </div>
-                 <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-two">
-                       <a href="#" style="text-decoration:none; color:white"> <i class="fa fa-edit dashboard-div-icon"></i></a>
-                        <div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-  </div>
-                           
-</div>
-                         <a href="#" style="text-decoration:none; color:white"><h5>Texto Simples Aqui</h5></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                    <div class="dashboard-div-wrapper bk-clr-two">
-                        <a href="#" style="text-decoration:none; color:white"><i class="fa fa-edit dashboard-div-icon"></i></a>
-                        <div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-  </div>
-                           
-</div>
-                         <a href="#" style="text-decoration:none; color:white"><h5>Texto Simples Aqui</h5></a>
+                        <a href="pagina_exercicios.html" style="text-decoration:none; color:white"><i class="fa fa-edit dashboard-div-icon"></i></a>
+                        
+                         <a href="pagina_exercicios.html" style="text-decoration:none; color:white"><h4>Exercícios</h4></a>
                     </div>
                 </div>
 
@@ -158,18 +131,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                            Últimos conteúdos que foram postados: 
-                                <div class="pull-right">
-                                    <div class="dropdown">
-  <button class="btn btn-success dropdown-toggle btn-xs" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    <span class="glyphicon glyphicon-cog"></span>
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Atualizar</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sair</a></li>
-  </ul>
-</div>
-                                </div>
+                              
                             </div>
                             <div class="panel-body">
                                
@@ -226,7 +188,7 @@
                         <label>Nome do conteúdo: </label>
                         <input type="text" class="form-control">
                         <label>Dúvida: </label>
-                        <textarea rows="9" class="form-control"></textarea>
+                        <textarea rows="9" class="form-control" max="9"></textarea>
                         <hr>
                         <a href="http://schoolsupport.github.io/#" class="btn btn-warning"><span class="glyphicon glyphicon-envelope"></span> Enviar dúvida </a>&nbsp;
                     </div>

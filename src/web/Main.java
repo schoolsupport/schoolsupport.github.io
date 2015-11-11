@@ -50,13 +50,20 @@ public class Main {
 		
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
 		Spark.get("/usuariosCadastrados.html", usuariosCadastrados, engine);
-		
+	
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
 		Logout logout = new Logout();
-
 		Spark.get("/logout", logout, engine);
+		
+		ExerciciosControlador exerciciosControlador = new ExerciciosControlador();
+		Spark.get("/exercicio/:id", exerciciosControlador, engine);
 				
+		VerificaRespostas verificaRespostas = new VerificaRespostas();
+		Spark.post("/comp_ex", verificaRespostas, engine);
+		
+		ConteudosControlador conteudosControlador = new ConteudosControlador();
+		Spark.get("/conteudo/:id", conteudosControlador, engine);
 	}
 }

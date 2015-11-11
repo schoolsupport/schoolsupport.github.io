@@ -7,15 +7,17 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import modelo.Conteudo;
-import modelo.Materia;
 
-public class MateriaDAO {
-	
-	Materia cadeira = new Materia();
+public class ConteudoDAO {
+
+	Conteudo cadeira = new Conteudo();
 	private int code = 1;
 
 	public void generateCode() {
 		File f = new File("banco/materias/code.csv");
+		if (!f.exists()) {
+			f.mkdir();
+		}
 		if (f.exists()) {
 			try {
 				Scanner scan = new Scanner(f);
@@ -37,9 +39,10 @@ public class MateriaDAO {
 		}
 	}
 
-	public void save(Materia cont) {
+	public void save(Conteudo cont) {
 		generateCode();
 		cont.setCode(code);
+
 		File rota = new File("banco/materias");
 		if (!rota.exists())
 			rota.mkdir();
@@ -47,22 +50,17 @@ public class MateriaDAO {
 		File nextRota = new File("banco/materias/" + cont.getDisciplina());
 		if (!nextRota.exists())
 			nextRota.mkdir();
-		
+
 		File conteudo = new File("banco/materias/" + cont.getDisciplina()+ "/" + cont.getCode() + ".csv");
 		if (conteudo.exists())
 			return;
-		
+
 		FileWriter writer;
 		try {
 			writer = new FileWriter(conteudo);
 			writer.write(cont.getTitulo());
 			writer.write(";");
 			writer.write(cont.getConteudo());
-			writer.write(";");
-			writer.write(cont.getDisciplina());
-			//writer.write(";");
-			//writer.write(cont.getId());
-			
 
 			writer.flush();
 			writer.close();
@@ -71,7 +69,7 @@ public class MateriaDAO {
 		}
 
 	}
-	public Materia busca(int code) {
+	public Conteudo busca(int code) {
 		File arquivo = new File("banco/materias/Física 2/" + code + ".csv");
 		if ( ! arquivo.exists()) { 
 			return null;
@@ -84,8 +82,6 @@ public class MateriaDAO {
 				cadeira.setCode(code);
 				cadeira.setTitulo(columns[0]);
 				cadeira.setConteudo(columns[1]);
-				//cadeira.setId(Integer.parseInt(columns[2]));
-				cadeira.setDisciplina("fisica 2");
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
