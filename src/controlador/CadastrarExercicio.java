@@ -8,8 +8,6 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class CadastrarExercicio implements TemplateViewRoute {
-
-	@Override
 	public ModelAndView handle(Request req, Response resp) {
 		Exercicio ex = new Exercicio();
 		ex.setDisciplina(req.queryParams("disciplina"));

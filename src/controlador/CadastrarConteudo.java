@@ -9,7 +9,6 @@ import spark.TemplateViewRoute;
 
 public class CadastrarConteudo implements TemplateViewRoute{
 	public ModelAndView handle(Request req, Response res) {
-		
 		MateriaDAO dao = new MateriaDAO();
 		Materia m = new Materia();
 		m.setDisciplina(req.queryParams("disciplina"));
@@ -17,6 +16,7 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		m.setConteudo(req.queryParams("conteudo"));
 		dao.save(m);
 		res.redirect("/admin");
+		
 		return null;
 	}
 }
