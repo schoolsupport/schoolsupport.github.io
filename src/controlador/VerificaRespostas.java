@@ -12,6 +12,7 @@ public class VerificaRespostas implements TemplateViewRoute {
 		Exercicio exercicio = req.session().attribute("exercicio");
 		String resposta_usuario = req.queryParams("alternativa");
 		if(resposta_usuario.equals(exercicio.getAlternativaCorreta())) res.redirect("blank.html");
+		
 	    else res.redirect("/");
 		
 		return null;
