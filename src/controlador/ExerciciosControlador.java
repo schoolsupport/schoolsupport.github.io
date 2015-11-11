@@ -18,7 +18,7 @@ public class ExerciciosControlador implements TemplateViewRoute {
 		HashMap dados = new HashMap();
 		dados.put("exercicio", e);
 		req.session().attribute("exercicio", e);
-		return new ModelAndView(dados, "exercicios.html");
+		return new ModelAndView(dados, "exercicio_conteudo.html");
 	}
 
 }
