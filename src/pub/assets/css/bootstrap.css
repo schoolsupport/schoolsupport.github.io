@@ -4965,6 +4965,7 @@ a.thumbnail.active {
   color: #245269;
 }
 .alert-warning {
+  position: relative;
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
