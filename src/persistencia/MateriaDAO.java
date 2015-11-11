@@ -21,9 +21,6 @@ public class MateriaDAO {
 		}
 		File conteudoMateria = new File("banco/materias/" + m.getDisciplina() + "/" + m.getTitulo() + ".csv");
 		
-//		File arquivo = new File("conteudo" + "-" + m.getTitulo() + ".html"); e por que isso??
-//		File padrao = new File("src/pub/conteudo_teste.txt"); ?????????
-		
 		try {
 			
 			StringBuilder builder = new StringBuilder();
@@ -36,21 +33,20 @@ public class MateriaDAO {
 			writer.write(builder.toString());
 			writer.flush();
 			writer.close();	
-//			String line = "";
-//			Scanner scan = new Scanner(padrao);
-//			if (scan.hasNextLine()) {
-//				line = scan.nextLine();
-//			}
-//			scan.close();
-//			FileWriter writer2 = new FileWriter(arquivo);
-//			writer2.write(line);
-//			writer2.flush();
-//			writer2.close();	
-// Por que isso??		
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

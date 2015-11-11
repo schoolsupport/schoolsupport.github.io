@@ -17,24 +17,33 @@ public class LoginControlador implements TemplateViewRoute{
 				if(! file.exists()){
 					res.redirect("/erro_login.html");
 					return null;
+			}
+			boolean TemChar = false; 
+			char[] chars = matricula.toCharArray();
+			for (int i = 0; i < chars.length; i++) {
+				if(chars[i] < 48 || chars[i] > 57) {
+					TemChar = true;
+					res.redirect("/erro_matricula2.html"); return null;
 				}
+			}	
+				
 			Scanner scan;
 			Usuario user = new Usuario();
 			UsuarioDAO dao = new UsuarioDAO();
 			user = dao.load(matricula);
+			
 			if (user == null) res.redirect("/erro_login.html");
-				
-				if (user.getSenha().equals(senha)){
-					req.session().attribute("usuario_logado", user);
-					if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
-						res.redirect("/admin.html");
-					}
-					res.redirect("/home.html");
-				}	
-			 else {
-					res.redirect("/index.html");
+			if (!TemChar) {	
+			if (user.getSenha().equals(senha)){
+				req.session().attribute("usuario_logado", user);
+				if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
+					res.redirect("/admin.html");
 				}
-		
+				res.redirect("/home.html");
+			} else {
+				res.redirect("/index.html");
+			}
+			}
 			
 			res.redirect("/erro_login.html");
 			return null;

@@ -9,7 +9,7 @@ import java.util.Scanner;
 import modelo.Exercicio;
 
 public class ExercicioDAO {
-	
+	Exercicio exercicio = new Exercicio();
 	private int code = 1;
 	
 	public void generateCode () {
@@ -67,6 +67,37 @@ public class ExercicioDAO {
 			writer.close();	
 		} catch (IOException e) {
 			e.printStackTrace();
-			}			
+		}			
 	}
+	public Exercicio busca(int i) {
+		File arquivo = new File("banco/exercicios/Física 2/" + i + ".csv");
+		if ( ! arquivo.exists()) { 
+			return null;
+		}
+		try {
+			Scanner scan = new Scanner(arquivo);
+			while(scan.hasNextLine()) {
+				String row = scan.nextLine();
+				String[] columns = row.split(";");
+				exercicio.setCode(i);
+				exercicio.setOrdem(columns[0]);
+				exercicio.setAlternativa1(columns[1]);
+				exercicio.setAlternativa2(columns[2]);
+				exercicio.setAlternativa3(columns[3]);
+				exercicio.setAlternativa4(columns[4]);
+				exercicio.setAlternativa5(columns[5]);
+				switch(Integer.parseInt(columns[6])) {
+					case 1: exercicio.setAlternativaCorreta(columns[1]); break;
+					case 2: exercicio.setAlternativaCorreta(columns[2]); break;
+					case 3: exercicio.setAlternativaCorreta(columns[3]); break;
+					case 4: exercicio.setAlternativaCorreta(columns[4]); break;
+					case 5: exercicio.setAlternativaCorreta(columns[5]); break;
+				}
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return exercicio;
+	}	
 }
