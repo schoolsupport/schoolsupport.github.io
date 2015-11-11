@@ -60,6 +60,9 @@ public class MateriaDAO {
 			writer.write(cont.getConteudo());
 			writer.write(";");
 			writer.write(cont.getDisciplina());
+			//writer.write(";");
+			//writer.write(cont.getId());
+			
 
 			writer.flush();
 			writer.close();
@@ -81,6 +84,7 @@ public class MateriaDAO {
 				cadeira.setCode(code);
 				cadeira.setTitulo(columns[0]);
 				cadeira.setConteudo(columns[1]);
+				//cadeira.setId(Integer.parseInt(columns[2]));
 				cadeira.setDisciplina("fisica 2");
 			}
 			scan.close();

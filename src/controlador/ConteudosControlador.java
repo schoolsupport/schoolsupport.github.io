@@ -15,7 +15,7 @@ public class ConteudosControlador implements TemplateViewRoute{
 	public ModelAndView handle(Request req, Response res) {
 		Materia materia;
 		MateriaDAO dao = new MateriaDAO();
-		materia = dao.busca(10);		
+		materia = dao.busca(Integer.parseInt(req.params("id")));			
 		HashMap dados = new HashMap();
 		dados.put("conteudo", materia);
 		req.session().attribute("conteudo", materia);

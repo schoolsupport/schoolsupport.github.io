@@ -64,6 +64,7 @@ public class Main {
 		Spark.post("/comp_ex", verificaRespostas, engine);
 		
 		ConteudosControlador conteudosControlador = new ConteudosControlador();
-		Spark.get("/conteudo", conteudosControlador, engine);
+		Spark.get("/conteudo/:id", conteudosControlador, engine);
+		
 	}
 }
