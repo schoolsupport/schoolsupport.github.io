@@ -23,11 +23,11 @@ public class Main {
 		
 		PerfilControlador perfilControlador = new PerfilControlador();
 		Spark.get("/home.html", perfilControlador, engine);
-
+		Spark.get("/home", perfilControlador, engine);
+		
 		AdminControlador admincontrolador = new AdminControlador();
 		Spark.get("/admin", admincontrolador, engine);
 
-		Spark.get("/home", perfilControlador, engine);
 		
 		Fisica2Controlador fisica2 = new Fisica2Controlador();
 		Spark.get("/fisica2", fisica2, engine);
@@ -70,5 +70,7 @@ public class Main {
 		
 		RedirecionaConteudos redirecionaConteudos = new RedirecionaConteudos(); 
 		Spark.get("/conteudos", redirecionaConteudos, engine);
+		
+		
 	}
 }
