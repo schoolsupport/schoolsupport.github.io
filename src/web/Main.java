@@ -28,7 +28,6 @@ public class Main {
 		AdminControlador admincontrolador = new AdminControlador();
 		Spark.get("/admin", admincontrolador, engine);
 
-		
 		Fisica2Controlador fisica2 = new Fisica2Controlador();
 		Spark.get("/fisica2", fisica2, engine);
 				
@@ -70,6 +69,9 @@ public class Main {
 		
 		RedirecionaConteudos redirecionaConteudos = new RedirecionaConteudos(); 
 		Spark.get("/conteudos", redirecionaConteudos, engine);
+
+		BarraControlador barraControlador = new BarraControlador();
+		Spark.get("/barraUser.html", barraControlador, engine);
 		
 		
 	}
