@@ -13,7 +13,8 @@ public class ExerciciosControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response resp) {
 		Exercicio e = new Exercicio();
 		ExercicioDAO dao = new ExercicioDAO();
-		e = dao.busca(Integer.parseInt(req.params("id")));
+		String disciplina = req.params("disciplina");
+		e = dao.busca(Integer.parseInt(req.params("id")), disciplina);
 		HashMap dados = new HashMap();
 		dados.put("exercicio", e);
 		req.session().attribute("exercicio", e);

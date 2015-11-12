@@ -50,6 +50,9 @@ public class Main {
 		UsuariosCadastrados usuariosCadastrados = new UsuariosCadastrados();
 		Spark.get("/usuariosCadastrados", usuariosCadastrados, engine);
 	
+		ApresentaCadastrarE apresentaCadastrarE = new ApresentaCadastrarE(); 
+		Spark.get("/cadastraExercicio", apresentaCadastrarE, engine);
+		
 		CadastrarExercicio cadastrarExercicio = new CadastrarExercicio();
 		Spark.post("/cadastrarExercicio", cadastrarExercicio, engine);
 		
@@ -70,5 +73,8 @@ public class Main {
 		
 		RedirecionaConteudos redirecionaConteudos = new RedirecionaConteudos(); 
 		Spark.get("/conteudos", redirecionaConteudos, engine);
+		
+		RedirecionaExercicios redirecionaExercicios = new RedirecionaExercicios();
+		Spark.get("/exercicios", redirecionaExercicios, engine);
 	}
 }

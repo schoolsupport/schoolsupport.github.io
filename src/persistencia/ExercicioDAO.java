@@ -69,8 +69,9 @@ public class ExercicioDAO {
 			e.printStackTrace();
 		}			
 	}
-	public Exercicio busca(int i) {
-		File arquivo = new File("banco/exercicios/Física 2/" + i + ".csv");
+	public Exercicio busca(int i, String disciplina) {
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code + ".csv");
+
 		if ( ! arquivo.exists()) { 
 			return null;
 		}
