@@ -2,17 +2,17 @@ package controlador;
 
 import java.util.HashMap;
 
-import modelo.Perfil;
-import modelo.Usuario;
 import persistencia.PerfilDAO;
 import persistencia.UsuarioDAO;
+import modelo.Perfil;
+import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class PerfilControlador implements TemplateViewRoute {
-
+public class BarraControlador implements TemplateViewRoute {
+	@Override
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
@@ -22,13 +22,17 @@ public class PerfilControlador implements TemplateViewRoute {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		PerfilDAO perfilDAO = new PerfilDAO();
 		
-		Usuario user = usuarioDAO.load(usuario.getMatricula());
-		Perfil perfil = perfilDAO.load(user);
+		String matricula = usuario.getMatricula();
+		//Usuario user = usuarioDAO.load(matricula);
+		System.out.println("teste");
+		System.out.println(usuario.getMatricula());
+		Perfil perfil = perfilDAO.load(usuario);
 		
+		System.out.println(perfil.getNome());
 		
 		HashMap dados = new HashMap();
-		dados.put("usuario", user);
+		//dados.put("usuario", user);
 		dados.put("perfil", perfil);
-		return new ModelAndView(dados, "home.html");
+		return new ModelAndView(dados, "barraUser.html");
 	}
 }

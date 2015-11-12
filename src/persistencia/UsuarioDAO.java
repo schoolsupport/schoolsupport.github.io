@@ -114,7 +114,7 @@ public class UsuarioDAO {
 		
 	}
 
-	public Usuario load (String matricula) {
+	public Usuario load(String matricula) {
 		File arquivo = new File("banco/cadastros/" + matricula + ".csv");
 		if ( ! arquivo.exists()) { 
 			return null;
