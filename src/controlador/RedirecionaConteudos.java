@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.HashMap;
+
 import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
@@ -8,11 +10,8 @@ import spark.TemplateViewRoute;
 
 public class RedirecionaConteudos implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
-		Usuario usuario = req.session().attribute("usuario_logado");
-		if(usuario == null) {
-			res.redirect("/");
-			return null;
-		}
-		return new ModelAndView(null, "/pagina_conteudos.html");
+		HashMap dados = new HashMap();
+		BarraControlador.handle(req, res, dados);
+		return new ModelAndView(dados, "pagina_conteudos.html");
 	}
 }

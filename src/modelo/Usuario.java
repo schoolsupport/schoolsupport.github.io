@@ -17,6 +17,17 @@ public class Usuario {
 	private String username;
 	private Perfil perfil;
 	
+	
+	@Override
+	public String toString() {
+		return "Usuario [senha=" + senha + ", matricula=" + matricula
+				+ ", email=" + email + ", username=" + username + ", perfil="
+				+ perfil + ", getSenha()=" + getSenha() + ", getMatricula()="
+				+ getMatricula() + ", getEmail()=" + getEmail()
+				+ ", getUsername()=" + getUsername() + ", getPerfil()="
+				+ getPerfil() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	public Usuario() {
 		
 	}	
