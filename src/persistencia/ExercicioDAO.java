@@ -62,6 +62,8 @@ public class ExercicioDAO {
 			writer.write(ex.getAlternativa5());
 			writer.write(";");
 			writer.write(ex.getAlternativaCorreta());
+			writer.write(";");
+			writer.write(ex.getBimestre());
 					
 			writer.flush();
 			writer.close();	
@@ -69,8 +71,9 @@ public class ExercicioDAO {
 			e.printStackTrace();
 		}			
 	}
-	public Exercicio busca(int i) {
-		File arquivo = new File("banco/exercicios/Física 2/" + i + ".csv");
+	public Exercicio busca(int i, String disciplina) {
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code + ".csv");
+
 		if ( ! arquivo.exists()) { 
 			return null;
 		}
@@ -93,7 +96,9 @@ public class ExercicioDAO {
 					case 4: exercicio.setAlternativaCorreta(columns[4]); break;
 					case 5: exercicio.setAlternativaCorreta(columns[5]); break;
 				}
+				exercicio.setBimestre(columns[7]);
 			}
+				
 			scan.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

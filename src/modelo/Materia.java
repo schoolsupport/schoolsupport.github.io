@@ -6,6 +6,7 @@ public class Materia {
 	private String titulo;
 	private String conteudo;
 	private int code;
+	private String bimestre;
 
 	public int getCode() {
 		return code;
@@ -37,6 +38,14 @@ public class Materia {
 	
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+
+	public String getBimestre() {
+		return bimestre;
+	}
+
+	public void setBimestre(String bimestre) {
+		this.bimestre = bimestre;
 	}
 	
 	

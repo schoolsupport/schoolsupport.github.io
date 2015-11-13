@@ -24,7 +24,7 @@
 </head>
 <body>
     <!-- HEADER END-->
-    <div class="navbar navbar-inverse set-radius-zero">
+     <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,14 +32,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="home.html">
 
-                    <img src="/assets/img/logo.png" />
+                    <img src="/index_files/logo.png">
                 </a>
 
             </div>
 
- <div class="left-div">
+
+            <div class="left-div">
                 <div class="user-settings-wrapper">
                     <ul class="nav">
 
@@ -50,21 +51,20 @@
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
+                                        <img src="/index_files/fb.jpg" width="60" alt="" class="img-rounded">
                                     </a>
                                
                                     <div class="media-body">
                                     
                                      {{#perfil}}
                                       {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
-                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4><br>
                                     </div>
                                 </div>
-                              
-                                <hr>
+                                <br>
+                                <h5><strong>Curso:</strong> {{curso}}<br></h5> 
+                                <h5><strong>Matrícula:</strong> {{matricula}}</h5>
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
-                                <hr>
                                 {{/usuario}}
                                 {{/perfil}}
                                 <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
@@ -88,7 +88,7 @@
                     <div class="navbar-collapse collapse ">
                          <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="/home">Início</a></li>
-                            <li><a class="menu-top-active" href="/fisica2">Física 2</a></li>
+                            <li><a href="/fisica2">Física 2</a></li>
                             <li><a href="/desempenho">Desempenho</a></li>
                             <li><a href="/logout">Sair</a></li>
                         </ul>
