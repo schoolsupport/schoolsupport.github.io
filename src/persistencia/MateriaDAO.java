@@ -14,7 +14,7 @@ public class MateriaDAO {
 	private int code = 1;
 
 	public void generateCode() {
-		File f = new File("banco/materias/"+ cadeira.getDisciplina() + "code.csv");
+		File f = new File("banco/materias/"+ cadeira.getDisciplina() + "/code.csv");
 		if (f.exists()) {
 			try {
 				Scanner scan = new Scanner(f);
@@ -48,6 +48,7 @@ public class MateriaDAO {
 			nextRota.mkdir();
 		generateCode();		
 		cont.setCode(code);
+		
 		File conteudo = new File("banco/materias/" + cont.getDisciplina()+ "/" + cont.getCode() + ".csv");
 		if (conteudo.exists())
 			return;
@@ -55,13 +56,18 @@ public class MateriaDAO {
 		FileWriter writer;
 		try {
 			writer = new FileWriter(conteudo);
+			
+			
 			writer.write(cont.getTitulo());
 			writer.write(";");
 			writer.write(cont.getConteudo());
 			writer.write(";");
 			writer.write(cont.getDisciplina());
+			writer.write(";");			
+			writer.write(cont.getBimestre());
 			writer.write(";");
-			writer.write(cont.getCode());
+			writer.write(cont.getCode() +"");
+			
 			
 
 			writer.flush();
@@ -86,10 +92,12 @@ public class MateriaDAO {
 			while(scan.hasNextLine()) {
 				String row = scan.nextLine();
 				String[] columns = row.split(";");
-				cadeira.setCode(code);
+				
 				cadeira.setTitulo(columns[0]);
 				cadeira.setConteudo(columns[1]);
 				cadeira.setDisciplina(columns[3]);
+				cadeira.setBimestre(columns[3]);
+				cadeira.setCode(Integer.parseInt(columns[4]));
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {

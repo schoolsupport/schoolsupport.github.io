@@ -10,6 +10,19 @@ public class Exercicio {
 	private String alternativa4;
 	private String alternativa5;
 	private String alternativa_correta;
+	private String bimestre;
+	public String getAlternativa_correta() {
+		return alternativa_correta;
+	}
+	public void setAlternativa_correta(String alternativa_correta) {
+		this.alternativa_correta = alternativa_correta;
+	}
+	public String getBimestre() {
+		return bimestre;
+	}
+	public void setBimestre(String bimestre) {
+		this.bimestre = bimestre;
+	}
 	private int code;
 	
 	public int getCode() {
