@@ -87,8 +87,8 @@ public class Main {
 		
 		
 		// Comentado pois está sendo testado ainda
-		//EmailControlador emailControlador = new EmailControlador()
-		//Spark.post("/sendmail", emailControlador, engine);
+		EmailControlador emailControlador = new EmailControlador();
+		Spark.post("/sendmail", emailControlador, engine);
 		
 	
 
