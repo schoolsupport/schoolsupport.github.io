@@ -17,6 +17,15 @@ public class Perfil {
 	private boolean completo = false; 
 	private String comp = "Completar Perfil";
 		
+	
+	
+	@Override
+	public String toString() {
+		return "Perfil [usuario=" + usuario + ", nome=" + nome + ", sobrenome="
+				+ sobrenome + ", turma=" + turma + ", curso=" + curso
+				+ ", bio=" + bio + ", disciplinas=" + disciplinas
+				+ ", completo=" + completo + ", comp=" + comp + "]";
+	}
 	public Usuario getUsuario() {
 		return usuario;
 	}

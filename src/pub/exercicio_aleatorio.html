@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<!-- saved from url=(0031)http://schoolsupport.github.io/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>School Support</title>
+    <link rel="icon" href="/index_files/favicon.ico" type="image/x-icon" />
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <!-- FONT AWESOME ICONS  -->
-    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
     <!-- CUSTOM STYLE  -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet">
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
+<style>img.chromoji { width:1em !important; height:1em !important; }.chromoji-font, #chromoji-font { font-size:1em !important; }</style></head>
 <body>
     <!-- HEADER END-->
-     <div class="navbar navbar-inverse set-radius-zero">
+    <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -45,26 +46,28 @@
                     <ul class="nav">
 
                         <li class="dropdown">
+                            
                             <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
-                              <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
+                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
                             </a>
                             <div class="dropdown-menu dropdown-settings">
                                 <div class="media">
                                     <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="/index_files/fb.jpg" width="60" alt="" class="img-rounded">
+                                        <img src="/index_files/fb.jpg" width="64" alt="" class="img-rounded">
                                     </a>
                                
                                     <div class="media-body">
                                     
                                      {{#perfil}}
                                       {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4><br>
+                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
+                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
                                     </div>
                                 </div>
-                                <br>
-                                <h5><strong>Curso:</strong> {{curso}}<br></h5> 
-                                <h5><strong>Matrícula:</strong> {{matricula}}</h5>
+                              
+                                <hr>
                                 <h5><strong>Bio: </strong>{{bio}}</h5>
+                                <hr>
                                 {{/usuario}}
                                 {{/perfil}}
                                 <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
@@ -86,10 +89,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
-                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="/home">Início</a></li>
-                            <li><a href="/fisica2">Física 2</a></li>
-                            <li><a href="/desempenho">Desempenho</a></li>
+                            <li><a class="menu-top-active" href="/fisica2">Física 2</a></li>
                             <li><a href="/logout">Sair</a></li>
                         </ul>
                     </div>
@@ -99,40 +101,61 @@
         </div>
     </section>
     <!-- MENU SECTION END-->
-    {{#conteudo}}
+    {{#exercicio}}
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="page-head-line">{{titulo}}</h4>
+                    <h4 class="page-head-line">Exercício {{code}}</h4>
+
                 </div>
-            </div> 
+
+            </div>
+            <form action="/nextRandom/{{id}}" method="post">
             <div class="row">
                 <div class="col-md-12">
-                  <div class="alert alert-warning">
-                        {{conteudo}}
-                  </div>
+                        <div style="font-size: 20px; color: #7c2011;  margin-bottom: 5px;">
+                            {{ordem}}<br>
+                        </div>
+                        a) <input type="radio" name="alternativa" value="{{alternativa1}}"> {{alternativa1}}<br>
+                        b) <input type="radio" name="alternativa" value="{{alternativa2}}"> {{alternativa2}}<br>
+                        c) <input type="radio" name="alternativa" value="{{alternativa3}}"> {{alternativa3}}<br>
+                        d) <input type="radio" name="alternativa" value="{{alternativa4}}"> {{alternativa4}}<br>
+                        e) <input type="radio" name="alternativa" value="{{alternativa5}}"> {{alternativa5}}<br>
+                        
+                        <input type="submit" value="Próximo" style="padding: 1px; margin-top: 10px;">
                 </div>
             </div>
+            </form>
         </div>
     </div>
-    {{/conteudo}}
+    {{/exercicio}}
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2015 YourCompany | By : <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap</a>
+                    &copy; 2015 School Support | By: <a href="http://schoolsupport.github.io/" target="_blank">School Support</a>
                 </div>
 
             </div>
         </div>
+                     
+            
+                     
+                    
     </footer>
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="/assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
 </body>
 </html>
+    <script src="/index_files/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="/index_files/bootstrap.js"></script>
+
+
+</body></html>
