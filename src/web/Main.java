@@ -21,15 +21,18 @@ public class Main {
 		RedirecionarCompletar redirecionarCompletar = new RedirecionarCompletar();
 		Spark.get("/completar_perfil", redirecionarCompletar, engine);
 		
-		PerfilControlador perfilControlador = new PerfilControlador();
-		Spark.get("/home.html", perfilControlador, engine);
-		Spark.get("/home", perfilControlador, engine);
+		HomeControlador homeControlador = new HomeControlador();
+		Spark.get("/home.html", homeControlador, engine);
+		Spark.get("/home", homeControlador, engine);
 		
 		AdminControlador admincontrolador = new AdminControlador();
 		Spark.get("/admin", admincontrolador, engine);
 
 		Fisica2Controlador fisica2 = new Fisica2Controlador();
 		Spark.get("/fisica2", fisica2, engine);
+		
+		DesempenhoControlador desempenhoControlador = new DesempenhoControlador();
+		Spark.get("/desempenho", desempenhoControlador, engine);
 				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
@@ -67,15 +70,13 @@ public class Main {
 		ConteudosControlador conteudosControlador = new ConteudosControlador();
 		Spark.get("/conteudo/:disciplina/:id", conteudosControlador, engine);
 		
-		DesempenhoControlador desempenhoControlador = new DesempenhoControlador();
-		Spark.get("/desempenho", desempenhoControlador, engine);
-		
 		RedirecionaConteudos redirecionaConteudos = new RedirecionaConteudos(); 
 		Spark.get("/conteudos", redirecionaConteudos, engine);
 		
 		RedirecionaExercicios redirecionaExercicios = new RedirecionaExercicios();
 		Spark.get("/exercicios", redirecionaExercicios, engine);
 		
+<<<<<<< HEAD
 		BarraControlador barraControlador = new BarraControlador();
 		Spark.get("/barraUser.html", barraControlador, engine);
 		
@@ -89,5 +90,7 @@ public class Main {
 		Spark.get("/endRandomExercises", endRandomExercises, engine);
 		
 	
+=======
+>>>>>>> a44d3f513a1e1ecc4efd6c33f7693fa2e72c5614
 	}
 }

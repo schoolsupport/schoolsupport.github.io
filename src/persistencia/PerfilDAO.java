@@ -54,7 +54,7 @@ public class PerfilDAO {
 				perfil.setSobrenome(columns[1]);
 				perfil.setTurma(columns[2]);
 				perfil.setCurso(columns[3]);
-				perfil.setBio(null);
+				//perfil.setBio(null);
 				if(columns.length == 5){
 						perfil.setBio(columns[4]);
 				}

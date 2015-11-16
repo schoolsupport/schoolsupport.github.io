@@ -11,14 +11,13 @@ import spark.TemplateViewRoute;
 
 public class ConteudosControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
-		Materia materia;
 		MateriaDAO dao = new MateriaDAO();
 		String disciplina = req.params("disciplina");
-		materia = dao.busca(Integer.parseInt(req.params("id")), disciplina);			
+		Materia materia = dao.busca(Integer.parseInt(req.params("id")), disciplina);			
 		HashMap dados = new HashMap();
+		BarraControlador.handle(req, res, dados);
 		dados.put("conteudo", materia);
 		req.session().attribute("conteudo", materia);
-		
 		
 		return new ModelAndView(dados, "conteudos.html");
 	}

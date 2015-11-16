@@ -25,80 +25,10 @@
 <style>img.chromoji { width:1em !important; height:1em !important; }.chromoji-font, #chromoji-font { font-size:1em !important; }</style></head>
 <body>
     <!-- HEADER END-->
-      <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="home.html">
+     {{#usuario}}
+        {{> barraUser}}
+     {{/usuario}}
 
-                    <img src="/index_files/logo.png">
-                </a>
-
-            </div>
-
-
-            <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-settings">
-                                <div class="media">
-                                    <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="/index_files/fb.jpg" width="60" alt="" class="img-rounded">
-                                    </a>
-                               
-                                    <div class="media-body">
-                                    
-                                     {{#perfil}}
-                                      {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4><br>
-                                    </div>
-                                </div>
-                                <br>
-                                <h5><strong>Curso:</strong> {{curso}}<br></h5> 
-                                <h5><strong>Matrícula:</strong> {{matricula}}</h5>
-                                <h5><strong>Bio: </strong>{{bio}}</h5>
-                                {{/usuario}}
-                                {{/perfil}}
-                                <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
-                                <a href="/logout" class="btn btn-danger btn-sm">Sair</a>
-                                     
-                            </div>
-                            
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- LOGO HEADER END-->
-    <section class="menu-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="navbar-collapse collapse ">
-                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="/home">Início</a></li>
-                            <li><a class="menu-top-active" href="/fisica2">Física 2</a></li>
-                            <li><a href="/desempenho">Desempenho</a></li>
-                            <li><a href="/logout">Sair</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
