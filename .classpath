@@ -17,7 +17,10 @@
 	<classpathentry kind="lib" path="C:/spark/slf4j-simple-1.7.7.jar"/>
 	<classpathentry kind="lib" path="C:/spark/spark-core-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/spark/spark-template-mustache-1.0.0.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Mail/javax.mail.jar"/>
 	<classpathentry kind="lib" path="C:/Mail/commons-email-1.4.jar"/>
+=======
+>>>>>>> 00041aaf6af2d6a88eb95107003ea443fc1a7f86
 	<classpathentry kind="output" path="bin"/>
 </classpath>

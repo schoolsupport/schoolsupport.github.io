@@ -19,7 +19,6 @@ public class EmailControlador implements TemplateViewRoute{
 		Usuario user = req.session().attribute("usuario_logado");
 		String conteudo = req.queryParams("conteudo");
 		String duvida = req.queryParams("duvida");
-		//String email = "vinicius.crizel845@gmail.com";
 		
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName( "smtp.gmail.com" );
