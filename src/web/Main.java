@@ -79,5 +79,15 @@ public class Main {
 		BarraControlador barraControlador = new BarraControlador();
 		Spark.get("/barraUser.html", barraControlador, engine);
 		
+		ExerciciosAleatorios exerciciosAleatorios = new ExerciciosAleatorios();
+		Spark.get("/exercicioaleatorio/:disciplina/:bimestre", exerciciosAleatorios, engine);
+		
+		ProximoAleatorio proximoAleatorio = new ProximoAleatorio();
+		Spark.post("/nextRandom/:id", proximoAleatorio, engine);
+		
+		EndRandomExercises endRandomExercises = new EndRandomExercises();
+		Spark.get("/endRandomExercises", endRandomExercises, engine);
+		
+	
 	}
 }
