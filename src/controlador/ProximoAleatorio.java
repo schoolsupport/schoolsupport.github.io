@@ -16,7 +16,8 @@ public class ProximoAleatorio implements TemplateViewRoute {
 		Exercicio exercicio = req.session().attribute("exercicio");
 		String resposta_usuario = req.queryParams("alternativa");
 		if(resposta_usuario.equals(exercicio.getAlternativaCorreta())) {
-			int acertos = Integer.parseInt(req.session().attribute("acertos")) + 1;
+			Integer acertos = req.session().attribute("acertos");
+			acertos = acertos + 1;
 			req.session().attribute("acertos", acertos);
 		}
 		

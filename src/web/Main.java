@@ -76,9 +76,9 @@ public class Main {
 		RedirecionaExercicios redirecionaExercicios = new RedirecionaExercicios();
 		Spark.get("/exercicios", redirecionaExercicios, engine);
 		
-<<<<<<< HEAD
-		BarraControlador barraControlador = new BarraControlador();
-		Spark.get("/barraUser.html", barraControlador, engine);
+
+		//BarraControlador barraControlador = new BarraControlador();
+		//Spark.get("/barraUser.html", barraControlador, engine);
 		
 		ExerciciosAleatorios exerciciosAleatorios = new ExerciciosAleatorios();
 		Spark.get("/exercicioaleatorio/:disciplina/:bimestre", exerciciosAleatorios, engine);
@@ -90,7 +90,6 @@ public class Main {
 		Spark.get("/endRandomExercises", endRandomExercises, engine);
 		
 	
-=======
->>>>>>> a44d3f513a1e1ecc4efd6c33f7693fa2e72c5614
+
 	}
 }
