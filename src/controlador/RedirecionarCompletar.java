@@ -12,7 +12,7 @@ public class RedirecionarCompletar implements TemplateViewRoute {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		Perfil perfil = usuario.getPerfil();
 		HashMap dados = new HashMap();
-		dados.put("perfil", perfil);
+		BarraControlador.handle(req, res, dados);
 		if(perfil == null) {
 			return new ModelAndView(dados, "completar.html");
 		} else {

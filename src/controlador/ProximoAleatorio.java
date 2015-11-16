@@ -33,7 +33,7 @@ public class ProximoAleatorio implements TemplateViewRoute {
 		dados.put("id", id);
 		
 		req.session().attribute("exercicio", e);
-		
+		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "exercicio_aleatorio.html");
 		
 		

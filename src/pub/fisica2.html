@@ -24,6 +24,23 @@
                      {{> barraUser}}
    {{/usuario}}
     <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a href="/home">Início</a></li>
+                            <li><a class="menu-top-active"  href="/fisica2">Física 2</a></li>
+                            <li><a href="/desempenho">Desempenho</a></li>
+                            <li><a href="/logout">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
@@ -107,24 +124,32 @@
                      
                 
                 </div>
-                <div class="col-md-6">
-                     <div class="Compose-Message">               
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        Possui alguma dúvida? Esclareça ela. 
-                    </div>
-                    <div class="panel-body">
-                        
-                        <label>Nome do conteúdo: </label>
-                        <input type="text" class="form-control">
-                        <label>Dúvida: </label>
-                        <textarea rows="9" class="form-control" max="9"></textarea>
-                        <hr>
-                        <a href="http://schoolsupport.github.io/#" class="btn btn-warning"><span class="glyphicon glyphicon-envelope"></span> Enviar dúvida </a>&nbsp;
-                    </div>
-                </div>
-                     </div>
-                </div>
+
+
+
+                <form action="/sendmail" method="POST">
+                  <div class="col-md-6">
+                       <div class="Compose-Message">               
+                  <div class="panel panel-success">
+                      <div class="panel-heading">
+                          Possui alguma dúvida? Esclareça ela. 
+                      </div>
+                      <div class="panel-body">
+                          
+                          <label>Nome do conteúdo: </label>
+                          <input type="text" class="form-control" id="conteudo" name="conteudo">
+                          <label>Dúvida: </label>
+                          <textarea rows="9" class="form-control" max="9" id="duvida" name="duvida"></textarea>
+                          <hr>
+                          <button type="submit" class="btn btn-warning">Enviar Dúvida</button>
+                      </div>
+                  </div>
+                       </div>
+                  </div>
+              </form>
+
+
+                
             </div>
         </div>
     </div>

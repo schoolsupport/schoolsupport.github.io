@@ -9,13 +9,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
     <title>School Support</title>
-    <link rel="icon" href="./index_files/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/index_files/favicon.ico" type="image/x-icon" />
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <!-- FONT AWESOME ICONS  -->
-    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
     <!-- CUSTOM STYLE  -->
-    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,82 +25,9 @@
 <style>img.chromoji { width:1em !important; height:1em !important; }.chromoji-font, #chromoji-font { font-size:1em !important; }</style></head>
 <body>
     <!-- HEADER END-->
-    <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="home.html">
-
-                    <img src="./index_files/logo.png">
-                </a>
-
-            </div>
-
-
-            <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        <li class="dropdown">
-                            
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-settings">
-                                <div class="media">
-                                    <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
-                                    </a>
-                               
-                                    <div class="media-body">
-                                    
-                                     {{#perfil}}
-                                      {{#usuario}}
-                                        <h4 class="media-heading">{{nome}} {{sobrenome}}</h4>
-                                        <h5>{{curso}} &nbsp;{{matricula}}</h5>
-                                    </div>
-                                </div>
-                              
-                                <hr>
-                                <h5><strong>Bio: </strong>{{bio}}</h5>
-                                <hr>
-                                {{/usuario}}
-                                {{/perfil}}
-                                <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
-                                <a href="/logout" class="btn btn-danger btn-sm">Sair</a>
-                                     
-                            </div>
-                            
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- LOGO HEADER END-->
-    <section class="menu-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="navbar-collapse collapse ">
-                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="/home">Início</a></li>
-                            <li><a href="/fisica2">Física 2</a></li>
-                            <li><a href="desempenho.html">Desempenho</a></li>
-                            <li><a href="/logout">Sair</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+     {{#usuario}}
+                     {{> barraUser}}
+   {{/usuario}}
     <!-- MENU SECTION END-->
     {{#exercicio}}
     <div class="content-wrapper">

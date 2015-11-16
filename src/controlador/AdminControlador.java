@@ -21,7 +21,7 @@ public class AdminControlador implements TemplateViewRoute {
 		HashMap dados = new HashMap();
 		dados.put("perfil", perfil);
 		dados.put("usuario", usuario);
+		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "admin.html");
 	}
-
 }

@@ -28,7 +28,7 @@ public class ExerciciosAleatorios implements TemplateViewRoute {
 		req.session().attribute("acertos", acertos);
 		req.session().attribute("exercicio", e);
 		req.session().attribute("exercicios", exercicios);
-		
+		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "exercicio_aleatorio.html");
 		
 	}
