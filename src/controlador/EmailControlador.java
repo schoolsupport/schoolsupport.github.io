@@ -1,19 +1,14 @@
 package controlador;
 
 import modelo.Usuario;
-
-import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
-
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
 public class EmailControlador implements TemplateViewRoute{
-
-	@Override
 	public ModelAndView handle(Request req, Response res) {
 		
 		Usuario user = req.session().attribute("usuario_logado");
@@ -21,28 +16,29 @@ public class EmailControlador implements TemplateViewRoute{
 		String duvida = req.queryParams("duvida");
 		
 		SimpleEmail email = new SimpleEmail();
-		email.setHostName( "smtp.gmail.com" );
-		email.setSslSmtpPort( "465" );
-		email.setStartTLSRequired(true);
-		email.setSSLOnConnect(true);
+		email.setHostName("smtp.gmail.com");
+		email.setSslSmtpPort("25");
+		email.setStartTLSRequired(false);
+		email.setSSLOnConnect(false);
+		email.setSSL(true);  
+        email.setTLS(true);  
 		email.setAuthentication("bolsistasinformatica@gmail.com",  "informatica123");
 		try {
-		    email.setFrom( "bolsistasinformatica@gmail.com");
+		    email.setFrom("bolsistasinformatica@gmail.com");
 		     
 		    email.setDebug(true); 
 		     
-		    email.setSubject( conteudo );
-		    email.setMsg( duvida );
-		    email.addTo( "andrew.apa@hotmail.com" );//por favor trocar antes de testar!!!!
+		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
+		    email.setMsg( duvida + "\n" + user.getEmail());
+		    email.addTo("andrew.apa@hotmail.com");
 		     
 		    email.send();
-		     
+		    
 		} catch (EmailException e) {
-			System.out.println("deu erro");
 		    e.printStackTrace();
 		} 
-		System.out.println("aehuahuaeha");
+		res.redirect("/fisica2");
 		return null;
 	}
-	
+
 }
