@@ -22,15 +22,17 @@ public class EmailControlador implements TemplateViewRoute{
 		email.setSSLOnConnect(false);
 		email.setSSL(true);  
         email.setTLS(true);  
-		email.setAuthentication("bolsistasinformatica@gmail.com",  "informatica123");
+		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
 		try {
-		    email.setFrom("bolsistasinformatica@gmail.com");
+		    email.setFrom("schoolsupport@no-spam.com");
+		    email.addReplyTo("andrew.apa@hotmail.com", "Andrew Mota");
 		     
 		    email.setDebug(true); 
 		     
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
-		    email.addTo("vinicius.crizel845@gmail.com");
+		    email.addTo("ss.duvidas.pcd@gmail.com");
+		    email.addTo("andrew.apa@hotmail.com");
 		     
 		    email.send();
 		    

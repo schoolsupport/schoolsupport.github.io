@@ -19,8 +19,7 @@ public class EndRandomExercises implements TemplateViewRoute {
 		int acertos = req.session().attribute("acertos");
 		dados.put("acertos", acertos);
 		dados.put("total", total);
-		double percentual = (double)((acertos/total)*10000);
-		System.out.println(percentual);
+		double percentual = (double)((acertos/total)*100);
 		dados.put("percentual", percentual);
 		BarraControlador.handle(req, res, dados);
 		return new ModelAndView (dados, "resultado_aleatorios.html");

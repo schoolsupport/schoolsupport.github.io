@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 import modelo.Perfil;
 import modelo.Usuario;
@@ -52,5 +53,4 @@ public class SalvaCadastro implements TemplateViewRoute {
 		
 		res.redirect("/home"); return null;
 	}
-
 }

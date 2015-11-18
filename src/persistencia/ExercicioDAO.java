@@ -79,7 +79,7 @@ public class ExercicioDAO {
 	}
 
 	public Exercicio busca(int i, String disciplina) {
-		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code + ".csv");
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + i + ".csv");
 
 		if (!arquivo.exists()) {
 			return null;
@@ -114,6 +114,7 @@ public class ExercicioDAO {
 					break;
 				}
 				exercicio.setBimestre(columns[7]);
+				exercicio.setDisciplina(disciplina);
 			}
 
 			scan.close();

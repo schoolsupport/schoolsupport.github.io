@@ -83,9 +83,7 @@ public class Main {
 		
 		EndRandomExercises endRandomExercises = new EndRandomExercises();
 		Spark.get("/endRandomExercises", endRandomExercises, engine);
-		
-		
-		// Comentado pois está sendo testado ainda
+
 		EmailControlador emailControlador = new EmailControlador();
 		Spark.post("/sendmail", emailControlador, engine);
 		

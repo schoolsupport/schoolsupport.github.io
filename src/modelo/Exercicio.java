@@ -11,6 +11,9 @@ public class Exercicio {
 	private String alternativa5;
 	private String alternativa_correta;
 	private String bimestre;
+	private String disciplina;
+	private int code;
+	
 	public String getAlternativa_correta() {
 		return alternativa_correta;
 	}
@@ -22,9 +25,7 @@ public class Exercicio {
 	}
 	public void setBimestre(String bimestre) {
 		this.bimestre = bimestre;
-	}
-	private int code;
-	
+	}	
 	public int getCode() {
 		return code;
 	}
@@ -73,7 +74,6 @@ public class Exercicio {
 	public void setAlternativaCorreta(String alternativa_correta) {
 		this.alternativa_correta = alternativa_correta;
 	}
-	private String disciplina;
 	public String getDisciplina() {
 		return disciplina;
 	}

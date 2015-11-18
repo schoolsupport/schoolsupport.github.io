@@ -36,7 +36,7 @@ public class LoginControlador implements TemplateViewRoute{
 				}
 		
 			
-			res.redirect("/erro_login.html");
+			res.redirect("/");
 			return null;
 		}
 }
