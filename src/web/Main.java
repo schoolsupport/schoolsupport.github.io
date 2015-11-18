@@ -22,7 +22,6 @@ public class Main {
 		Spark.get("/completar_perfil", redirecionarCompletar, engine);
 		
 		HomeControlador homeControlador = new HomeControlador();
-		Spark.get("/home.html", homeControlador, engine);
 		Spark.get("/home", homeControlador, engine);
 		
 		AdminControlador admincontrolador = new AdminControlador();

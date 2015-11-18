@@ -29,7 +29,7 @@ public class LoginControlador implements TemplateViewRoute{
 					if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
 						res.redirect("/admin.html");
 					}
-					res.redirect("/home.html");
+					res.redirect("/home");
 				}	
 			 else {
 					res.redirect("/index.html");
@@ -41,6 +41,6 @@ public class LoginControlador implements TemplateViewRoute{
 		}
 }
 
-// SE O USUÁRIO EXISTE
+// SE O USUÃ�RIO EXISTE
 // SENHA INFORMADA COM A ARMAZENADA
 // SE TRUE = req.session().attribute("usuario_logado", user);
