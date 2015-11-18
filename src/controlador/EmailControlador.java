@@ -1,8 +1,10 @@
 package controlador;
 
 import modelo.Usuario;
+
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -14,6 +16,7 @@ public class EmailControlador implements TemplateViewRoute{
 		Usuario user = req.session().attribute("usuario_logado");
 		String conteudo = req.queryParams("conteudo");
 		String duvida = req.queryParams("duvida");
+		//String email = "vinicius.crizel845@gmail.com";
 		
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
@@ -40,7 +43,8 @@ public class EmailControlador implements TemplateViewRoute{
 		    e.printStackTrace();
 		} 
 		res.redirect("/fisica2");
-		return null;
-	}
 
+		return null;
+		
+	}
 }
