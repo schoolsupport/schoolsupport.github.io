@@ -8,22 +8,24 @@ import java.io.*;
 
 import modelo.Usuario;
 
-public class ApagarPerfil implements TemplateViewRoute{
+public class ApagarPerfil implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario2 = req.session().attribute("usuario_logado");
-		if(usuario2 == null) {
+		if (usuario2 == null) {
 			res.redirect("/");
 			return null;
 		}
-		Usuario usuario = req.session().attribute("usuario_logado");		
-		File perfis = new File("banco/perfis/" + usuario.getMatricula() + ".csv");
-		File cadastros = new File("banco/cadastros/" + usuario.getMatricula() + ".csv");
-		
-		if(perfis.exists()){
+		Usuario usuario = req.session().attribute("usuario_logado");
+		File perfis = new File("banco/perfis/" + usuario.getMatricula()
+				+ ".csv");
+		File cadastros = new File("banco/cadastros/" + usuario.getMatricula()
+				+ ".csv");
+
+		if (perfis.exists()) {
 			perfis.delete();
-			
+
 		}
-		if(cadastros.exists()) {
+		if (cadastros.exists()) {
 			cadastros.delete();
 		}
 		res.redirect("/");

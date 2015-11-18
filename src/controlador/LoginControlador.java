@@ -23,13 +23,12 @@ public class LoginControlador implements TemplateViewRoute{
 			UsuarioDAO dao = new UsuarioDAO();
 			user = dao.load(matricula);
 			if (user == null) res.redirect("/erro_login.html");
-				
 				if (user.getSenha().equals(senha)){
 					req.session().attribute("usuario_logado", user);
 					if(user.getMatricula().equals("11030231") || user.getMatricula().equals("11030234") || user.getMatricula().equals("11030235")){
 						res.redirect("/admin.html");
 					}
-					res.redirect("/home.html");
+					res.redirect("/home");
 				}	
 			 else {
 					res.redirect("/index.html");
@@ -40,7 +39,3 @@ public class LoginControlador implements TemplateViewRoute{
 			return null;
 		}
 }
-
-// SE O USUÁRIO EXISTE
-// SENHA INFORMADA COM A ARMAZENADA
-// SE TRUE = req.session().attribute("usuario_logado", user);

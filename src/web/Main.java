@@ -22,7 +22,6 @@ public class Main {
 		Spark.get("/completar_perfil", redirecionarCompletar, engine);
 		
 		HomeControlador homeControlador = new HomeControlador();
-		Spark.get("/home.html", homeControlador, engine);
 		Spark.get("/home", homeControlador, engine);
 		
 		AdminControlador admincontrolador = new AdminControlador();
@@ -87,8 +86,8 @@ public class Main {
 		
 		
 		// Comentado pois está sendo testado ainda
-		//EmailControlador emailControlador = new EmailControlador()
-		//Spark.post("/sendmail", emailControlador, engine);
+		EmailControlador emailControlador = new EmailControlador();
+		Spark.post("/sendmail", emailControlador, engine);
 		
 	
 
