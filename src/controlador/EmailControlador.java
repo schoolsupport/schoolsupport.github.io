@@ -17,8 +17,7 @@ public class EmailControlador implements TemplateViewRoute{
 		String email = "vinicius.crizel845@gmail.com";
 		//SendMail sm = new SendMail();
 		//sm.sendMail(email,email,conteudo,duvida); 
-		
 		return null;
+		
 	}
-	
 }

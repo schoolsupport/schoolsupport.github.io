@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.HashMap;
+
 import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
@@ -13,7 +15,9 @@ public class ApresentaCadastrarE implements TemplateViewRoute {
 			res.redirect("/");
 			return null;
 		}
-		return new ModelAndView(null, "/cadastrar_exercicio.html");
+		HashMap dados = new HashMap();
+		BarraControlador.handle(req, res, dados);
+		return new ModelAndView(dados, "/cadastrar_exercicio.html");
 	}
 
 }
