@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 import modelo.Exercicio;
+import modelo.Usuario;
 
 public class ExercicioDAO {
 	Exercicio exercicio = new Exercicio();
@@ -178,7 +179,6 @@ public class ExercicioDAO {
 		
 		
 	}
-	
 	public void currentRandom (ArrayList<Exercicio> e) {
 		File dir = new File ("banco/currentRandom/");
 		if (!dir.exists()) dir.mkdir();
@@ -196,5 +196,22 @@ public class ExercicioDAO {
 		}
 		
 		
+	}
+	public void addAcerto(Usuario user, Exercicio exercicio) {
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode() + ".csv");
+		try {
+			dir2.mkdir();
+			FileWriter writer = new FileWriter(dir2);
+			writer.write("");
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void addErro(Usuario user, Exercicio exercicio) {
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".txt");
+		dir2.mkdir();
 	}
 }
