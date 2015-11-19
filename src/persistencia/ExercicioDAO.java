@@ -198,20 +198,22 @@ public class ExercicioDAO {
 		
 	}
 	public void addAcerto(Usuario user, Exercicio exercicio) {
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode() + ".csv");
-		try {
-			dir2.mkdir();
-			FileWriter writer = new FileWriter(dir2);
-			writer.write("");
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		File dir = new File ("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists()) dir.mkdir();
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode());
+		
+		if (!dir2.exists()) dir2.mkdir();
 	}
 
 	public void addErro(Usuario user, Exercicio exercicio) {
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".txt");
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".csv");
 		dir2.mkdir();
+		try {
+			FileWriter writer = new FileWriter(dir2);
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
 	}
 }
