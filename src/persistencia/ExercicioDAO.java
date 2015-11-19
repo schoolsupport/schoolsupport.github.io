@@ -80,7 +80,7 @@ public class ExercicioDAO {
 	}
 
 	public Exercicio busca(int i, String disciplina) {
-		File arquivo = new File("banco/exercicios/" + disciplina + "/" + i + ".csv");
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code + ".csv");
 
 		if (!arquivo.exists()) {
 			return null;
@@ -115,7 +115,6 @@ public class ExercicioDAO {
 					break;
 				}
 				exercicio.setBimestre(columns[7]);
-				exercicio.setDisciplina(disciplina);
 			}
 
 			scan.close();
@@ -179,6 +178,7 @@ public class ExercicioDAO {
 		
 		
 	}
+	
 	public void currentRandom (ArrayList<Exercicio> e) {
 		File dir = new File ("banco/currentRandom/");
 		if (!dir.exists()) dir.mkdir();
@@ -189,7 +189,7 @@ public class ExercicioDAO {
 				writer.write(e.get(i).getCode());
 				writer.write(";");				
 			}
-			writer.flush();
+			writer.flush(); 
 			writer.close();
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -198,20 +198,28 @@ public class ExercicioDAO {
 		
 	}
 	public void addAcerto(Usuario user, Exercicio exercicio) {
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode() + ".csv");
-		try {
-			dir2.mkdir();
-			FileWriter writer = new FileWriter(dir2);
-			writer.write("");
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		//System.out.println(exercicio.getCode());
+		File file = new File("banco/desempenhos");
+		if(!file.exists()) file.mkdir();
+		File dir = new File ("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists()) dir.mkdir();
+		
+		File dir3 = new File ("banco/desempenhos/" + user.getMatricula()+"/acertos");
+		if (!dir3.exists()) dir3.mkdir();
+		
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode()+".csv");
+		if (!dir2.exists()) dir2.mkdir();
 	}
 
 	public void addErro(Usuario user, Exercicio exercicio) {
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".txt");
+		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".csv");
 		dir2.mkdir();
+		try {
+			FileWriter writer = new FileWriter(dir2);
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
 	}
 }
