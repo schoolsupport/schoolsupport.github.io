@@ -24,7 +24,7 @@ public class VerificaRespostas implements TemplateViewRoute {
 			dao.addAcerto(user, exercicio);
 			res.redirect("/exercicio/" + disciplina + "/" + id_novo);
 		
-		} else { ;
+		} else { 
 			dao.addErro(user, exercicio);
 			res.redirect("/fisica2");
 		}

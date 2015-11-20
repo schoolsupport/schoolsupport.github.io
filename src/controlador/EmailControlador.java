@@ -16,7 +16,6 @@ public class EmailControlador implements TemplateViewRoute{
 		Usuario user = req.session().attribute("usuario_logado");
 		String conteudo = req.queryParams("conteudo");
 		String duvida = req.queryParams("duvida");
-		//String email = "vinicius.crizel845@gmail.com";
 		
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
@@ -28,20 +27,19 @@ public class EmailControlador implements TemplateViewRoute{
 		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
 		try {
 		    email.setFrom("schoolsupport@no-spam.com");
-		    email.addReplyTo("andrew.apa@hotmail.com", "Andrew Mota");
+		    email.addReplyTo(user.getEmail(), user.getUsername());
 		     
 		    email.setDebug(true); 
-		     
+		     System.out.println(user);
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
 		    email.addTo("ss.duvidas.pcd@gmail.com");
-		    email.addTo("vinicus.crizel845@gmail.com");
+		    email.addTo("vinicius.crizel845@gmail.com");
 		    
-		     
 		    email.send();
-		    System.out.println("enviou");
 		} catch (EmailException e) {
 		    e.printStackTrace();
+		    System.out.println("nao enviou");
 		} 
 		res.redirect("/fisica2");
 
