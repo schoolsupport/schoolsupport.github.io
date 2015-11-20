@@ -16,10 +16,17 @@ public class DesempenhoControlador implements TemplateViewRoute {
 		ExercicioDAO dao = new ExercicioDAO();
 		int acertos = dao.getAcertos(u);
 		int erros = dao.getErros(u);
-		System.out.println("Acertos:" + acertos);
-		System.out.println("Erros:" + erros);
+		int total = acertos + erros;
+		int porc_acertos = acertos/total;
+		int porc_erros = erros/total;
+		System.out.println(total);
+		System.out.print(2/3);
 		HashMap dados = new HashMap();
 		BarraControlador.handle(req, res, dados);
+		dados.put("acertos", acertos);
+		dados.put("erros", erros);
+		dados.put("porc_acertos", porc_acertos);
+		dados.put("porc_errs", porc_erros);
 		return new ModelAndView(dados, "desempenho.html");
 	}
 	

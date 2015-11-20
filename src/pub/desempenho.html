@@ -57,11 +57,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="alert alert-warning">
-                        This is blank page for which you can customize for your project. 
-                        Use this admin template 100% free to use for personal and commercial use which is crafted by 
-                        <br />
-                        <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap.com</a> . For more free templates and snippets keep looking <a href="http://www.designbootstrap.com/" target="_blank">DesignBootstrap.com</a> . Hope you will like our work
-                  
+                    {{#acertos}}
+                    {{#erros}}
+                    Acertos: {{acertos}}
+                    {{#porc_acertos}}
+                    {{porc_acertos}}                      
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow= "66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                        </div>
+                    </div> 
+                    {{/porc_acertos}}
+                    <br>
+                    Erros: {{erros}}
+                    {{#porc_erros}}
+                    {{porc_erros}}  
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" style="width: 44%">
+                         </div>
+                    </div>
+                    {{/porc_erros}}
+                    {{/erros}}
+                    {{/acertos}}
                     </div>
                 </div>
 
