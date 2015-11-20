@@ -81,7 +81,7 @@ public class ExercicioDAO {
 	}
 
 	public Exercicio busca(int i, String disciplina) {
-		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + i
 				+ ".csv");
 
 		if (!arquivo.exists()) {
@@ -92,6 +92,7 @@ public class ExercicioDAO {
 			while (scan.hasNextLine()) {
 				String row = scan.nextLine();
 				String[] columns = row.split(";");
+				exercicio.setDisciplina(disciplina);
 				exercicio.setCode(i);
 				exercicio.setOrdem(columns[0]);
 				exercicio.setAlternativa1(columns[1]);
@@ -210,7 +211,6 @@ public class ExercicioDAO {
 	}
 
 	public void addAcerto(Usuario user, Exercicio exercicio) {
-
 		File file = new File("banco/desempenhos");
 		if (!file.exists())	file.mkdir();
 		
@@ -234,14 +234,53 @@ public class ExercicioDAO {
 	}
 
 	public void addErro(Usuario user, Exercicio exercicio) {
-		File dir2 = new File("banco/desempenhos/" + user.getMatricula()
-				+ "/erros/" + exercicio.getCode() + ".csv");
-		dir2.mkdir();
+		File file = new File("banco/desempenhos");
+		if (!file.exists())	file.mkdir();
+		
+		File dir = new File("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists())  dir.mkdir();
+
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()+ "/erros");
+		if (!dir2.exists())	dir2.mkdir();
+
+		File dir3 = new File("banco/desempenhos/" + user.getMatricula()	+ "/erros/" + exercicio.getCode() + ".csv");
+		FileWriter writer;
 		try {
-			FileWriter writer = new FileWriter(dir2);
+			writer = new FileWriter(dir3);
+			writer.write(exercicio.getCode());
+			writer.write(";");
+			writer.flush();
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public int getAcertos(Usuario user) {
+		File file = new File("banco/desempenhos");
+		if (!file.exists())	file.mkdir();
+		
+		File dir = new File("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists())  dir.mkdir();
+
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()+ "/acertos");
+		if (!dir2.exists())	dir2.mkdir();
+		
+		File[] files = dir2.listFiles();
+		
+		return files.length;
+	}
+	public int getErros(Usuario user) {
+		File file = new File("banco/desempenhos");
+		if (!file.exists())	file.mkdir();
+		
+		File dir = new File("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists())  dir.mkdir();
+
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()+ "/erros");
+		if (!dir2.exists())	dir2.mkdir();
+		
+		File[] files = dir2.listFiles();
+		
+		return files.length;
 	}
 }
