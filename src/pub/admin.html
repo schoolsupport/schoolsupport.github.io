@@ -10,11 +10,11 @@
         <![endif]-->
     <title>Admin</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if ltssIE 9]>
@@ -24,63 +24,9 @@
 </head>
 <body>
     <!-- HEADER END-->
-     <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="home.html">
-
-                    <img src="./index_files/logo.png">
-                </a>
-
-            </div>
-      <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-settings">
-                                <div class="media">
-                                    <a class="media-left" href="#">
-                                        <img src="./index_files/fb.jpg" width="60" alt="" class="img-rounded">
-                                    </a>
-                               {{#usuario}}
-                                    <div class="media-body">
-                                  
-                                     
-                                        <h4 class="media-heading">{{perfil.nome}} {{perfil.sobrenome}}</h4><br>
-                                    </div>
-                                </div>
-                                <br>
-                                <h5><strong>Curso:</strong> {{perfil.curso}}<br></h5> 
-                                <h5><strong>Matrícula:</strong>{{matricula}}</h5>
-                                <h5><strong>Bio: </strong>{{perfil.bio}}</h5>
-
-
-                               
-                                 {{/usuario}}                
-    
-                                
-                                <a href="/completar_perfil" class="btn btn-info btn-sm">Altere seu perfil</a>&nbsp; 
-                                <a href="/logout" class="btn btn-danger btn-sm">Sair</a>
-                                     
-                            </div>
-                            
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{#usuario}}
+        {{> barraUser}}
+    {{/usuario}}
     <!-- LOGO HEADER END-->
     <section class="menu-section">
         <div class="container">
@@ -89,7 +35,7 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a  href="/usuariosCadastrados">Usuarios</a></li>
-                            <li><a  href="/CadastrarConteudo.html">Cadastrar Conteúdo</a></li>
+                            <li><a  href="/cadastraConteudo">Cadastrar Conteúdo</a></li>
                             <li><a  href="/cadastraExercicio">Cadastrar exercício</a></LI>
                             <li><a  href="/logout">Sair</a></li>
                         </ul>

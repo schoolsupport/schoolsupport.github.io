@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.HashMap;
+
 import modelo.Materia;
 import persistencia.MateriaDAO;
 import spark.ModelAndView;
@@ -17,7 +19,9 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		m.setBimestre(req.queryParams("bimestre"));
 		dao.save(m);
 		res.redirect("/admin");
+		HashMap dados = new HashMap();
+		BarraControlador.handle(req, res, dados);
 		
-		return null;
+		return new ModelAndView(dados, "/cadastrar_conteudo.html");
 	}
 }

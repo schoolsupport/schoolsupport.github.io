@@ -17,6 +17,7 @@ public class UsuariosCadastrados implements TemplateViewRoute{
         ArrayList<Usuario> usuarios = dao.findAll();
 		HashMap mapa = new HashMap();
 			mapa.put("matriculas", usuarios);
+			BarraControlador.handle(req, res, mapa);
 		return new ModelAndView(mapa, "usuariosCadastrados.html");
 	}
 }

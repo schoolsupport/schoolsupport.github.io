@@ -56,8 +56,15 @@ public class SalvaCadastro implements TemplateViewRoute {
 		}
 
 		req.session().attribute("usuario_logado", usuario_logado);
+		
+		if(usuario_logado.getMatricula().equals("11030231") ||
+		   usuario_logado.getMatricula().equals("11030234") || 
+		   usuario_logado.getMatricula().equals("11030235")) {
+			res.redirect("/admin");
+		}else{
+			res.redirect("/home");
+		}
 
-		res.redirect("/home");
 		return null;
 	}
 

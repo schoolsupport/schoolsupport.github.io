@@ -42,6 +42,9 @@ public class Main {
 		LoginControlador login = new LoginControlador();
 		Spark.post("/login", login, engine);
 		
+		CadastraConteudo cadastraConteudo = new CadastraConteudo();
+		Spark.get("/cadastraConteudo", cadastraConteudo, engine);
+
 		CadastrarConteudo cadastrarConteudo = new CadastrarConteudo();
 		Spark.post("/cadastrarConteudo", cadastrarConteudo, engine);
 		
