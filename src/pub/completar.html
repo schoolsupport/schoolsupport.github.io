@@ -33,9 +33,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.html">
+                <a class="navbar-brand" href="index.html" >
 
-                    <img src="./index_files/logo.png">
+                    <img src="assets/img/logo.png" />
                 </a>
 
             </div>
@@ -45,31 +45,10 @@
                     <ul class="nav">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="http://schoolsupport.github.io/#" aria-expanded="false">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-settings">
-                                <div class="media">
-                                    <a class="media-left" href="http://schoolsupport.github.io/#">
-                                        <img src="./index_files/fb.jpg" width="64" alt="" class="img-rounded">
-                                    </a>
-                               
-                                    <div class="media-body">
-                                     {{#usuario}}
-                                        <h4 class="media-heading">{{username}}</h4>
-                                        <h5>{{email}} &amp; {{matricula}}</h5>
-                                      {{/usuario}}
-                                    </div>
-                                </div>
-                              
-                                <hr>
-                                <h5><strong>Personal Bio : </strong></h5>
-                                Anim pariatur cliche reprehen derit.
-                                <hr>
-                                <a href="#" class="btn btn-info btn-sm">Completar Perfil</a>&nbsp; <a href="/logout" class="btn btn-danger btn-sm">Sair</a>
-
-                            </div>
-                            
+                           
                         </li>
 
 
@@ -85,11 +64,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                             <li><a class="menu-top-active"  href="#">Completar Perfil</a></li>
-                             <li><a href="/home">Início</a></li>
-                            <li><a href="/fisica2">Física 2</a></li>
-                             <li><a href="/desempenho">Desempenho</a></li>
-                             <li><a href="/logout">Sair</a></li>
+                             <li><a class="menu-top-active"  href="javascript:window.history.go(-1)">Voltar</a></li>
                         </ul>
                     </div>
                 </div>

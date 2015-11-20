@@ -27,4 +27,6 @@ public class CompletarPerfil implements TemplateViewRoute {
 		}
 		res.redirect("/home"); return null;
 	}
+	
+	
 }

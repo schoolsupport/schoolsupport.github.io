@@ -35,10 +35,11 @@ public class EmailControlador implements TemplateViewRoute{
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
 		    email.addTo("ss.duvidas.pcd@gmail.com");
-		    email.addTo("andrew.apa@hotmail.com");
+		    email.addTo("vinicus.crizel845@gmail.com");
+		    
 		     
 		    email.send();
-		    
+		    System.out.println("enviou");
 		} catch (EmailException e) {
 		    e.printStackTrace();
 		} 

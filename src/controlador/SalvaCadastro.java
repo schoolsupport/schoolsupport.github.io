@@ -42,9 +42,12 @@ public class SalvaCadastro implements TemplateViewRoute {
 			usuario_logado.setMatricula(req.queryParams("matricula"));
 		}
 
-		UsuarioDAO dao = new UsuarioDAO();	
+		UsuarioDAO dao = new UsuarioDAO();			
 		
-		// && !findUser(usuario_logado.getUsername())
+		//if(findUser(usuario_logado.getUsername())){
+		//	res.redirect("/index.html");
+		//	return null;
+		//}
 		
 		
 		try {
@@ -68,21 +71,27 @@ public class SalvaCadastro implements TemplateViewRoute {
 		return null;
 	}
 
-	public static boolean findUser(String user) throws FileNotFoundException  {
+	public static boolean findUser(String user) {
 
 		File file = new File("banco/cadastros/");
 		File[] arqs = file.listFiles();
-
+		String usuario = "";
 		Scanner scan;
 		for (File arq : arqs) { // for each
-			scan = new Scanner(arq);
-			String linha = scan.nextLine();
-			scan.close();
-			String[] colunas = linha.split(";");
-			System.out.println(colunas[1]);
-			if (colunas[1].equals(user)) {
+			try {
+				scan = new Scanner(arq);
+				String linha = scan.nextLine();
+				scan.close();
+				String[] colunas = linha.split(";");
+				usuario = colunas[1];
+			} catch (FileNotFoundException e) {
+
+				e.printStackTrace();
+			}
+			if (usuario.equals(user)) {
 				return true;
 			}
+			
 		}
 		return false;
 	}
