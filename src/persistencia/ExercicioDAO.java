@@ -49,7 +49,8 @@ public class ExercicioDAO {
 		if (!nextRota.exists())
 			nextRota.mkdir();
 
-		File exercicio = new File("banco/exercicios/" + ex.getDisciplina() + "/" + ex.getCode() + ".csv");
+		File exercicio = new File("banco/exercicios/" + ex.getDisciplina()
+				+ "/" + ex.getCode() + ".csv");
 		if (exercicio.exists())
 			return;
 
@@ -80,7 +81,8 @@ public class ExercicioDAO {
 	}
 
 	public Exercicio busca(int i, String disciplina) {
-		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code + ".csv");
+		File arquivo = new File("banco/exercicios/" + disciplina + "/" + code
+				+ ".csv");
 
 		if (!arquivo.exists()) {
 			return null;
@@ -124,17 +126,18 @@ public class ExercicioDAO {
 		return exercicio;
 	}
 
-	public ArrayList<Exercicio> findAllPorBimestre (String disciplina, int bimestre) {
+	public ArrayList<Exercicio> findAllPorBimestre(String disciplina,
+			int bimestre) {
 		ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
 		File arquivo = new File("banco/exercicios/" + disciplina);
 		File[] exs = arquivo.listFiles();
 		for (File ex : exs) { // for each
 			try {
-				
+
 				Scanner scan = new Scanner(ex);
-				
+
 				String linha = scan.nextLine();
-				scan.close();			
+				scan.close();
 				Exercicio e = new Exercicio();
 				String[] columns = linha.split(";");
 				String s = ex.getName();
@@ -146,22 +149,31 @@ public class ExercicioDAO {
 				e.setAlternativa3(columns[3]);
 				e.setAlternativa4(columns[4]);
 				e.setAlternativa5(columns[5]);
-				switch(Integer.parseInt(columns[6])) {
-					case 1: e.setAlternativaCorreta(columns[1]); break;
-					case 2: e.setAlternativaCorreta(columns[2]); break;
-					case 3: e.setAlternativaCorreta(columns[3]); break;
-					case 4: e.setAlternativaCorreta(columns[4]); break;
-					case 5: e.setAlternativaCorreta(columns[5]); break;
+				switch (Integer.parseInt(columns[6])) {
+				case 1:
+					e.setAlternativaCorreta(columns[1]);
+					break;
+				case 2:
+					e.setAlternativaCorreta(columns[2]);
+					break;
+				case 3:
+					e.setAlternativaCorreta(columns[3]);
+					break;
+				case 4:
+					e.setAlternativaCorreta(columns[4]);
+					break;
+				case 5:
+					e.setAlternativaCorreta(columns[5]);
+					break;
 				}
 				e.setBimestre(columns[7]);
 				exercicios.add(e);
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
-			
-			
-			}
-		
+
+		}
+
 		if (bimestre == 0) {
 			Collections.shuffle(exercicios);
 			currentRandom(exercicios);
@@ -169,57 +181,71 @@ public class ExercicioDAO {
 		}
 		ArrayList<Exercicio> filtrados = new ArrayList<Exercicio>();
 		for (int i = 0; i < exercicios.size(); i++) {
-			if (exercicios.get(i).getBimestre().equals(bimestre+"")) filtrados.add(exercicios.get(i));
+			if (exercicios.get(i).getBimestre().equals(bimestre + ""))
+				filtrados.add(exercicios.get(i));
 		}
 		Collections.shuffle(filtrados);
 		currentRandom(filtrados);
 		return filtrados;
-		
-		
-		
+
 	}
-	
-	public void currentRandom (ArrayList<Exercicio> e) {
-		File dir = new File ("banco/currentRandom/");
-		if (!dir.exists()) dir.mkdir();
+
+	public void currentRandom(ArrayList<Exercicio> e) {
+		File dir = new File("banco/currentRandom/");
+		if (!dir.exists())
+			dir.mkdir();
 		File file = new File("banco/currentRandom/list.csv");
 		try {
 			FileWriter writer = new FileWriter(file);
-			for(int i = 0; i < e.size(); i++) {
+			for (int i = 0; i < e.size(); i++) {
 				writer.write(e.get(i).getCode());
-				writer.write(";");				
+				writer.write(";");
 			}
-			writer.flush(); 
+			writer.flush();
 			writer.close();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
-		
+
 	}
+
 	public void addAcerto(Usuario user, Exercicio exercicio) {
-		//System.out.println(exercicio.getCode());
+
 		File file = new File("banco/desempenhos");
-		if(!file.exists()) file.mkdir();
-		File dir = new File ("banco/desempenhos/" + user.getMatricula());
-		if (!dir.exists()) dir.mkdir();
-		
-		File dir3 = new File ("banco/desempenhos/" + user.getMatricula()+"/acertos");
-		if (!dir3.exists()) dir3.mkdir();
-		
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/acertos/" + exercicio.getCode()+".csv");
-		if (!dir2.exists()) dir2.mkdir();
+		if (!file.exists())
+			file.mkdir();
+		File dir = new File("banco/desempenhos/" + user.getMatricula());
+		if (!dir.exists())
+			dir.mkdir();
+
+		File dir3 = new File("banco/desempenhos/" + user.getMatricula()
+				+ "/acertos");
+		if (!dir3.exists())
+			dir3.mkdir();
+
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()
+				+ "/acertos/" + exercicio.getCode() + ".csv");
+		FileWriter writer;
+		try {
+			writer = new FileWriter(dir2);
+			writer.write(exercicio.getCode());
+			writer.write(";");
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void addErro(Usuario user, Exercicio exercicio) {
-		File dir2 = new File ("banco/desempenhos/" + user.getMatricula() + "/erros/" + exercicio.getCode() + ".csv");
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()
+				+ "/erros/" + exercicio.getCode() + ".csv");
 		dir2.mkdir();
 		try {
 			FileWriter writer = new FileWriter(dir2);
 			writer.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}  
+		}
 	}
 }
