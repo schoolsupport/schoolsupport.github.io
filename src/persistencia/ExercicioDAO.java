@@ -212,22 +212,18 @@ public class ExercicioDAO {
 	public void addAcerto(Usuario user, Exercicio exercicio) {
 
 		File file = new File("banco/desempenhos");
-		if (!file.exists())
-			file.mkdir();
+		if (!file.exists())	file.mkdir();
+		
 		File dir = new File("banco/desempenhos/" + user.getMatricula());
-		if (!dir.exists())
-			dir.mkdir();
+		if (!dir.exists())  dir.mkdir();
 
-		File dir3 = new File("banco/desempenhos/" + user.getMatricula()
-				+ "/acertos");
-		if (!dir3.exists())
-			dir3.mkdir();
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()+ "/acertos");
+		if (!dir2.exists())	dir2.mkdir();
 
-		File dir2 = new File("banco/desempenhos/" + user.getMatricula()
-				+ "/acertos/" + exercicio.getCode() + ".csv");
+		File dir3 = new File("banco/desempenhos/" + user.getMatricula()	+ "/acertos/" + exercicio.getCode() + ".csv");
 		FileWriter writer;
 		try {
-			writer = new FileWriter(dir2);
+			writer = new FileWriter(dir3);
 			writer.write(exercicio.getCode());
 			writer.write(";");
 			writer.flush();
