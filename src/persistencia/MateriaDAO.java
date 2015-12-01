@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import modelo.Materia;
+import modelo.Usuario;
 
 public class MateriaDAO {
 
@@ -103,6 +105,42 @@ public class MateriaDAO {
 			e.printStackTrace();
 		}
 		return cadeira;
+	}
+	
+	public ArrayList<Materia> findAll(String disciplina) {
+
+		ArrayList<Materia> lista = new ArrayList<Materia>();
+		try {
+			File dir = new File("banco/materias/" + disciplina + "/");
+			File[] arqs = dir.listFiles();
+			for (File arq : arqs) { // for each
+				if (!arq.getName().equals("code.csv")) {
+				Materia m = new Materia();
+				Scanner scan = new Scanner(arq);
+				String linha = "";
+				while (scan.hasNextLine())  { linha += scan.nextLine(); }
+				scan.close();
+				System.out.println(linha);
+				String[] columns = linha.split(";");
+				System.out.println(columns[0]);
+				System.out.println(columns[1]);
+				System.out.println(columns[3]);
+				System.out.println(columns[3]);
+				System.out.println(columns[4]);
+				m.setTitulo(columns[0]);
+				m.setConteudo(columns[1]);
+				m.setDisciplina(columns[2]);
+				m.setBimestre(columns[3]);
+				m.setCode(Integer.parseInt(columns[4]));
+				
+				lista.add(m);
+				}
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 }

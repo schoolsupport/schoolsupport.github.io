@@ -90,6 +90,9 @@ public class Main {
 		EmailControlador emailControlador = new EmailControlador();
 		Spark.post("/sendmail", emailControlador, engine);
 		
+		ListaConteudosNome listaConteudosNome = new ListaConteudosNome();
+		Spark.get("/materiasCadastradas", listaConteudosNome, engine);
+		
 	
 
 	}

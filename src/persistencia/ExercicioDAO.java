@@ -72,6 +72,8 @@ public class ExercicioDAO {
 			writer.write(ex.getAlternativaCorreta());
 			writer.write(";");
 			writer.write(ex.getBimestre());
+			writer.write(";");
+			writer.write(ex.getConteudo());
 
 			writer.flush();
 			writer.close();
@@ -118,6 +120,7 @@ public class ExercicioDAO {
 					break;
 				}
 				exercicio.setBimestre(columns[7]);
+				exercicio.setConteudo(columns[8]);
 			}
 
 			scan.close();
@@ -168,7 +171,9 @@ public class ExercicioDAO {
 					break;
 				}
 				e.setBimestre(columns[7]);
+				e.setConteudo(columns[8]);
 				exercicios.add(e);
+				
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}

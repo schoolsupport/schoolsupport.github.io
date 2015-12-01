@@ -2,8 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/spark/commons-email-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/spark/commons-email-1.4-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/spark/compiler-0.8.15.jar"/>
 	<classpathentry kind="lib" path="C:/spark/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/spark/javax.mail.jar"/>
 	<classpathentry kind="lib" path="C:/spark/javax.servlet-3.0.0.v201112011016.jar"/>
 	<classpathentry kind="lib" path="C:/spark/jetty-http-9.0.2.v20130417.jar"/>
 	<classpathentry kind="lib" path="C:/spark/jetty-io-9.0.2.v20130417.jar"/>
@@ -17,7 +20,5 @@
 	<classpathentry kind="lib" path="C:/spark/slf4j-simple-1.7.7.jar"/>
 	<classpathentry kind="lib" path="C:/spark/spark-core-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/spark/spark-template-mustache-1.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Mail/commons-email-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Mail/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

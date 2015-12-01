@@ -12,6 +12,13 @@ public class Exercicio {
 	private String alternativa_correta;
 	private String bimestre;
 	private String disciplina;
+	private String conteudo;
+	public String getConteudo() {
+		return conteudo;
+	}
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
+	}
 	private int code;
 	
 	public String getAlternativa_correta() {

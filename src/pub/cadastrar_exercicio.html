@@ -34,6 +34,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
+                             <li> <a href="/materiasCadastradas"> Matérias </a><li>
                             <li><a  href="/usuariosCadastrados">Usuarios</a></li>
                             <li><a  href="/cadastraConteudo">Cadastrar Conteúdo</a></li>
                             <li><a  href="/cadastraExercicio">Cadastrar exercício</a></LI>
@@ -62,9 +63,7 @@
                         <label for="exampleInputEmail1">Disciplina: </label>
                             <input id="disciplina" list="disciplinas" value="" name="disciplina" class="form-control" required/>
                             <datalist id="disciplinas">
-                                <option value="Física 2">
-                                <option value="Matemática 2">
-                                <option value="DBO">
+                                <option value="fisica2">
                             </datalist>
                     </div>
                   <div class="">
@@ -99,7 +98,10 @@
                     <label for="exampleInputEmail1">Bimestre correspondente (1, 2, 3 ou 4): </label>
                     <input id="bimestre" type="text" value="" name="bimestre" class="form-control" required/>
                   </div>
-                  
+                   <div class="">
+                    <label for="exampleInputEmail1">Conteúdo correspondente (tal qual foi cadastrado): </label>
+                    <input id="bimestre" type="text" value="" name="conteudo" class="form-control" required/>
+                  </div>
                 
                   <br>
                   <button type="submit" class="btn btn-default">Cadastrar</button>

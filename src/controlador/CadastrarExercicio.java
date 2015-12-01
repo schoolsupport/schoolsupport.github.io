@@ -19,6 +19,7 @@ public class CadastrarExercicio implements TemplateViewRoute {
 		ex.setAlternativa5(req.queryParams("alternativa5"));
 		ex.setAlternativaCorreta(req.queryParams("alternativa_correta"));
 		ex.setBimestre(req.queryParams("bimestre"));
+		ex.setConteudo(req.queryParams("conteudo"));
 		ExercicioDAO dao = new ExercicioDAO();
 		dao.save(ex);
 		resp.redirect("/admin");
