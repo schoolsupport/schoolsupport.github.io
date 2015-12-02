@@ -12,7 +12,7 @@ public class Logout implements TemplateViewRoute {
 		req.session().attribute("usuario_logado", null);
 		res.redirect("/");
 
-		return null;
+		return new ModelAndView("", "");
 	}
 
 }

@@ -43,7 +43,7 @@ public class EmailControlador implements TemplateViewRoute{
 		} 
 		res.redirect("/fisica2");
 
-		return null;
+		return new ModelAndView("", "");
 		
 	}
 }

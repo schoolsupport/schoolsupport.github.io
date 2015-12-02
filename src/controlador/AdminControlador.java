@@ -14,7 +14,7 @@ public class AdminControlador implements TemplateViewRoute {
 		Usuario usuario2 = req.session().attribute("usuario_logado");
 		if(usuario2 == null) {
 			res.redirect("/");
-			return null;
+			return new ModelAndView("", "");
 		}
 		Usuario usuario = req.session().attribute("usuario_logado");
 		Perfil perfil = usuario.getPerfil();

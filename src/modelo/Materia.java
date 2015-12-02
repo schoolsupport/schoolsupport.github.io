@@ -33,7 +33,7 @@ public class Materia {
 	}
 	
 	public String getConteudo() {
-		return conteudo;
+		return Markdown.toHTML(conteudo);
 	}
 	
 	public void setConteudo(String conteudo) {
@@ -44,9 +44,13 @@ public class Materia {
 		return bimestre;
 	}
 
+	@Override
+	public String toString() {
+		return "Materia [disciplina=" + disciplina + ", titulo=" + titulo + ", conteudo=" + conteudo + ", code=" + code
+				+ ", bimestre=" + bimestre + "]";
+	}
+
 	public void setBimestre(String bimestre) {
 		this.bimestre = bimestre;
 	}
-	
-	
 }

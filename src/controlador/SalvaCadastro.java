@@ -22,7 +22,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		usuario_logado.setEmail(req.queryParams("email"));
 		if (setE == false) {
 			res.redirect("/erro_email.html");
-			return null;
+			return new ModelAndView("", "");
 		}
 		usuario_logado.setSenha(req.queryParams("password"));
 
@@ -33,24 +33,18 @@ public class SalvaCadastro implements TemplateViewRoute {
 			if (chars[i] < 48 || chars[i] > 57) {
 				TemChar = true;
 				res.redirect("/erro_matricula2.html");
-				return null;
+				return new ModelAndView("", "");
 			}
 		}
 		File file = new File("banco/cadastros/" + matricula + ".csv");
 		if (file.exists()) {
 			res.redirect("/erro_matricula.html");
-			return null;
+			return new ModelAndView("", "");
 		} else {
 			usuario_logado.setMatricula(req.queryParams("matricula"));
 		}
 
 		UsuarioDAO dao = new UsuarioDAO();			
-		
-		//if(findUser(usuario_logado.getUsername())){
-		//	res.redirect("/index.html");
-		//	return null;
-		//}
-		
 		
 		try {
 				if (!TemChar) 
