@@ -16,7 +16,11 @@ public class SalvaCadastro implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 
 		Usuario usuario_logado = new Usuario();
-		usuario_logado.setUsername(req.queryParams("user"));
+		boolean setU = usuario_logado.setUsername(req.queryParams("user"));
+		if (setU == false) {
+			res.redirect("/erro_username.html");
+			return new ModelAndView("", "");
+		}
 		
 		boolean setE = usuario_logado.setEmail(req.queryParams("email"));
 		usuario_logado.setEmail(req.queryParams("email"));
@@ -65,30 +69,5 @@ public class SalvaCadastro implements TemplateViewRoute {
 		}
 
 		return null;
-	}
-
-	public static boolean findUser(String user) {
-
-		File file = new File("banco/cadastros/");
-		File[] arqs = file.listFiles();
-		String usuario = "";
-		Scanner scan;
-		for (File arq : arqs) { // for each
-			try {
-				scan = new Scanner(arq);
-				String linha = scan.nextLine();
-				scan.close();
-				String[] colunas = linha.split(";");
-				usuario = colunas[1];
-			} catch (FileNotFoundException e) {
-
-				e.printStackTrace();
-			}
-			if (usuario.equals(user)) {
-				return true;
-			}
-			
-		}
-		return false;
 	}
 }
