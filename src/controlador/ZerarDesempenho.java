@@ -12,7 +12,6 @@ public class ZerarDesempenho implements TemplateViewRoute{
 
 	@Override
 	public ModelAndView handle(Request req, Response res) {
-		
 		Usuario user = req.session().attribute("usuario_logado");
 		File dir = new File("banco/desempenhos/" + user.getMatricula()+"/acertos");
 		if (dir.exists()){
@@ -22,11 +21,9 @@ public class ZerarDesempenho implements TemplateViewRoute{
 		if (dir2.exists()){
 			removerArquivos(dir2);
 		}
-		
 		res.redirect("/desempenho");
 		return new ModelAndView("", "");
 	}
-	
 	public void removerArquivos(File f) {
         // Se o arquivo passado for um diretório
         if (f.isDirectory()) {
@@ -36,9 +33,7 @@ public class ZerarDesempenho implements TemplateViewRoute{
                 // Identa a lista (foreach) e deleta um por um
                 for (File file : files) {
                         file.delete();
-                }
-                
+                }  
         }
 	}
-
 }

@@ -294,4 +294,33 @@ public class ExercicioDAO {
 		
 		return files.length;
 	}
+	
+	public boolean exercicioFeito(Usuario user, int code){
+		
+		File dir = new File("banco/desempenhos/" + user.getMatricula()+ "/acertos/" + code + ".csv");
+		File dir2 = new File("banco/desempenhos/" + user.getMatricula()+ "/erros/" + code + ".csv");
+		
+		if(dir.exists() || dir2.exists()){
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

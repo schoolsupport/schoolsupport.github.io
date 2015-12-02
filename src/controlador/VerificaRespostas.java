@@ -21,11 +21,15 @@ public class VerificaRespostas implements TemplateViewRoute {
 		if(resposta_usuario.equals(exercicio.getAlternativaCorreta())) {
 			Exercicio proximo = dao.busca(id++, disciplina);
 			req.session().attribute("exercicio", proximo);
-			dao.addAcerto(user, exercicio);
+			if(!dao.exercicioFeito(user, id)){
+				dao.addAcerto(user, exercicio);
+			}
 			res.redirect("/exercicio/" + disciplina + "/" + id_novo);
 		
 		} else { 
-			dao.addErro(user, exercicio);
+			if(!dao.exercicioFeito(user, id)){
+				dao.addErro(user, exercicio);	
+			}
 			res.redirect("/fisica2");
 		}
 		return new ModelAndView("", "");
