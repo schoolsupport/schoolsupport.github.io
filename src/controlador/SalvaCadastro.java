@@ -21,7 +21,6 @@ public class SalvaCadastro implements TemplateViewRoute {
 			res.redirect("/erro_username.html");
 			return new ModelAndView("", "");
 		}
-		
 		boolean setE = usuario_logado.setEmail(req.queryParams("email"));
 		usuario_logado.setEmail(req.queryParams("email"));
 		if (setE == false) {
