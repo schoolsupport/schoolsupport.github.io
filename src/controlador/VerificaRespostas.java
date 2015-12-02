@@ -28,7 +28,7 @@ public class VerificaRespostas implements TemplateViewRoute {
 			dao.addErro(user, exercicio);
 			res.redirect("/fisica2");
 		}
-		return null;
+		return new ModelAndView("", "");
 	}
 
 }

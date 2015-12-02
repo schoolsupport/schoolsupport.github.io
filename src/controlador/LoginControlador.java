@@ -16,7 +16,7 @@ public class LoginControlador implements TemplateViewRoute{
 			File file = new File("banco/cadastros/" + matricula + ".csv");
 				if(! file.exists()){
 					res.redirect("/erro_login.html");
-					return null;
+					return new ModelAndView("", "");
 				}
 			Usuario user = new Usuario();
 			UsuarioDAO dao = new UsuarioDAO();

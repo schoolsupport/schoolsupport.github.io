@@ -120,7 +120,7 @@ public class ExercicioDAO {
 					break;
 				}
 				exercicio.setBimestre(columns[7]);
-				exercicio.setConteudo(columns[8]);
+				exercicio.setConteudo(disciplina);
 			}
 
 			scan.close();

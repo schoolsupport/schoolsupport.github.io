@@ -23,7 +23,7 @@ public class CadastrarExercicio implements TemplateViewRoute {
 		ExercicioDAO dao = new ExercicioDAO();
 		dao.save(ex);
 		resp.redirect("/admin");
-		return null;
+		return new ModelAndView("", "");
 	}
 
 }

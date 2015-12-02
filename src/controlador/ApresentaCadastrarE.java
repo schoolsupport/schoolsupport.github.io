@@ -13,7 +13,7 @@ public class ApresentaCadastrarE implements TemplateViewRoute {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
 			res.redirect("/");
-			return null;
+			return new ModelAndView("", "");
 		}
 		HashMap dados = new HashMap();
 		BarraControlador.handle(req, res, dados);

@@ -13,7 +13,7 @@ public class ApagarPerfil implements TemplateViewRoute {
 		Usuario usuario2 = req.session().attribute("usuario_logado");
 		if (usuario2 == null) {
 			res.redirect("/");
-			return null;
+			return new ModelAndView("", "");
 		}
 		Usuario usuario = req.session().attribute("usuario_logado");
 		File perfis = new File("banco/perfis/" + usuario.getMatricula()
@@ -29,6 +29,6 @@ public class ApagarPerfil implements TemplateViewRoute {
 			cadastros.delete();
 		}
 		res.redirect("/");
-		return null;
+		return new ModelAndView("", "");
 	}
 }
