@@ -14,7 +14,7 @@ public class BarraControlador {
 	public static void handle(Request req, Response res, Map dados) {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
-			res.redirect("/erro");
+			res.redirect("/erro/nulo");
 		}
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		PerfilDAO perfilDAO = new PerfilDAO();

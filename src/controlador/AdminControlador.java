@@ -13,7 +13,7 @@ public class AdminControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario = req.session().attribute("usuario_logado");
 		if(usuario == null) {
-			res.redirect("/erro");
+			res.redirect("/erro/nulo");
 			return new ModelAndView("", "");
 		}
 		Perfil perfil = usuario.getPerfil();

@@ -94,7 +94,7 @@ public class Main {
 		Spark.get("/materiasCadastradas", listaConteudosNome, engine);
 		
 		ErroControlador erroControlador = new ErroControlador();
-		Spark.get("/erro", erroControlador, engine);
+		Spark.get("/erro/:tipo", erroControlador, engine);
 		
 		ZerarDesempenho zerarDesempenho = new ZerarDesempenho();
 		Spark.get("/zerarDesempenho", zerarDesempenho, engine);

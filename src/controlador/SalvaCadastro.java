@@ -1,10 +1,7 @@
 package controlador;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
-
 import modelo.Usuario;
 import persistencia.UsuarioDAO;
 import spark.ModelAndView;
@@ -21,7 +18,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		boolean setE = usuario_logado.setEmail(req.queryParams("email"));
 		usuario_logado.setEmail(req.queryParams("email"));
 		if (setE == false) {
-			res.redirect("/erro_email.html");
+			res.redirect("/erro/email");
 			return new ModelAndView("", "");
 		}
 		usuario_logado.setSenha(req.queryParams("password"));
@@ -32,13 +29,13 @@ public class SalvaCadastro implements TemplateViewRoute {
 		for (int i = 0; i < chars.length; i++) {
 			if (chars[i] < 48 || chars[i] > 57) {
 				TemChar = true;
-				res.redirect("/erro_matricula2.html");
+				res.redirect("/erro/matricula_invalida");
 				return new ModelAndView("", "");
 			}
 		}
 		File file = new File("banco/cadastros/" + matricula + ".csv");
 		if (file.exists()) {
-			res.redirect("/erro_matricula.html");
+			res.redirect("/erro/matricula");
 			return new ModelAndView("", "");
 		} else {
 			usuario_logado.setMatricula(req.queryParams("matricula"));
@@ -50,7 +47,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 				if (!TemChar) 
 					dao.save(usuario_logado);
 		} catch (IOException e) {
-			res.redirect("/index.html");
+			res.redirect("/");
 			e.printStackTrace();
 		}
 
@@ -65,30 +62,5 @@ public class SalvaCadastro implements TemplateViewRoute {
 		}
 
 		return null;
-	}
-
-	public static boolean findUser(String user) {
-
-		File file = new File("banco/cadastros/");
-		File[] arqs = file.listFiles();
-		String usuario = "";
-		Scanner scan;
-		for (File arq : arqs) { // for each
-			try {
-				scan = new Scanner(arq);
-				String linha = scan.nextLine();
-				scan.close();
-				String[] colunas = linha.split(";");
-				usuario = colunas[1];
-			} catch (FileNotFoundException e) {
-
-				e.printStackTrace();
-			}
-			if (usuario.equals(user)) {
-				return true;
-			}
-			
-		}
-		return false;
 	}
 }

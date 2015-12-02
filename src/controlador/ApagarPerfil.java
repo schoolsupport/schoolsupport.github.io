@@ -12,7 +12,7 @@ public class ApagarPerfil implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
 		Usuario usuario2 = req.session().attribute("usuario_logado");
 		if (usuario2 == null) {
-			res.redirect("/");
+			res.redirect("/erro/nulo");
 			return new ModelAndView("", "");
 		}
 		Usuario usuario = req.session().attribute("usuario_logado");
