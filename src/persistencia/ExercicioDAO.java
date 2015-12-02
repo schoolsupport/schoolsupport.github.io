@@ -120,7 +120,7 @@ public class ExercicioDAO {
 					break;
 				}
 				exercicio.setBimestre(columns[7]);
-				exercicio.setConteudo(columns[8]);
+				exercicio.setConteudo(disciplina);
 			}
 
 			scan.close();
@@ -227,15 +227,17 @@ public class ExercicioDAO {
 
 		File dir3 = new File("banco/desempenhos/" + user.getMatricula()	+ "/acertos/" + exercicio.getCode() + ".csv");
 		FileWriter writer;
-		try {
-			writer = new FileWriter(dir3);
-			writer.write(exercicio.getCode());
-			writer.write(";");
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+			try {
+				writer = new FileWriter(dir3);
+				writer.write(exercicio.getCode());
+				writer.write(";");
+				writer.flush();
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
 	}
 
 	public void addErro(Usuario user, Exercicio exercicio) {
@@ -250,15 +252,16 @@ public class ExercicioDAO {
 
 		File dir3 = new File("banco/desempenhos/" + user.getMatricula()	+ "/erros/" + exercicio.getCode() + ".csv");
 		FileWriter writer;
-		try {
-			writer = new FileWriter(dir3);
-			writer.write(exercicio.getCode());
-			writer.write(";");
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			try {
+				writer = new FileWriter(dir3);
+				writer.write(exercicio.getCode());
+				writer.write(";");
+				writer.flush();
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
 	}
 	public int getAcertos(Usuario user) {
 		File file = new File("banco/desempenhos");
