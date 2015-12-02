@@ -120,13 +120,7 @@ public class MateriaDAO {
 				String linha = "";
 				while (scan.hasNextLine())  { linha += scan.nextLine(); }
 				scan.close();
-				System.out.println(linha);
 				String[] columns = linha.split(";");
-				System.out.println(columns[0]);
-				System.out.println(columns[1]);
-				System.out.println(columns[3]);
-				System.out.println(columns[3]);
-				System.out.println(columns[4]);
 				m.setTitulo(columns[0]);
 				m.setConteudo(columns[1]);
 				m.setDisciplina(columns[2]);

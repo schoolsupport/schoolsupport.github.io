@@ -171,7 +171,7 @@ public class ExercicioDAO {
 					break;
 				}
 				e.setBimestre(columns[7]);
-				e.setConteudo(columns[8]);
+				e.setConteudo(disciplina);
 				exercicios.add(e);
 				
 			} catch (FileNotFoundException e1) {
