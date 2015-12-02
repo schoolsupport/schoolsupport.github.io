@@ -18,7 +18,6 @@ public class LoginControlador implements TemplateViewRoute{
 					res.redirect("/erro_login.html");
 					return null;
 				}
-			Scanner scan;
 			Usuario user = new Usuario();
 			UsuarioDAO dao = new UsuarioDAO();
 			user = dao.load(matricula);
@@ -33,11 +32,8 @@ public class LoginControlador implements TemplateViewRoute{
 					
 				}	
 			 else {
-					res.redirect("/index.html");
+					res.redirect("/erro_senha.html");
 				}
-		
-			
-			res.redirect("/");
-			return null;
+			return new ModelAndView("", "");
 		}
 }
