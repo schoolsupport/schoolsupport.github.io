@@ -95,6 +95,9 @@ public class Main {
 		
 		ErroControlador erroControlador = new ErroControlador();
 		Spark.get("/erro", erroControlador, engine);
+		
+		ZerarDesempenho zerarDesempenho = new ZerarDesempenho();
+		Spark.get("/zerarDesempenho", zerarDesempenho, engine);
 
 	}
 }
