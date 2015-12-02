@@ -93,7 +93,8 @@ public class Main {
 		ListaConteudosNome listaConteudosNome = new ListaConteudosNome();
 		Spark.get("/materiasCadastradas", listaConteudosNome, engine);
 		
-	
+		ErroControlador erroControlador = new ErroControlador();
+		Spark.get("/erro", erroControlador, engine);
 
 	}
 }

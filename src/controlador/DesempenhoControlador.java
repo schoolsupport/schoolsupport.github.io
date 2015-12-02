@@ -1,7 +1,6 @@
 package controlador;
 
 import java.util.HashMap;
-
 import persistencia.ExercicioDAO;
 import modelo.Usuario;
 import spark.ModelAndView;
@@ -16,17 +15,17 @@ public class DesempenhoControlador implements TemplateViewRoute {
 		ExercicioDAO dao = new ExercicioDAO();
 		int acertos = dao.getAcertos(u);
 		int erros = dao.getErros(u);
-		int total = acertos + erros;
-		int porc_acertos = acertos/total;
-		int porc_erros = erros/total;
-		System.out.println(total);
-		System.out.print(2/3);
+		int total = (acertos + erros); 
+		double p_acer = (double)(acertos/(double)total)*100;
+		double p_err = (double)(erros/(double)total)*100;
+
 		HashMap dados = new HashMap();
 		BarraControlador.handle(req, res, dados);
 		dados.put("acertos", acertos);
 		dados.put("erros", erros);
-		dados.put("porc_acertos", porc_acertos);
-		dados.put("porc_errs", porc_erros);
+		dados.put("total", total);
+		dados.put("p_acer", p_acer);
+		dados.put("p_err", p_err);
 		return new ModelAndView(dados, "desempenho.html");
 	}
 	
