@@ -16,6 +16,7 @@ public class EnviarSenha implements TemplateViewRoute{
 		
 		String matricula = req.queryParams("matricula");
 		String email = "";
+		String senha = "";
 		File dir = new File("banco/cadastros/" + matricula + ".csv");
 		if(!dir.exists()){
 			res.redirect("/erro/matricula");
@@ -25,7 +26,8 @@ public class EnviarSenha implements TemplateViewRoute{
 			scan = new Scanner(dir);
 			String row = scan.nextLine();
 			String[] columns = row.split(";");
-			email = columns[2];		
+			email = columns[2];	
+			senha = columns[3];
 			//falta so enviar email
 			//criar pagina de erro caso matricula nao exista
 		} catch (FileNotFoundException e) {
