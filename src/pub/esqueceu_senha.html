@@ -64,7 +64,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                             <li><a class="menu-top-active"  href="index.html">Login/Cadastro</a></li>
+                             <li><a class="menu-top-active"  href="javascript:window.history.go(-1)">Voltar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,63 +77,25 @@
         <div class="container">
               <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Login/Cadastro </h1>
+                        <h1 class="page-head-line">Esqueceu a senha?</h1>
                     </div>
                 </div>
-               <form action="/login" method="POST">
+               <form action="/enviarSenha" method="POST">
                 <div class="row">
                 <div class="col-md-6">
                  <div class="panel panel-default">
                         <div class="panel-body">                    
-                      <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="text" class="form-control" id="matricula2" name="matricula2" onkeyup="checkMatricula2(); return false;" required/>
+                      <label for="exampleInputEmail1">Digite sua matrícula: </label>
+                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula2(); return false;" required/>
                     <span id="confirmMessage3" class="confirmMessage3"></span>
                     <br>
-                        <label for="exampleInputPassword1">Senha: </label>
-                    <input type="password" class="form-control" id="password2" name="password2" required/>
-                        <br>
-                        <a href="/esqueceuSenha">Esqueceu sua senha?</a>
-                        <br>
-                        <button type="submit" class="btn btn-default">Logar</button>
+                        <button type="submit" class="btn btn-default">Enviar</button>
                          </form> 
                 </div>
                 </div>
                 </div>
                 </form>
-                <form action="/cadastro" method="POST">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-body">
-                  <div class="">
-                    <label for="exampleInputEmail1">Nome de usuário: </label>
-                    <input id="username" type="text" value="" name="user" class="form-control" required/>
-                  </div>
-                  <div class="">
-                    <label for="exampleInputEmail1">Matrícula: </label>
-                    <input type="text" class="form-control" id="matricula" name="matricula" onkeyup="checkMatricula(); return false;" required/>
-                    <span id="confirmMessage2" class="confirmMessage2"></span>
-                  </div>
-                  <div class="">
-                    <label for="exampleInputEmail1">Email: </label>
-                    <input id="email" type="email" value="" name="email" class="form-control" required/>
-                  </div>
-                  <div class="">
-                    <label for="exampleInputPassword1">Senha: </label>
-                    <input id="pass1" type="password" value="" name="password" class="form-control" maxlength="20" required/>
-                  </div>
-                  <div class="">
-                    <label for="exampleInputPassword1">Confirmação de senha: </label>
-                    <input type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" maxlength="20" required />
-                    <span id="confirmMessage" class="confirmMessage"></span>
-                  </div>
-                  <br>
-                  <button type="submit" class="btn btn-default" >Cadastrar</button>
-                  <span id="user" class="user"></span> 
-                  <span id="email" class="email"></span>
-                  <span id="password" class="password"></span>
-                  <span id="matricula" class="matricula"></span>
-            </form>
+                
                                         </div>
                             </div>
                     </div>

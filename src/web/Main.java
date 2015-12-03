@@ -98,6 +98,12 @@ public class Main {
 		
 		ZerarDesempenho zerarDesempenho = new ZerarDesempenho();
 		Spark.get("/zerarDesempenho", zerarDesempenho, engine);
+		
+		EsqueceuSenha esqueceuSenha = new EsqueceuSenha();
+		Spark.get("/esqueceuSenha",esqueceuSenha , engine);
+		
+		EnviarSenha enviarSenha = new EnviarSenha();
+		Spark.post("/enviarSenha", enviarSenha, engine);
 
 	}
 }
