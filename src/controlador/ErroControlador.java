@@ -15,7 +15,6 @@ public class ErroControlador implements TemplateViewRoute {
 		String tipo = req.params("tipo");
 		ErroDAO dao = new ErroDAO();
 		Erro e = dao.load(tipo);
-		
 		HashMap dados = new HashMap();
 		dados.put("erro", e);
 		return new ModelAndView(dados, "erro.html");

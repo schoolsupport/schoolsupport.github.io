@@ -33,7 +33,11 @@ public class Materia {
 	}
 	
 	public String getConteudo() {
+<<<<<<< HEAD
 		return (conteudo);
+=======
+		return conteudo;
+>>>>>>> 3223a0aa659c15015f4200d13fcaf38c37395d41
 	}
 	
 	public void setConteudo(String conteudo) {

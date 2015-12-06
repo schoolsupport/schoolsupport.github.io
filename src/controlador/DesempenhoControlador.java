@@ -28,6 +28,4 @@ public class DesempenhoControlador implements TemplateViewRoute {
 		dados.put("p_err", p_err);
 		return new ModelAndView(dados, "desempenho.html");
 	}
-	
-
 }

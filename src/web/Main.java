@@ -8,7 +8,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-	
+		Spark.setPort(8080);
 		Spark.staticFileLocation("/pub");
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
 		
@@ -35,9 +35,6 @@ public class Main {
 				
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
-		
-		ApagarPerfil apagarPerfil = new ApagarPerfil();
-		Spark.get("/excluir", apagarPerfil, engine);
 		
 		LoginControlador login = new LoginControlador();
 		Spark.post("/login", login, engine);

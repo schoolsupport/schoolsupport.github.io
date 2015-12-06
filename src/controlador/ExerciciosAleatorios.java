@@ -11,7 +11,6 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class ExerciciosAleatorios implements TemplateViewRoute {
-
 	@Override
 	public ModelAndView handle(Request req, Response res) {
 		ExercicioDAO dao = new ExercicioDAO();
@@ -29,8 +28,6 @@ public class ExerciciosAleatorios implements TemplateViewRoute {
 		req.session().attribute("exercicio", e);
 		req.session().attribute("exercicios", exercicios);
 		BarraControlador.handle(req, res, dados);
-		return new ModelAndView(dados, "exercicio_aleatorio.html");
-		
+		return new ModelAndView(dados, "exercicio_aleatorio.html");	
 	}
-
 }

@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Usuario;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -12,34 +13,31 @@ import spark.TemplateViewRoute;
 
 public class EmailControlador implements TemplateViewRoute{
 	public ModelAndView handle(Request req, Response res) {
-		
 		Usuario user = req.session().attribute("usuario_logado");
 		String conteudo = req.queryParams("conteudo");
 		String duvida = req.queryParams("duvida");
 		
 		SimpleEmail email = new SimpleEmail();
-		email.setHostName("smtp.gmail.com");
-		email.setSslSmtpPort("25");
-		email.setStartTLSRequired(false);
-		email.setSSLOnConnect(false);
-		email.setSSL(true);  
-        email.setTLS(true);  
-		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
+	    email.setHostName("smtp.googlemail.com");  
+	    email.setSmtpPort(465);  
+	    email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));  
+	    email.setSSLOnConnect(true);
 		try {
 		    email.setFrom("schoolsupport@no-spam.com");
+<<<<<<< HEAD
 		   	email.setDebug(true); 
+=======
+		    email.setDebug(true); 
+>>>>>>> 3223a0aa659c15015f4200d13fcaf38c37395d41
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
 		    email.addTo("ss.duvidas.pcd@gmail.com");
-		    
 		    email.send();
 		} catch (EmailException e) {
 		    e.printStackTrace();
-		    System.out.println("nao enviou");
 		} 
 		res.redirect("/fisica2");
+		return new ModelAndView("", "");		
 
-		return new ModelAndView("", "");
-		
 	}
 }
