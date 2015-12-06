@@ -58,13 +58,8 @@ public class Usuario {
 	public String getUsername() {
 		return username;
 	}
-	public boolean setUsername(String username) {
-		UsuarioDAO dao = new UsuarioDAO();
-		if (dao.validateUser(username)) {
-			this.username = username;
-			return true;
-		}
-		return false;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
