@@ -66,6 +66,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		   usuario_logado.getMatricula().equals("11030235")) {
 			res.redirect("/admin");
 		}
+		res.redirect("/home");
 		return new ModelAndView("", "");
 	}
 }
