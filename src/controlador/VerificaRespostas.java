@@ -13,12 +13,13 @@ import spark.TemplateViewRoute;
 
 public class VerificaRespostas implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
+		
 		Exercicio exercicio = req.session().attribute("exercicio");
 		ExercicioDAO dao = new ExercicioDAO();
 		Usuario user = req.session().attribute("usuario_logado");
 		String resposta_usuario = req.queryParams("alternativa");
-		String disciplina = exercicio.getDisciplina();
-		int id = Integer.parseInt(req.session().attribute("id"));
+		;
+		int id = req.session().attribute("id");
 		id = (id+1);
 		req.session().attribute("id", id);
 		if(resposta_usuario.equals(exercicio.getAlternativaCorreta())) {
@@ -32,7 +33,9 @@ public class VerificaRespostas implements TemplateViewRoute {
 			}
 			
 		}
+		
 		ArrayList<Exercicio> exercicios = req.session().attribute("exercicios");
+		if (id == exercicios.size()) res.redirect("/desempenho");
 		Exercicio e = exercicios.get(id);
 		HashMap dados = new HashMap();
 		dados.put("exercicio", e);
