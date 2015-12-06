@@ -30,22 +30,13 @@ public class EnviarSenha implements TemplateViewRoute {
 			email = columns[2];
 			senha = columns[3];
 			sendMail(email, senha);
-<<<<<<< HEAD
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}		
-		return new ModelAndView("","");
-=======
-			// falta so enviar email
-			// criar pagina de erro caso matricula nao exista
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
 		res.redirect("/");
 		return new ModelAndView("", "");
->>>>>>> b8016c1ae2c541423743a75bea7a2be870136a98
 	}
+
 	public void sendMail(String mail, String senha) {
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName("smtp.googlemail.com");
@@ -54,23 +45,12 @@ public class EnviarSenha implements TemplateViewRoute {
 				"ss.duvidas.pcd@gmail.com", "informatica123"));
 		email.setSSLOnConnect(true);
 		try {
-<<<<<<< HEAD
 		    email.setFrom("schoolsupport@no-spam.com");
 		    email.setDebug(true); 
 		    email.setSubject("Recuperação de senha");
 		    email.setMsg("Sua senha eh: " + senha);
 		    email.addTo(mail);
-		    
-		    email.send();
-=======
-			email.setFrom("ss.duvidas.pcd@gmail.com");
-			email.setDebug(true);
-			email.setSubject("Recuperação de senha");
-			email.setMsg("Sua senha eh: " + senha);
-			email.addTo(mail);
 
-			email.send();
->>>>>>> b8016c1ae2c541423743a75bea7a2be870136a98
 		} catch (EmailException e) {
 			e.printStackTrace();
 		}
