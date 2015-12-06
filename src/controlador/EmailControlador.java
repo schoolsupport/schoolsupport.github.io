@@ -24,11 +24,7 @@ public class EmailControlador implements TemplateViewRoute{
 	    email.setSSLOnConnect(true);
 		try {
 		    email.setFrom("schoolsupport@no-spam.com");
-<<<<<<< HEAD
 		   	email.setDebug(true); 
-=======
-		    email.setDebug(true); 
->>>>>>> 3223a0aa659c15015f4200d13fcaf38c37395d41
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
 		    email.addTo("ss.duvidas.pcd@gmail.com");
