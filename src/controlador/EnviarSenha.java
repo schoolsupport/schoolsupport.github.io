@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -13,8 +14,6 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class EnviarSenha implements TemplateViewRoute{
-
-	@Override
 	public ModelAndView handle(Request req, Response res) {
 		
 		String matricula = req.queryParams("matricula");
@@ -22,7 +21,7 @@ public class EnviarSenha implements TemplateViewRoute{
 		String senha = "";
 		File dir = new File("banco/cadastros/" + matricula + ".csv");
 		if(!dir.exists()){
-			res.redirect("/erro/matricula");
+			res.redirect("/erro/nao_encontrada");
 		}
 		Scanner scan;
 		try {
@@ -38,17 +37,15 @@ public class EnviarSenha implements TemplateViewRoute{
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}		
-		return new ModelAndView("","index.html");
+		res.redirect("/");
+		return new ModelAndView("","");
 	}
 	public void sendMail(String mail, String senha){
 		SimpleEmail email = new SimpleEmail();
-		email.setHostName("smtp.gmail.com");
-		email.setSslSmtpPort("465");
-		email.setStartTLSRequired(false);
-		email.setSSLOnConnect(false);
-		email.setSSL(true);  
-        email.setTLS(true);  
-		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
+		email.setHostName("smtp.googlemail.com");  
+	    email.setSmtpPort(465);  
+	    email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));  
+	    email.setSSLOnConnect(true);
 		try {
 		    email.setFrom("ss.duvidas.pcd@gmail.com");
 		    email.setDebug(true); 

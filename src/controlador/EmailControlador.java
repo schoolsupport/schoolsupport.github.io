@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Usuario;
 
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -18,17 +19,12 @@ public class EmailControlador implements TemplateViewRoute{
 		String duvida = req.queryParams("duvida");
 		
 		SimpleEmail email = new SimpleEmail();
-		email.setHostName("smtp.gmail.com");
-		email.setSslSmtpPort("25");
-		email.setStartTLSRequired(false);
-		email.setSSLOnConnect(false);
-		email.setSSL(true);  
-        email.setTLS(true);  
-		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
+	    email.setHostName("smtp.googlemail.com");  
+	    email.setSmtpPort(465);  
+	    email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));  
+	    email.setSSLOnConnect(true);
 		try {
-		    email.setFrom("schoolsupport@no-spam.com");
-		    email.addReplyTo(user.getEmail(), user.getUsername());
-		     
+		    email.setFrom("schoolsupport@no-spam.com");  
 		    email.setDebug(true); 
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
