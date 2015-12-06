@@ -31,13 +31,9 @@ public class EnviarSenha implements TemplateViewRoute{
 			email = columns[2];	
 			senha = columns[3];
 			sendMail(email, senha);
-			//falta so enviar email
-			//criar pagina de erro caso matricula nao exista
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage());
 		}		
-		res.redirect("/");
 		return new ModelAndView("","");
 	}
 	public void sendMail(String mail, String senha){
@@ -47,7 +43,7 @@ public class EnviarSenha implements TemplateViewRoute{
 	    email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));  
 	    email.setSSLOnConnect(true);
 		try {
-		    email.setFrom("ss.duvidas.pcd@gmail.com");
+		    email.setFrom("schoolsupport@no-spam.com");
 		    email.setDebug(true); 
 		    email.setSubject("Recuperação de senha");
 		    email.setMsg("Sua senha eh: " + senha);

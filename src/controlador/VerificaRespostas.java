@@ -24,14 +24,13 @@ public class VerificaRespostas implements TemplateViewRoute {
 			if(!dao.exercicioFeito(user, id)){
 				dao.addAcerto(user, exercicio);
 			}
-			res.redirect("/exercicio/" + disciplina + "/" + id_novo);
-		
 		} else { 
 			if(!dao.exercicioFeito(user, id)){
 				dao.addErro(user, exercicio);	
 			}
-			res.redirect("/fisica2");
+			
 		}
+		res.redirect("/exercicio/" + disciplina + "/" + id_novo);
 		return new ModelAndView("", "");
 	}
 
