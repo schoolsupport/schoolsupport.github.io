@@ -8,7 +8,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		
+
 		Spark.staticFileLocation("/pub");
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
 		
@@ -101,6 +101,5 @@ public class Main {
 		
 		EnviarSenha enviarSenha = new EnviarSenha();
 		Spark.post("/enviarSenha", enviarSenha, engine);
-
 	}
 }

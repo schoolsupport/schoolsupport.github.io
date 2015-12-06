@@ -14,8 +14,19 @@ public class SalvaCadastro implements TemplateViewRoute {
 
 		Usuario usuario_logado = new Usuario();
 
+
 		usuario_logado.setUsername(req.queryParams("user"));
 		
+
+		char[] user = req.queryParams("user").toCharArray();
+		boolean temEspaco = false;
+		for(int i = 0; i < user.length; i++){
+			if(user[i] == 32){
+				res.redirect("/erro/user_invalido");
+				temEspaco = true;
+			}
+		}
+		usuario_logado.setUsername(req.queryParams("user"));
 
 		boolean setE = usuario_logado.setEmail(req.queryParams("email"));
 		usuario_logado.setEmail(req.queryParams("email"));
@@ -43,7 +54,7 @@ public class SalvaCadastro implements TemplateViewRoute {
 		}
 		UsuarioDAO dao = new UsuarioDAO();			
 		try {
-				if (!TemChar) 
+				if (!TemChar && !temEspaco) 
 					dao.save(usuario_logado);
 		} catch (IOException e) {
 			res.redirect("/");
@@ -54,9 +65,9 @@ public class SalvaCadastro implements TemplateViewRoute {
 		   usuario_logado.getMatricula().equals("11030234") || 
 		   usuario_logado.getMatricula().equals("11030235")) {
 			res.redirect("/admin");
-		}else{
-			res.redirect("/home");
 		}
+		res.redirect("/home");
+		
 		return new ModelAndView("", "");
 	}
 }

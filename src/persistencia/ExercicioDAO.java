@@ -142,12 +142,14 @@ public class ExercicioDAO {
 
 				String linha = scan.nextLine();
 				scan.close();
+				System.out.println(linha);
 				Exercicio e = new Exercicio();
 				String[] columns = linha.split(";");
 				String s = ex.getName();
 				s = s.replace(".csv", "");
 				e.setCode(Integer.parseInt(s));
 				e.setOrdem(columns[0]);
+				System.out.println(columns[1]);
 				e.setAlternativa1(columns[1]);
 				e.setAlternativa2(columns[2]);
 				e.setAlternativa3(columns[3]);
