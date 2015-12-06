@@ -13,7 +13,6 @@ public class UsuarioDAO {
 
 	private Usuario usuario = new Usuario();
 
-
 	private void addEmailToList() throws IOException {
 		File emails = new File("banco/emails.csv");
 		if (!emails.exists()) {

@@ -48,7 +48,7 @@ public class EnviarSenha implements TemplateViewRoute {
 		    email.setFrom("schoolsupport@no-spam.com");
 		    email.setDebug(true); 
 		    email.setSubject("Recuperação de senha");
-		    email.setMsg("Sua senha eh: " + senha);
+		    email.setMsg("Sua senha é: " + senha);
 		    email.addTo(mail);
 
 		} catch (EmailException e) {
