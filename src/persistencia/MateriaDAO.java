@@ -64,6 +64,9 @@ public class MateriaDAO {
 
 			writer.write(cont.getTitulo());
 			writer.write(";");
+			String s = cont.getConteudo();
+			s = s.replace("\n", " | ");
+			cont.setConteudo(s);
 			writer.write(cont.getConteudo());
 			writer.write(";");
 			writer.write(cont.getDisciplina());
@@ -90,16 +93,17 @@ public class MateriaDAO {
 		}
 		try {
 			Scanner scan = new Scanner(arquivo);
-			while (scan.hasNextLine()) {
-				String row = scan.nextLine();
+			String row = "";
+			while (scan.hasNextLine()) row = row + scan.nextLine();
+			
 				String[] columns = row.split(";");
-
+				columns[1] = columns[1].replace("\n", " | ");
 				cadeira.setTitulo(columns[0]);
 				cadeira.setConteudo(columns[1]);
 				cadeira.setDisciplina(columns[3]);
 				cadeira.setBimestre(columns[3]);
 				cadeira.setCode(Integer.parseInt(columns[4]));
-			}
+			
 			scan.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -122,6 +126,7 @@ public class MateriaDAO {
 				scan.close();
 				String[] columns = linha.split(";");
 				m.setTitulo(columns[0]);
+				columns[1] = columns[1].replace("\n", "<br>");
 				m.setConteudo(columns[1]);
 				m.setDisciplina(columns[2]);
 				m.setBimestre(columns[3]);

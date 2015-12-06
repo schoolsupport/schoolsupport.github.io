@@ -13,6 +13,7 @@ public class UsuarioDAO {
 
 	private Usuario usuario = new Usuario();
 
+
 	private void addEmailToList() throws IOException {
 		File emails = new File("banco/emails.csv");
 		if (!emails.exists()) {
@@ -90,6 +91,7 @@ public class UsuarioDAO {
 			ems.close();
 		}
 	}
+
 	public Usuario load(String matricula) {
 		File arquivo = new File("banco/cadastros/" + matricula + ".csv");
 		if (!arquivo.exists()) {
@@ -183,6 +185,7 @@ public class UsuarioDAO {
 		}
 		return false;
 	}
+
 	public ArrayList<Usuario> findAll() {
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		try {
@@ -206,6 +209,7 @@ public class UsuarioDAO {
 		}
 		return lista;
 	}
+
 	public boolean validateEmail(String email) {
 		File emails = new File("banco/emails.csv");
 		Scanner scan;
@@ -224,8 +228,16 @@ public class UsuarioDAO {
 				lista.add(columns[i]);
 			}
 			for (int i = 0; i < lista.size(); i++) {
+
+
 				lista.get(i);
 				if (lista.get(i).equals(email))
+
+			
+
+				lista.get(i);
+				if (lista.get(i).equals(email))
+
 					return false;
 			}
 		}
