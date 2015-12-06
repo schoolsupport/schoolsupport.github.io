@@ -23,7 +23,5 @@ public class EndRandomExercises implements TemplateViewRoute {
 		dados.put("percentual", percentual);
 		BarraControlador.handle(req, res, dados);
 		return new ModelAndView (dados, "resultado_aleatorios.html");
-	}
-
-		
+	}	
 }

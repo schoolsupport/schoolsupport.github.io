@@ -11,17 +11,13 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class ListaConteudosNome implements TemplateViewRoute {
-
 	@Override
 	public ModelAndView handle(Request req, Response res) {
 		MateriaDAO dao = new MateriaDAO();
 		ArrayList<Materia> ms = dao.findAll("fisica2");
 		HashMap mapa = new HashMap();
-		mapa.put ("materias", ms);
+		mapa.put("materias", ms);
 		BarraControlador.handle(req, res, mapa);
 		return new ModelAndView(mapa, "/listaconteudosnome.html");
-		
-		
 	}
-
 }

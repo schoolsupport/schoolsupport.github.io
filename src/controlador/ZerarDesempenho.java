@@ -25,13 +25,9 @@ public class ZerarDesempenho implements TemplateViewRoute{
 		return new ModelAndView("", "");
 	}
 	public void removerArquivos(File f) {
-        // Se o arquivo passado for um diretório
-        if (f.isDirectory()) {
-                /* Lista todos os arquivos do diretório em um array
-                   de objetos File */
-                File[] files = f.listFiles();
-                // Identa a lista (foreach) e deleta um por um
-                for (File file : files) {
+        if (f.isDirectory()) { // Se o arquivo passado for um diretório
+                File[] files = f.listFiles(); // Lista todos arquivos do diretorio em um array
+                for (File file : files) { // Identa a lista (foreach) e deleta um por um
                         file.delete();
                 }  
         }

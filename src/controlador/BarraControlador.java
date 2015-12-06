@@ -18,7 +18,6 @@ public class BarraControlador {
 		}
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		PerfilDAO perfilDAO = new PerfilDAO();
-
 		Usuario user = usuarioDAO.load(usuario.getMatricula());
 		Perfil perfil = perfilDAO.load(usuario);
 		user.setPerfil(perfil);

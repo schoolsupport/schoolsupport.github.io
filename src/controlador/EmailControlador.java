@@ -13,7 +13,6 @@ import spark.TemplateViewRoute;
 
 public class EmailControlador implements TemplateViewRoute{
 	public ModelAndView handle(Request req, Response res) {
-		
 		Usuario user = req.session().attribute("usuario_logado");
 		String conteudo = req.queryParams("conteudo");
 		String duvida = req.queryParams("duvida");
@@ -35,5 +34,6 @@ public class EmailControlador implements TemplateViewRoute{
 		} 
 		res.redirect("/fisica2");
 		return new ModelAndView("", "");		
+
 	}
 }

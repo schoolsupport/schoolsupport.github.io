@@ -19,5 +19,4 @@ public class ApresentaCadastrarE implements TemplateViewRoute {
 		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "/cadastrar_exercicio.html");
 	}
-
 }

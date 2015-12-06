@@ -13,14 +13,13 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class EnviarSenha implements TemplateViewRoute{
+public class EnviarSenha implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response res) {
-		
 		String matricula = req.queryParams("matricula");
 		String email = "";
 		String senha = "";
 		File dir = new File("banco/cadastros/" + matricula + ".csv");
-		if(!dir.exists()){
+		if (!dir.exists()) {
 			res.redirect("/erro/nao_encontrada");
 		}
 		Scanner scan;
@@ -28,21 +27,34 @@ public class EnviarSenha implements TemplateViewRoute{
 			scan = new Scanner(dir);
 			String row = scan.nextLine();
 			String[] columns = row.split(";");
-			email = columns[2];	
+			email = columns[2];
 			senha = columns[3];
 			sendMail(email, senha);
+<<<<<<< HEAD
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}		
 		return new ModelAndView("","");
+=======
+			// falta so enviar email
+			// criar pagina de erro caso matricula nao exista
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		res.redirect("/");
+		return new ModelAndView("", "");
+>>>>>>> b8016c1ae2c541423743a75bea7a2be870136a98
 	}
-	public void sendMail(String mail, String senha){
+	public void sendMail(String mail, String senha) {
 		SimpleEmail email = new SimpleEmail();
-		email.setHostName("smtp.googlemail.com");  
-	    email.setSmtpPort(465);  
-	    email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));  
-	    email.setSSLOnConnect(true);
+		email.setHostName("smtp.googlemail.com");
+		email.setSmtpPort(465);
+		email.setAuthenticator(new DefaultAuthenticator(
+				"ss.duvidas.pcd@gmail.com", "informatica123"));
+		email.setSSLOnConnect(true);
 		try {
+<<<<<<< HEAD
 		    email.setFrom("schoolsupport@no-spam.com");
 		    email.setDebug(true); 
 		    email.setSubject("Recuperação de senha");
@@ -50,10 +62,17 @@ public class EnviarSenha implements TemplateViewRoute{
 		    email.addTo(mail);
 		    
 		    email.send();
-		} catch (EmailException e) {
-		    e.printStackTrace();
-		} 
-		
-	}
+=======
+			email.setFrom("ss.duvidas.pcd@gmail.com");
+			email.setDebug(true);
+			email.setSubject("Recuperação de senha");
+			email.setMsg("Sua senha eh: " + senha);
+			email.addTo(mail);
 
+			email.send();
+>>>>>>> b8016c1ae2c541423743a75bea7a2be870136a98
+		} catch (EmailException e) {
+			e.printStackTrace();
+		}
+	}
 }

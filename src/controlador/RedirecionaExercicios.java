@@ -14,5 +14,4 @@ public class RedirecionaExercicios implements TemplateViewRoute {
 		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "pagina_exercicios.html");
 	}
-
 }

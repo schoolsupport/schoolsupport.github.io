@@ -36,9 +36,6 @@ public class Main {
 		CompletarPerfil completarPerfil = new CompletarPerfil();
 		Spark.post("/completar", completarPerfil, engine);
 		
-		ApagarPerfil apagarPerfil = new ApagarPerfil();
-		Spark.get("/excluir", apagarPerfil, engine);
-		
 		LoginControlador login = new LoginControlador();
 		Spark.post("/login", login, engine);
 		

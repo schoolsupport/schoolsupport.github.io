@@ -27,7 +27,5 @@ public class CompletarPerfil implements TemplateViewRoute {
 		}
 		if (usuario.getMatricula().equals("11030235") || usuario.getMatricula().equals("11030234") || usuario.getMatricula().equals("11030231") ) res.redirect("/admin");
 		res.redirect("/home"); return new ModelAndView("", "");
-	}
-	
-	
+	}	
 }
