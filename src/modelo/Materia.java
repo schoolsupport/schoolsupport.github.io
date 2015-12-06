@@ -33,7 +33,7 @@ public class Materia {
 	}
 	
 	public String getConteudo() {
-		return Markdown.toHTML(conteudo);
+		return (conteudo);
 	}
 	
 	public void setConteudo(String conteudo) {

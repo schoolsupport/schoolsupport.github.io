@@ -27,9 +27,7 @@ public class EmailControlador implements TemplateViewRoute{
 		email.setAuthentication("ss.duvidas.pcd@gmail.com",  "informatica123");
 		try {
 		    email.setFrom("schoolsupport@no-spam.com");
-		    email.addReplyTo(user.getEmail(), user.getUsername());
-		     
-		    email.setDebug(true); 
+		   	email.setDebug(true); 
 		    email.setSubject( conteudo + " - " + user.getUsername() + " - " + user.getMatricula() );
 		    email.setMsg( duvida + "\n" + user.getEmail());
 		    email.addTo("ss.duvidas.pcd@gmail.com");
