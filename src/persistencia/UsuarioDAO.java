@@ -14,7 +14,6 @@ public class UsuarioDAO {
 	private Usuario usuario = new Usuario();
 
 	private void addUserToList() throws IOException{
-		
 		File users = new File("banco/users.csv");
 		if (!users.exists()) {
 			FileWriter e = new FileWriter("banco/users.csv");
@@ -22,7 +21,6 @@ public class UsuarioDAO {
 			e.close();
 		}
 		Scanner scan = new Scanner(users);
-
 		ArrayList<String> lista = new ArrayList<String>();
 
 		if (scan.hasNextLine()) {
@@ -34,21 +32,19 @@ public class UsuarioDAO {
 			scan.close();
 			users.delete();
 
-			FileWriter emails2 = new FileWriter("banco/users.csv");
+			FileWriter users2 = new FileWriter("banco/users.csv");
 
 			StringBuilder builder2 = new StringBuilder();
 			for (int i = 0; i < lista.size(); i++) {
 				builder2.append(lista.get(i));
-
 				builder2.append(";");
 			}
 
 			builder2.append(usuario.getUsername());
 			builder2.append(";");
-
-			emails2.write(builder2.toString());
-			emails2.flush();
-			emails2.close();
+			users2.write(builder2.toString());
+			users2.flush();
+			users2.close();
 
 		} else {
 			FileWriter ems = new FileWriter("banco/users.csv");
@@ -254,7 +250,6 @@ public class UsuarioDAO {
 	}
 
 	public ArrayList<Usuario> findAll() {
-
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		try {
 			File dir = new File("banco/cadastros/");
@@ -296,7 +291,6 @@ public class UsuarioDAO {
 				lista.add(columns[i]);
 			}
 			for (int i = 0; i < lista.size(); i++) {
-				lista.get(i);
 				if (lista.get(i).equals(user))
 					return false;
 			}
