@@ -8,7 +8,9 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-
+		
+		Spark.setPort(8080);
+		
 		Spark.staticFileLocation("/pub");
 		MustacheTemplateEngine engine = new MustacheTemplateEngine("pub");
 		
