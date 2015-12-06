@@ -19,5 +19,4 @@ public class RedirecionarCompletar implements TemplateViewRoute {
 			return new ModelAndView(dados, "home.html");
 		}
 	}
-
 }

@@ -20,27 +20,16 @@ public class ProximoAleatorio implements TemplateViewRoute {
 			acertos = acertos + 1;
 			req.session().attribute("acertos", acertos);
 		}
-		
 		ArrayList<Exercicio> exercicios = req.session().attribute("exercicios");
 		Exercicio e = new Exercicio();
 		int id = Integer.parseInt(req.params("id")) + 1;
-		
 		if (id > exercicios.size()-1) res.redirect("/endRandomExercises");
 		e = exercicios.get(id);
-		
 		HashMap dados = new HashMap();
 		dados.put("exercicio", e);
 		dados.put("id", id);
-		
 		req.session().attribute("exercicio", e);
 		BarraControlador.handle(req, res, dados);
-		return new ModelAndView(dados, "exercicio_aleatorio.html");
-		
-		
-		
-	    
-		
-		
+		return new ModelAndView(dados, "exercicio_aleatorio.html");		
 	}
-
 }

@@ -21,7 +21,6 @@ public class CadastrarConteudo implements TemplateViewRoute{
 		res.redirect("/admin");
 		HashMap dados = new HashMap();
 		BarraControlador.handle(req, res, dados);
-		
 		return new ModelAndView(dados, "/cadastrar_conteudo.html");
 	}
 }

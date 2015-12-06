@@ -14,5 +14,4 @@ public class Fisica2Controlador implements TemplateViewRoute {
 		BarraControlador.handle(req, res, dados);
 		return new ModelAndView(dados, "fisica2.html");
 	}
-
 }

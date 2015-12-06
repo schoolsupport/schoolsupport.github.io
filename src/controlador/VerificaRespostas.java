@@ -17,7 +17,6 @@ public class VerificaRespostas implements TemplateViewRoute {
 		String disciplina = exercicio.getDisciplina();
 		int id = exercicio.getCode();
 		String id_novo = (id+1)+"";
-		
 		if(resposta_usuario.equals(exercicio.getAlternativaCorreta())) {
 			Exercicio proximo = dao.busca(id++, disciplina);
 			req.session().attribute("exercicio", proximo);
@@ -25,7 +24,6 @@ public class VerificaRespostas implements TemplateViewRoute {
 				dao.addAcerto(user, exercicio);
 			}
 			res.redirect("/exercicio/" + disciplina + "/" + id_novo);
-		
 		} else { 
 			if(!dao.exercicioFeito(user, id)){
 				dao.addErro(user, exercicio);	
