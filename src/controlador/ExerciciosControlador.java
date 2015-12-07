@@ -21,10 +21,8 @@ public class ExerciciosControlador implements TemplateViewRoute {
 		int id = Integer.parseInt(req.params("id"));
 		Materia m = daoM.busca(id, disciplina);
 		String conteudo = m.getTitulo();
-		System.out.println(conteudo);
 		ArrayList<Exercicio> exercicios_filtrados = new ArrayList<Exercicio>();
 		for (int i = 0; i < exercicios.size(); i++) {
-			System.out.println(exercicios.get(i).getDisciplina());
 			if (exercicios.get(i).getConteudo().equals(conteudo)) exercicios_filtrados.add(exercicios.get(i));
 		}
 		req.session().attribute("exercicios", exercicios_filtrados);

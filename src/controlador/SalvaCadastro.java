@@ -67,7 +67,6 @@ public class SalvaCadastro implements TemplateViewRoute {
 			res.redirect("/admin");
 		}
 		res.redirect("/home");
-		
 		return new ModelAndView("", "");
 	}
 }
