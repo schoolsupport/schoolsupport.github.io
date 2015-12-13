@@ -41,16 +41,15 @@ public class EnviarSenha implements TemplateViewRoute {
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName("smtp.googlemail.com");
 		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator(
-				"ss.duvidas.pcd@gmail.com", "informatica123"));
+		email.setAuthenticator(new DefaultAuthenticator("ss.duvidas.pcd@gmail.com", "informatica123"));
 		email.setSSLOnConnect(true);
 		try {
 		    email.setFrom("schoolsupport@no-spam.com");
 		    email.setDebug(true); 
 		    email.setSubject("Recuperação de senha");
-		    email.setMsg("Sua senha eh: " + senha);
+		    email.setMsg("Sua senha é: " + senha);
 		    email.addTo(mail);
-
+		    email.send();
 		} catch (EmailException e) {
 			e.printStackTrace();
 		}
